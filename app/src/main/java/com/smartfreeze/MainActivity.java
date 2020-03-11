@@ -10,7 +10,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.smartfreeze.domain.EnumBotonesPrincipal;
+import com.smartfreeze.domain.Boton;
 import com.smartfreeze.ui.bottom_menu.AjustesOpcion;
 import com.smartfreeze.ui.bottom_menu.PrincipalOpcion;
 import com.smartfreeze.ui.bottom_menu.TiendaOpcion;
@@ -60,9 +60,18 @@ public class MainActivity extends AppCompatActivity implements IPrincipalListene
 
 
 
-    public void botonSeleccionado(int botonSelec) {
-        String resul = EnumBotonesPrincipal.cajon(botonSelec);
-        Log.e("11111111",resul);
-        Toast.makeText(getApplicationContext(),resul,Toast.LENGTH_LONG).show();
+    public void botonSeleccionado(Boton botonSelec) {
+        String resul="..........";
+        switch (botonSelec.getId()){
+            case 0: if(botonSelec.getFlagAbierto() % 2 == 0)
+                        resul = "Cajon frutas 0 cerrado";
+                    else {
+                        resul = "Cajon frutas 0 abierto";
+
+            }
+                    break;
+
+        }
+        Toast.makeText(this,resul,Toast.LENGTH_SHORT).show();
     }
 }

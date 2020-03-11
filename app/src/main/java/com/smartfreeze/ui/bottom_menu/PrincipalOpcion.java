@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 
 import com.smartfreeze.IPrincipalListener;
 import com.smartfreeze.R;
+import com.smartfreeze.domain.Boton;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,8 +21,8 @@ import java.util.Map;
 public class PrincipalOpcion extends Fragment {
 
     //Crear array de botones
-    private final int[] BOTONESMENU={R.id.button};
-
+    private final int[] BOTONESMENU={R.id.boton_principal};
+    private Boton[] botonesNevera = new Boton[BOTONESMENU.length];
 
     public PrincipalOpcion(){
         //Constructor vacio
@@ -36,11 +37,14 @@ public class PrincipalOpcion extends Fragment {
         for(int i=0; i<BOTONESMENU.length; i++){
             botonAux = (Button) vista.findViewById(BOTONESMENU[i]);
             final int botonSelec=i;
+            botonesNevera[i] = new Boton(i,0);
             botonAux.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    botonesNevera[botonSelec].setFlagAbierto(botonesNevera[botonSelec].getFlagAbierto()+1);
                     Activity estaActividad = getActivity();
-                    ((IPrincipalListener) estaActividad).botonSeleccionado(botonSelec);
+                    ((IPrincipalListener) estaActividad).botonSeleccionado(botonesNevera[botonSelec]);
+                    //((IPrincipalListener) estaActividad).botonSeleccionado(botonSelec);
                 }
             });
         }
