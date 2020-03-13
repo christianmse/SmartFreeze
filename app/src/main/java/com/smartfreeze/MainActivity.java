@@ -2,27 +2,32 @@ package com.smartfreeze;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.smartfreeze.domain.Boton;
+import com.smartfreeze.domain.Notificacion;
+import com.smartfreeze.ui.adapter.NotificacionesAdapter;
 import com.smartfreeze.ui.bottom_menu.AjustesOpcion;
 import com.smartfreeze.ui.bottom_menu.PrincipalOpcion;
 import com.smartfreeze.ui.bottom_menu.TiendaOpcion;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements IPrincipalListener {
     RelativeLayout notificacionesLayout;
+    NotificacionesAdapter adapter;
+    RecyclerView recyclerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +38,12 @@ public class MainActivity extends AppCompatActivity implements IPrincipalListene
         notificacionesLayout = findViewById(R.id.notificaciones_layout);
         BottomNavigationView bottomNavigationView = findViewById(R.id.nav_bar);
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
+
+        recyclerView = findViewById(R.id.recycler_principal);
+        //recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new NotificacionesAdapter(getNotificacionesList(),this);
+        recyclerView.setAdapter(adapter);
 
     }
 
@@ -80,5 +91,17 @@ public class MainActivity extends AppCompatActivity implements IPrincipalListene
 
         }
         Toast.makeText(this,resul,Toast.LENGTH_SHORT).show();
+    }
+
+    private ArrayList<Notificacion> getNotificacionesList(){
+        ArrayList<Notificacion> notificacionesList = new ArrayList<>();
+
+        notificacionesList.add(new Notificacion("rojo", "producto a caducado"));
+        notificacionesList.add(new Notificacion("rojo", "producto b caducado"));
+        notificacionesList.add(new Notificacion("amarillo", "producto c caducado"));
+        notificacionesList.add(new Notificacion("verde", "producto d caducado"));
+
+        return notificacionesList;
+
     }
 }
