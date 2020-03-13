@@ -56,10 +56,10 @@ public class AjustesOpcion extends Fragment {
 
     public ArrayList<Ajustes> getListaAjustes(){
                 datosAjustes.add(new Ajustes("   Programar alarma", R.drawable.ic_alarm));
-                datosAjustes.add(new Ajustes("   Control refri", R.drawable.prueba));
-                datosAjustes.add(new Ajustes("   Control nevera", R.drawable.prueba));
-                datosAjustes.add(new Ajustes("   Opcion 1", R.drawable.prueba));
-                datosAjustes.add(new Ajustes("   Opcion 2", R.drawable.prueba));
+                datosAjustes.add(new Ajustes("   Control refri", R.drawable.ic_alarm));
+                datosAjustes.add(new Ajustes("   Control nevera", R.drawable.ic_alarm));
+                datosAjustes.add(new Ajustes("   Opcion 1", R.drawable.ic_alarm));
+                datosAjustes.add(new Ajustes("   Opcion 2", R.drawable.ic_alarm));
 
                 return datosAjustes;
     }

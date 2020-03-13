@@ -14,7 +14,11 @@
             android:id="@+id/card_view"
             android:layout_gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="120dp"
+            android:layout_margin="5dp"
+            card_view:contentPadding="4dp"
+            android:foreground="?selectableItemBackground"
+            android:clickable="true"
             card_view:cardElevation="2dp"
             card_view:cardCornerRadius="5dp">
             <RelativeLayout
@@ -33,6 +37,7 @@
                 <TextView
                     android:id="@+id/txt_titulo"
                     android:layout_width="wrap_content"
+                    style="@style/AppTheme.titulo"
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/txt_subtitulo"
                     android:layout_alignParentStart="true"
@@ -58,7 +63,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_marginStart="15dp"
                     android:layout_marginBottom="3dp"
-                    android:src="@drawable/ic_add_circle" />
+                    android:src="@drawable/ic_remove_circle_black_24dp" />
 
                 <ImageView
                     android:id="@+id/ic_quitar"
@@ -68,7 +73,7 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginBottom="3dp"
                     android:layout_toEndOf="@+id/cantidad"
-                    android:src="@drawable/ic_remove_circle_black_24dp" />
+                    android:src="@drawable/ic_add_circle" />
 
                 <TextView
                     android:id="@+id/cantidad"
@@ -76,7 +81,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_marginStart="20dp"
-                    android:layout_marginBottom="17dp"
+                    android:layout_marginBottom="2dp"
                     android:layout_toEndOf="@+id/ic_anadir"
                     android:text="3333"
                     android:textColor="@color/cardview_dark_background"
