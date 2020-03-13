@@ -7,4 +7,16 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="bienvenido">bienvenido</string>
+    <string name="consulta">consulta</string>
+    <string name="accede">accede</string>
+    <string name="concoce">conoce</string>
+    <string name="acreditate">acredittate</string>
+    <string name="first_title">Bienvenido a SmartFreze</string>
+    <string name="second_title">Comprueba el estado de tu nevera y frigorifico</string>
+    <string name="thirst_title">Accede a PAYMARKET cuando quieras</string>
+    <string name="four_title">Conoce el stock de tus productos en todo momento</string>
+    <string name="five_title">acreditate body</string>
+    <string name="saltar">saltar</string>
+    <string name="entrar">¡A por ello!</string>
 </resources>
