@@ -1,0 +1,41 @@
+[33mcommit 7814775e719dcc7bc54d3dac9baf9d385f60e428[m[33m ([m[1;36mHEAD -> [m[1;32mnotificacionesFeature[m[33m)[m
+Author: christianmse <christianmsepinoza@gmail.com>
+Date:   Fri Mar 13 14:58:32 2020 +0100
+
+    Feature implemented and OpcionTienda fixed
+
+[33mcommit 0a5f941b44f2ab83b91c68230f707b171e7cf818[m[33m ([m[1;31morigin/notificacionesFeature[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/develop[m[33m, [m[1;32mmaster[m[33m, [m[1;32mdevelop[m[33m)[m
+Author: christianmse <christianmsepinoza@gmail.com>
+Date:   Wed Mar 11 20:35:48 2020 +0100
+
+    FrameLayout fixed
+
+[33mcommit 5fed498aa20a7f404cbc628f5230b33bd3cf8ad9[m
+Author: christianmse <christianmsepinoza@gmail.com>
+Date:   Wed Mar 11 13:30:40 2020 +0100
+
+    TiendaAdadpter y AjustesAdapter fixed
+
+[33mcommit ed67ea401756ec6d2a1db380787b4c235a55ef9c[m
+Author: christianmse <christianmsepinoza@gmail.com>
+Date:   Fri Mar 6 21:57:41 2020 +0100
+
+    Fragmentos del bottom menu hecho
+
+[33mcommit 12a3968ff218ccb47586bfe8aaef9af1a08b41cb[m
+Author: christianmse <christianmsepinoza@gmail.com>
+Date:   Fri Mar 6 17:20:06 2020 +0100
+
+    Manifest configurado en landscape
+
+[33mcommit ceb2c344d4e2fc1223d71c087f36db40670a2fd4[m
+Author: christianmse <christianmsespinoza@gmail.com>
+Date:   Fri Mar 6 12:25:42 2020 +0100
+
+    README anadido
+
+[33mcommit 86f5a1f69e65578dcdea0c0ae5c261868a8268dd[m
+Author: christianmse <christianmsespinoza@gmail.com>
+Date:   Fri Mar 6 12:18:04 2020 +0100
+
+    configuracion del proyecto
