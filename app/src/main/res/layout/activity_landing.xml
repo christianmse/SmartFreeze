@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-   <!-- <it.xabaras.android.viewpagerindicator.widget.ViewPagerIndicator
+   <it.xabaras.android.viewpagerindicator.widget.ViewPagerIndicator
         android:id="@+id/viewPagerIndicator"
         android:layout_width="match_parent"
         android:layout_height="49dp"
@@ -36,7 +36,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/viewpager"
         app:layout_constraintVertical_bias="0.759"
-        app:pagerIndicatorDrawable="@drawable/ic_pager_indicator" />-->
+        app:pagerIndicatorDrawable="@drawable/ic_pager_indicator" />
 
 
     <Button

@@ -85,7 +85,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvBodyOnBoard"
         app:layout_constraintVertical_bias="0.011" />
 
-    <!--<it.xabaras.android.viewpagerindicator.widget.ViewPagerIndicator
+    <it.xabaras.android.viewpagerindicator.widget.ViewPagerIndicator
         android:id="@+id/viewPagerIndicator"
         android:layout_width="match_parent"
         android:layout_height="46dp"
@@ -101,7 +101,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvSubtitleOnboard"
         app:layout_constraintVertical_bias="0.669" />
--->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

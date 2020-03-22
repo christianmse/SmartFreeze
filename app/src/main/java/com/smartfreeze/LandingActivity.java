@@ -14,6 +14,8 @@ import com.smartfreeze.ui.adapter.LandingAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
+import it.xabaras.android.viewpagerindicator.widget.ViewPagerIndicator;
+
 public class LandingActivity extends AppCompatActivity {
     private List<LandingPages> listaView = new ArrayList<LandingPages>();
 
@@ -25,9 +27,9 @@ public class LandingActivity extends AppCompatActivity {
         setListaView();
         ViewPager viewPager =  findViewById(R.id.viewpager);
         viewPager.setAdapter(new LandingAdapter(this,listaView));
-        //ViewPagerIndicator viewPagerIndicator = findViewById(R.id.viewPagerIndicator);
+        ViewPagerIndicator viewPagerIndicator = findViewById(R.id.viewPagerIndicator);
 
-        //viewPagerIndicator.initWithViewPager(viewPager);
+        viewPagerIndicator.initWithViewPager(viewPager);
         Button btnSaltar = findViewById(R.id.btnSaltar);
 
         btnSaltar.setOnClickListener(new View.OnClickListener() {

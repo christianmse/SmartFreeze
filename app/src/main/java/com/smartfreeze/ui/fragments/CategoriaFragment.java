@@ -9,6 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.smartfreeze.R;
+import com.smartfreeze.domain.Ajustes;
+import com.smartfreeze.domain.Categoria;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -61,5 +65,13 @@ public class CategoriaFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_categoria, container, false);
+    }
+
+    public ArrayList<Categoria> getListaACategoria(){
+        ArrayList<Categoria> datosCategorias = new ArrayList<>();
+        datosCategorias.add(Categoria.FIRST);
+        datosCategorias.add(Categoria.SECOND);
+        datosCategorias.add(Categoria.THIRD);
+        return datosCategorias;
     }
 }
