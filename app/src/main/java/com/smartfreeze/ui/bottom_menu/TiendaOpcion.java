@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,6 +24,8 @@ public class TiendaOpcion extends Fragment {
     RecyclerView recyclerView;
     TiendaAdapter adapter;
     private ArrayList<Producto> datosTienda = new ArrayList<>();
+    private GridLayoutManager layoutManager;
+
 
     @Nullable
     @Override
@@ -35,17 +38,23 @@ public class TiendaOpcion extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         recyclerView = view.findViewById(R.id.recycler_tienda);
         //recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        layoutManager = new GridLayoutManager(requireContext(), 2);
+        layoutManager.setOrientation(RecyclerView.VERTICAL);
+        recyclerView.setLayoutManager(layoutManager);
         adapter = new TiendaAdapter(getListaProductos(), getContext());
         recyclerView.setAdapter(adapter);
     }
 
     public ArrayList<Producto> getListaProductos(){
-        datosTienda.add(new Producto("   Pollo", "Frescos", "3$", R.drawable.ic_tienda));
-        datosTienda.add(new Producto("   Pollo", "Frescos", "3$", R.drawable.ic_tienda));
-        datosTienda.add(new Producto("   Pollo", "Frescos", "3$", R.drawable.ic_tienda));
-        datosTienda.add(new Producto("   Pollo", "Frescos", "3$", R.drawable.ic_tienda));
-        datosTienda.add(new Producto("   Pollo", "Frescos", "3$", R.drawable.ic_tienda));
+        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcion"));
+        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcion"));
+        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcion"));
+        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcion"));
+        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcion"));
+        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcion"));
+        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcion"));
+        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcion"));
+
 
         return datosTienda;
     }

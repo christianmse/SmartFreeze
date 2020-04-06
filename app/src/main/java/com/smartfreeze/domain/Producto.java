@@ -6,12 +6,14 @@ public class Producto {
     private String categoria;
     private String precio;
     private int drawable;
+    private String descripcion;
 
-    public Producto(String nombre, String categoria, String precio, int drawable){
+    public Producto(String nombre, String categoria, String precio, int drawable, String descripcion){
         this.categoria = categoria;
         this.nombre = nombre;
         this.precio = precio;
         this.drawable = drawable;
+        this.descripcion = descripcion;
 
     }
     public String getNombre() {
@@ -44,5 +46,13 @@ public class Producto {
 
     public void setDrawable(int drawable) {
         this.drawable = drawable;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }

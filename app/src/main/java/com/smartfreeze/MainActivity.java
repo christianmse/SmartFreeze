@@ -19,6 +19,7 @@ import com.smartfreeze.domain.Notificacion;
 import com.smartfreeze.ui.adapter.NotificacionesAdapter;
 import com.smartfreeze.ui.bottom_menu.AjustesOpcion;
 import com.smartfreeze.ui.bottom_menu.PrincipalOpcion;
+import com.smartfreeze.ui.bottom_menu.StoreFragment;
 import com.smartfreeze.ui.bottom_menu.TiendaOpcion;
 
 import java.util.ArrayList;
@@ -67,6 +68,11 @@ public class MainActivity extends AppCompatActivity implements IPrincipalListene
 
                         case R.id.navigation_tienda:
                             fragment = new TiendaOpcion();
+                            notificacionesLayout.setVisibility(View.GONE);
+                            break;
+
+                        case R.id.navigation_store:
+                            fragment = new StoreFragment();
                             notificacionesLayout.setVisibility(View.GONE);
                             break;
                     }

@@ -50,11 +50,10 @@
     <FrameLayout
         android:id="@+id/frameLayout_main"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="match_parent"
         android:layout_above="@+id/nav_bar"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="1dp" />
+         />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_bar"
@@ -63,7 +62,7 @@
         android:layout_alignParentBottom="true"
         android:background="?android:attr/windowBackground"
         app:itemIconSize="29dp"
-        app:layout_constraintBottom_toBottomOf="@+id/frameLayout_main"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout_main"
         app:menu="@menu/bottom_nav_menu" />
 
 </RelativeLayout>

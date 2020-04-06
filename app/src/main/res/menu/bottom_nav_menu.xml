@@ -18,5 +18,11 @@
         android:icon="@drawable/ic_ajustes"
         android:title="Ajustes" />
 
+    <item
+        android:id="@+id/navigation_store"
+        android:icon="@drawable/ic_store"
+        android:title="Tienda" />
+
+
 
 </menu>

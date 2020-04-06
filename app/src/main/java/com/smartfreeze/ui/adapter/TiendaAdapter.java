@@ -5,6 +5,8 @@ import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -42,13 +44,16 @@ public class TiendaAdapter extends RecyclerView.Adapter<TiendaAdapter.TiendaView
         String titulo = listaProductos.get(position).getNombre();
         String subtitulo = listaProductos.get(position).getCategorioa();
         String precio = listaProductos.get(position).getPrecio();
+        String descripcion = listaProductos.get(position).getDescripcion();
         int drawable = listaProductos.get(position).getDrawable();
         Drawable img = context.getResources().getDrawable(drawable);
 
         holder.imagen.setImageDrawable(img);
         holder.titulo.setText(titulo);
         holder.subtitulo.setText(subtitulo);
-        holder.precio.setText(precio);
+        holder.expanded_text.setText(descripcion);
+
+
     }
 
     @Override
@@ -60,15 +65,33 @@ public class TiendaAdapter extends RecyclerView.Adapter<TiendaAdapter.TiendaView
     public static class TiendaViewHolder extends RecyclerView.ViewHolder{
         private TextView titulo;
         private TextView subtitulo;
-        private TextView precio;
+        private TextView expanded_text;
         private ImageView imagen;
+        private Button accion1, accion2;
+        private ImageButton btn_expand;
 
         public TiendaViewHolder(@NonNull View itemView) {
             super(itemView);
-            titulo = (TextView) itemView.findViewById(R.id.txt_titulo);
-            subtitulo = itemView.findViewById(R.id.txt_subtitulo);
-            precio = itemView.findViewById(R.id.txt_precio);
-            imagen = itemView.findViewById(R.id.icono_producto);
+            titulo = (TextView) itemView.findViewById(R.id.primary_text);
+            subtitulo = itemView.findViewById(R.id.sub_text);
+            expanded_text = itemView.findViewById(R.id.supporting_text);
+            imagen = itemView.findViewById(R.id.media_image);
+            accion1 = itemView.findViewById(R.id.action_button_1);
+            accion2= itemView.findViewById(R.id.action_button_2);
+            btn_expand = itemView.findViewById(R.id.expand_button);
+
+            btn_expand.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (expanded_text.getVisibility() == View.VISIBLE) {
+                        btn_expand.setImageResource(R.drawable.ic_expand_less_black_36dp);
+                        expanded_text.setVisibility(View.GONE);
+                    } else {
+                        btn_expand.setImageResource(R.drawable.ic_expand_more_black_36dp);
+                        expanded_text.setVisibility(View.VISIBLE);
+                    }
+                }
+            });
 
         }
     }
