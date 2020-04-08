@@ -34,7 +34,7 @@ import com.smartfreeze.ui.fragments.NeveraTab;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PrincipalOpcion extends Fragment implements DispensadorTab.OnFragmentInteractionListener, NeveraTab.OnFragmentInteractionListener {
+public class PrincipalOpcion extends Fragment {
 
     //Crear array de botones
     private final int[] BOTONESMENU = {R.id.boton_principal};
@@ -42,6 +42,7 @@ public class PrincipalOpcion extends Fragment implements DispensadorTab.OnFragme
     private TabLayout tabLayout;
     private Toolbar toolbar;
     private ViewPager viewPager;
+    private InicioPagerAdapter pagerAdapter;
 
 
 
@@ -80,28 +81,22 @@ public class PrincipalOpcion extends Fragment implements DispensadorTab.OnFragme
         tabLayout = view.findViewById(R.id.tablayout);
         viewPager = view.findViewById(R.id.pager);
         toolbar= view.findViewById(R.id.toolbar);
+        pagerAdapter = new InicioPagerAdapter(getChildFragmentManager(), 2);
+        setUpViewPager();
 
         tabLayout.addTab(tabLayout.newTab().setText("Nevera"));
         tabLayout.addTab(tabLayout.newTab().setText("Dispensador"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-        setUpViewPager(viewPager);
+        viewPager.setAdapter(pagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
 
     }
 
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-        Log.d("ho","hilsa");
-    }
 
-    private void setUpViewPager(ViewPager viewPager){
-        InicioPagerAdapter adapter = new InicioPagerAdapter(getActivity().getSupportFragmentManager(),tabLayout.getTabCount());
-        adapter.addFragment(new DispensadorTab());
-        adapter.addFragment(new NeveraTab());
-
-        viewPager.setAdapter(adapter);
-
+    private void setUpViewPager(){
+        pagerAdapter.addFragments(new DispensadorTab("DISPENSADOR"));
+        pagerAdapter.addFragments(new NeveraTab("NEVERA"));
     }
 }

@@ -63,17 +63,17 @@ public class MainActivity extends AppCompatActivity implements IPrincipalListene
 
                         case R.id.navigation_principal:
                             fragment = new PrincipalOpcion();
-                            notificacionesLayout.setVisibility(View.VISIBLE);
+                            //notificacionesLayout.setVisibility(View.VISIBLE);
                             break;
 
                         case R.id.navigation_tienda:
                             fragment = new TiendaOpcion();
-                            notificacionesLayout.setVisibility(View.GONE);
+                            //notificacionesLayout.setVisibility(View.GONE);
                             break;
 
                         case R.id.navigation_store:
                             fragment = new StoreFragment();
-                            notificacionesLayout.setVisibility(View.GONE);
+                            //notificacionesLayout.setVisibility(View.GONE);
                             break;
                     }
 
