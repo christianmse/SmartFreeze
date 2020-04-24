@@ -1,95 +1,115 @@
 package com.smartfreeze.ui.bottom_menu;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import com.arlib.floatingsearchview.FloatingSearchView;
-import com.google.android.material.tabs.TabLayout;
+import com.smartfreeze.MainActivity;
 import com.smartfreeze.R;
-import com.smartfreeze.ui.adapter.StorePagerAdapter;
-import com.smartfreeze.ui.fragments.HomeFragment;
+import com.smartfreeze.domain.Producto;
+import com.smartfreeze.ui.IStoreListener;
+import com.smartfreeze.ui.adapter.StoreAdapter;
+import com.smartfreeze.ui.adapter.TiendaAdapter;
+import com.smartfreeze.ui.fragments.DetailFragment;
 
-import java.util.Objects;
+import java.util.ArrayList;
 
 
-public class StoreFragment extends Fragment {
+public class StoreFragment extends Fragment implements IStoreListener {
 
-    private ViewPager viewPager;
-    private TabLayout tabLayout;
+    RecyclerView recyclerView;
+    StoreAdapter adapter;
+    Toolbar toolbar;
+    View v;
+    AppCompatActivity activity;
+    private ArrayList<Producto> datosTienda = new ArrayList<>();
+    private GridLayoutManager layoutManager;
 
 public StoreFragment(){
     //Constructor vacio
 }
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_store, container, false);
+        this.v= inflater.inflate(R.layout.fragment_store, container, false);
+        return v;
     }
+
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        viewPager = view.findViewById(R.id.mainViewPager);
-        setupViewPager(viewPager);
+        super.onViewCreated(view, savedInstanceState);
+        toolbar = view.findViewById(R.id.store_toolbar);
+        activity = (AppCompatActivity) getActivity();
+        activity.setSupportActionBar(toolbar);
+        recyclerView = view.findViewById(R.id.rv_store);
+        adapter = new StoreAdapter(getListaProductos(), getContext(), this);
+        layoutManager = new GridLayoutManager(requireContext(),2);
+        layoutManager.setOrientation(RecyclerView.VERTICAL);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(adapter);
+    }
 
-        tabLayout = view.findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
-        setupTabIcons();
-
-        final FloatingSearchView mSearchView = view.findViewById(R.id.search_view);
-
-        mSearchView.setOnQueryChangeListener(new FloatingSearchView.OnQueryChangeListener() {
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+     super.onCreateOptionsMenu(menu, inflater);
+     inflater.inflate(R.menu.store_menu, menu);
+        MenuItem item = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) item.getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public void onSearchTextChanged(String oldQuery, final String newQuery) {
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
 
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adapter.getFilter().filter(newText);
+                return false;
             }
         });
     }
 
-    private void setupViewPager(ViewPager viewPager) {
-        StorePagerAdapter adapter = new StorePagerAdapter(getChildFragmentManager());
-        adapter.addFragment(new HomeFragment(), "Home");
-        adapter.addFragment(new HomeFragment(), "Games");
-        adapter.addFragment(new HomeFragment(), "Movies");
-        adapter.addFragment(new HomeFragment(), "Books");
-        adapter.addFragment(new HomeFragment(), "Music");
-        viewPager.setAdapter(adapter);
+    public ArrayList<Producto> getListaProductos(){
+        datosTienda.add(new Producto("Lengua", "Frescos", "3$", R.drawable.ic_launcher_foreground, "descripcion"));
+        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcisaon"));
+        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descrasipcion"));
+        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descrisapcion"));
+        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcion"));
+        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcion"));
+        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcion"));
+        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcion"));
+        return datosTienda;
     }
 
-    private void setupTabIcons() {
-        TextView tabOne = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.custom_sub_tab, null);
-        tabOne.setText("Carnes");
-        tabOne.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_explorer, 0, 0);
-        Objects.requireNonNull(tabLayout.getTabAt(0)).setCustomView(tabOne);
-
-        TextView tabTwo = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.custom_sub_tab, null);
-        tabTwo.setText("Pescados");
-        tabTwo.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_explorer, 0, 0);
-        Objects.requireNonNull(tabLayout.getTabAt(1)).setCustomView(tabTwo);
-
-        TextView tabThree = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.custom_sub_tab, null);
-        tabThree.setText("Frutas");
-        tabThree.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_explorer, 0, 0);
-        Objects.requireNonNull(tabLayout.getTabAt(2)).setCustomView(tabThree);
-
-        TextView tabFour = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.custom_sub_tab, null);
-        tabFour.setText("Verduras");
-        tabFour.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_explorer, 0, 0);
-        Objects.requireNonNull(tabLayout.getTabAt(3)).setCustomView(tabFour);
-
-        TextView tabFive = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.custom_sub_tab, null);
-        tabFive.setText("Pastas");
-        tabFive.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_explorer, 0, 0);
-        Objects.requireNonNull(tabLayout.getTabAt(4)).setCustomView(tabFive);
+    @Override
+    public void clickProducto(Producto producto) {
+        MainActivity.replaceFragmentNoBottomNavigation(new DetailFragment(producto));
+        //getChildFragmentManager().beginTransaction().replace(R.id.producto_clicked, new DetailFragment(producto)).commit();
+        //v.findViewById(R.id.store_lyt).setVisibility(View.GONE);
     }
 }
