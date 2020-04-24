@@ -3,9 +3,11 @@ package com.smartfreeze.ui.adapter;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
@@ -25,6 +27,9 @@ import java.util.Collection;
 public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> implements Filterable {
     private ArrayList<Producto> listaProductos;
     private ArrayList<Producto> listaProductosAll;
+    SparseBooleanArray prodSeleccionados = new SparseBooleanArray();
+    int currentSelected = -1;
+
     IStoreListener listener;
     private Context context;
 
@@ -73,7 +78,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> impl
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Holder holder, final int position) {
+    public void onBindViewHolder(@NonNull final Holder holder, final int position) {
         String titulo = listaProductos.get(position).getNombre();
         String categoria = listaProductos.get(position).getCategorioa();
         String precio = listaProductos.get(position).getPrecio();
@@ -89,6 +94,25 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> impl
             @Override
             public void onClick(View v) {
                 listener.clickProducto(listaProductos.get(position));
+            }
+        });
+
+        holder.anadir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Integer contadorMasUno =Integer.parseInt(holder.contador.getText().toString()) +1;
+                holder.contador.setText(contadorMasUno.toString());
+            }
+        });
+
+        holder.quitar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int act = Integer.parseInt(holder.contador.getText().toString());
+                if(act !=0){
+                    Integer contadorMenosUno =Integer.parseInt(holder.contador.getText().toString()) -1;
+                    holder.contador.setText(contadorMenosUno.toString());
+                }
             }
         });
     }
@@ -111,6 +135,8 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> impl
         private TextView categoria;
         private TextView precio;
         private ImageView imagen;
+        ImageView anadir, quitar;
+        TextView contador;
 
 
         public Holder(@NonNull View itemView) {
@@ -119,6 +145,11 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> impl
             categoria = itemView.findViewById(R.id.productCategoria);
             precio = itemView.findViewById(R.id.price);
             imagen = itemView.findViewById(R.id.image);
+
+            anadir = itemView.findViewById(R.id.btn_add);
+            quitar = itemView.findViewById(R.id.btn_quitar);
+            contador= itemView.findViewById(R.id.contador);
+
 
         }
     }
