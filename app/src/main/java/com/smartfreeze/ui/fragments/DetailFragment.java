@@ -1,6 +1,7 @@
 package com.smartfreeze.ui.fragments;
 
 import android.animation.ObjectAnimator;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,6 +17,9 @@ import androidx.transition.TransitionManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -26,10 +30,13 @@ import com.smartfreeze.domain.Producto;
 public class DetailFragment extends Fragment {
 
     Producto producto;
-    TextView descripcionLabel, description, precio;
+    TextView descripcionLabel, description, precio, titulo;
     NestedScrollView scrollView;
     View mainContainer;
     ConstraintLayout dataContainer;
+    ImageView imagen;
+    EditText cantidad;
+    Button anadirCarrito;
 
     public DetailFragment(Producto producto) {
         this.producto = producto;
@@ -46,8 +53,16 @@ public class DetailFragment extends Fragment {
         mainContainer = v.findViewById(R.id.mainContainer);
         dataContainer = v.findViewById(R.id.dataContainer);
         precio = v.findViewById(R.id.priceValue);
+        imagen = v.findViewById(R.id.galleryContainer);
+        titulo = v.findViewById(R.id.productTitle);
+        cantidad = v.findViewById(R.id.quantityEditText);
+        anadirCarrito = v.findViewById(R.id.cartButton);
 
-        precio.setText("13213");
+        int drawable = producto.getDrawable();
+        Drawable img = getContext().getResources().getDrawable(drawable);
+        imagen.setImageDrawable(img);
+        precio.setText(producto.getPrecio());
+        titulo.setText(producto.getNombre());
         description.setText(producto.getCategorioa());
         return v;
     }
