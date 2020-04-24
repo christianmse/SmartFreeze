@@ -96,6 +96,7 @@ public class PrincipalOpcion extends Fragment {
 
 
     private void setUpViewPager(){
+
         pagerAdapter.addFragments(new DispensadorTab("DISPENSADOR"));
         pagerAdapter.addFragments(new NeveraTab("NEVERA"));
     }

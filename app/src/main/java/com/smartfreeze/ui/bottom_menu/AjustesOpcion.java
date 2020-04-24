@@ -51,9 +51,6 @@ public class AjustesOpcion extends Fragment {
 
 
 
-
-
-
     public ArrayList<Ajustes> getListaAjustes(){
                 datosAjustes.add(new Ajustes("   Programar alarma", R.drawable.ic_alarm));
                 datosAjustes.add(new Ajustes("   Control refri", R.drawable.ic_alarm));

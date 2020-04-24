@@ -3,14 +3,18 @@ package com.smartfreeze;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.MutableLiveData;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Adapter;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -21,6 +25,7 @@ import com.smartfreeze.ui.bottom_menu.AjustesOpcion;
 import com.smartfreeze.ui.bottom_menu.PrincipalOpcion;
 import com.smartfreeze.ui.bottom_menu.StoreFragment;
 import com.smartfreeze.ui.bottom_menu.TiendaOpcion;
+import com.smartfreeze.ui.fragments.DispensadorTab;
 
 import java.util.ArrayList;
 
@@ -28,6 +33,9 @@ public class MainActivity extends AppCompatActivity implements IPrincipalListene
     RelativeLayout notificacionesLayout;
     NotificacionesAdapter adapter;
     RecyclerView recyclerView;
+    String texto;
+    TextView textViewBebida;
+    public static MutableLiveData<String> mText = new MutableLiveData<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +53,16 @@ public class MainActivity extends AppCompatActivity implements IPrincipalListene
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new NotificacionesAdapter(getNotificacionesList(),this);
         recyclerView.setAdapter(adapter);
+
+//      Intento de pasar información del activity al fragment
+//
+        Intent intent = getIntent();
+        texto = intent.getStringExtra("Texto");
+        if(texto != null){
+            Toast.makeText(this,texto, Toast.LENGTH_LONG).show();
+            mText.setValue(texto);
+        }
+
 
     }
 
@@ -85,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements IPrincipalListene
 
 
     public void botonSeleccionado(Boton botonSelec) {
-        String resul="..........";
+    /*    String resul="..........";
         switch (botonSelec.getId()){
             case 0: if(botonSelec.getFlagAbierto() % 2 == 0)
                         resul = "Cajon frutas 0 cerrado";
@@ -96,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements IPrincipalListene
                     break;
 
         }
-        Toast.makeText(this,resul,Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,resul,Toast.LENGTH_SHORT).show();*/
     }
 
     private ArrayList<Notificacion> getNotificacionesList(){
@@ -110,4 +128,7 @@ public class MainActivity extends AppCompatActivity implements IPrincipalListene
         return notificacionesList;
 
     }
+
+
+
 }
