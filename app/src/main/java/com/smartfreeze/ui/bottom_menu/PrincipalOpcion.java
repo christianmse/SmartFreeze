@@ -1,6 +1,7 @@
 package com.smartfreeze.ui.bottom_menu;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -87,6 +88,8 @@ public class PrincipalOpcion extends Fragment {
         tabLayout.addTab(tabLayout.newTab().setText("Nevera"));
         tabLayout.addTab(tabLayout.newTab().setText("Dispensador"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+        tabLayout.setBackgroundColor(Color.WHITE);
+        tabLayout.setSelectedTabIndicatorColor(Color.BLUE);
 
         viewPager.setAdapter(pagerAdapter);
         tabLayout.setupWithViewPager(viewPager);

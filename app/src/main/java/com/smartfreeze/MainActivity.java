@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements IPrincipalListene
         if(savedInstanceState == null){
             fm.beginTransaction().replace(R.id.frameLayout_main, new PrincipalOpcion()).commit();
         }
+
         notificacionesLayout = findViewById(R.id.notificaciones_layout);
         bottomNavigationView = findViewById(R.id.nav_bar);
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener);

@@ -11,8 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
  
-        <activity android:name=".ListadoComida"></activity>
-        <activity android:name=".ListadoBebidas" />
+        <activity android:name=".ListadoComida"
+            android:screenOrientation="landscape"
+            tools:ignore="LockedOrientationActivity"></activity>
+        <activity android:name=".ListadoBebidas"
+            android:screenOrientation="landscape"
+            tools:ignore="LockedOrientationActivity"/>
         
       
         <activity

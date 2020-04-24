@@ -19,4 +19,12 @@
     <string name="five_title">acreditate body</string>
     <string name="saltar">saltar</string>
     <string name="entrar">¡A por ello!</string>
+
+    <string-array name="categories">
+        <item>Carnes</item>
+        <item>Frutas</item>
+        <item>Bebidas</item>
+        <item>Pescados</item>
+        <item>Pastas</item>
+    </string-array>
 </resources>

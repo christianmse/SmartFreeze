@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,16 +19,19 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.google.android.material.tabs.TabLayout;
 import com.smartfreeze.MainActivity;
 import com.smartfreeze.R;
 import com.smartfreeze.domain.Producto;
 import com.smartfreeze.ui.IStoreListener;
 import com.smartfreeze.ui.adapter.StoreAdapter;
-import com.smartfreeze.ui.adapter.TiendaAdapter;
 import com.smartfreeze.ui.fragments.DetailFragment;
+import com.smartfreeze.util.MyDialog;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class StoreFragment extends Fragment implements IStoreListener {
@@ -36,6 +40,8 @@ public class StoreFragment extends Fragment implements IStoreListener {
     StoreAdapter adapter;
     Toolbar toolbar;
     View v;
+    private TabLayout tabLayout;
+
     AppCompatActivity activity;
     private ArrayList<Producto> datosTienda = new ArrayList<>();
     private GridLayoutManager layoutManager;
@@ -64,6 +70,12 @@ public StoreFragment(){
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         toolbar = view.findViewById(R.id.store_toolbar);
+        tabLayout = view.findViewById(R.id.tablayout_store);
+        tabLayout.addTab(tabLayout.newTab().setText("FILTRO"));
+        tabLayout.addTab(tabLayout.newTab().setText("CATEGORIAS"));
+        tabLayout.setSelectedTabIndicatorColor(Color.WHITE);
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+        setUpTablayout();
         activity = (AppCompatActivity) getActivity();
         activity.setSupportActionBar(toolbar);
         recyclerView = view.findViewById(R.id.rv_store);
@@ -72,6 +84,13 @@ public StoreFragment(){
         layoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
+
+    }
+
+    @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+        setUpTablayout();
     }
 
     @Override
@@ -94,6 +113,34 @@ public StoreFragment(){
         });
     }
 
+    void setUpTablayout(){
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                switch (tab.getPosition()){
+                    case 0:
+                        break;
+                    case 1:
+                        showDialog();
+                        break;
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+    }
+    void showDialog() {
+        DialogFragment dialogo = new MyDialog(this);
+        dialogo.show(getChildFragmentManager(), "dialogo_categorias");
+    }
     public ArrayList<Producto> getListaProductos(){
         datosTienda.add(new Producto("Lengua", "Frescos", "3$", R.drawable.ic_launcher_foreground, "descripcion"));
         datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcisaon"));
@@ -111,5 +158,11 @@ public StoreFragment(){
         MainActivity.replaceFragmentNoBottomNavigation(new DetailFragment(producto));
         //getChildFragmentManager().beginTransaction().replace(R.id.producto_clicked, new DetailFragment(producto)).commit();
         //v.findViewById(R.id.store_lyt).setVisibility(View.GONE);
+    }
+
+    @Override
+    public void categoriasSelected(List<String> selectedItems) {
+        Toast.makeText(getContext(),selectedItems.toString(),Toast.LENGTH_SHORT).show();
+
     }
 }
