@@ -19,19 +19,24 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.smartfreeze.MainActivity;
 import com.smartfreeze.R;
 import com.smartfreeze.domain.Producto;
+import com.smartfreeze.ui.IStoreListener;
 import com.smartfreeze.ui.adapter.StoreAdapter;
 import com.smartfreeze.ui.adapter.TiendaAdapter;
+import com.smartfreeze.ui.fragments.DetailFragment;
 
 import java.util.ArrayList;
 
 
-public class StoreFragment extends Fragment {
+public class StoreFragment extends Fragment implements IStoreListener {
 
     RecyclerView recyclerView;
     StoreAdapter adapter;
     Toolbar toolbar;
+    View v;
+    AppCompatActivity activity;
     private ArrayList<Producto> datosTienda = new ArrayList<>();
     private GridLayoutManager layoutManager;
 
@@ -49,17 +54,20 @@ public StoreFragment(){
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_store, container, false);
+        this.v= inflater.inflate(R.layout.fragment_store, container, false);
+        return v;
     }
+
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         toolbar = view.findViewById(R.id.store_toolbar);
-        AppCompatActivity activity = (AppCompatActivity) getActivity();
+        activity = (AppCompatActivity) getActivity();
         activity.setSupportActionBar(toolbar);
         recyclerView = view.findViewById(R.id.rv_store);
-        adapter = new StoreAdapter(getListaProductos(), getContext());
+        adapter = new StoreAdapter(getListaProductos(), getContext(), this);
         layoutManager = new GridLayoutManager(requireContext(),2);
         layoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
@@ -88,13 +96,20 @@ public StoreFragment(){
 
     public ArrayList<Producto> getListaProductos(){
         datosTienda.add(new Producto("Lengua", "Frescos", "3$", R.drawable.ic_launcher_foreground, "descripcion"));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcion"));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcion"));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcion"));
+        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcisaon"));
+        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descrasipcion"));
+        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descrisapcion"));
         datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcion"));
         datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcion"));
         datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcion"));
         datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcion"));
         return datosTienda;
+    }
+
+    @Override
+    public void clickProducto(Producto producto) {
+        MainActivity.replaceFragmentNoBottomNavigation(new DetailFragment(producto));
+        //getChildFragmentManager().beginTransaction().replace(R.id.producto_clicked, new DetailFragment(producto)).commit();
+        //v.findViewById(R.id.store_lyt).setVisibility(View.GONE);
     }
 }

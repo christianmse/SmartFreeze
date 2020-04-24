@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.smartfreeze.R;
 import com.smartfreeze.domain.Producto;
+import com.smartfreeze.ui.IStoreListener;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -24,6 +25,7 @@ import java.util.Collection;
 public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> implements Filterable {
     private ArrayList<Producto> listaProductos;
     private ArrayList<Producto> listaProductosAll;
+    IStoreListener listener;
     private Context context;
 
     Filter filter = new Filter() {
@@ -47,7 +49,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> impl
         }
         //run on ui thread
         @Override
-        protected void publishResults(CharSequence constraint, FilterResults results) {
+        protected void publishResults(CharSequence constraint, FilterResults results ) {
             listaProductos.clear();
             listaProductos.addAll((Collection<? extends Producto>) results.values);
             notifyDataSetChanged();
@@ -55,10 +57,11 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> impl
     };
 
 
-    public StoreAdapter(ArrayList<Producto> listaProductos, Context context) {
+    public StoreAdapter(ArrayList<Producto> listaProductos, Context context, IStoreListener listener) {
         this.context = context;
         this.listaProductos = listaProductos;
         this.listaProductosAll = new ArrayList<>(listaProductos);
+        this.listener = listener;
     }
 
     @NonNull
@@ -70,7 +73,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> impl
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Holder holder, int position) {
+    public void onBindViewHolder(@NonNull Holder holder, final int position) {
         String titulo = listaProductos.get(position).getNombre();
         String categoria = listaProductos.get(position).getCategorioa();
         String precio = listaProductos.get(position).getPrecio();
@@ -83,6 +86,13 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> impl
         holder.categoria.setText(categoria);
         holder.precio.setText(precio);
         holder.descripcion.setText(descripcion);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.clickProducto(listaProductos.get(position));
+            }
+        });
     }
 
     @Override
