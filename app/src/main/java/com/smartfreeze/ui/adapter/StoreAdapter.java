@@ -27,7 +27,7 @@ import java.util.Collection;
 public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> implements Filterable {
     private ArrayList<Producto> listaProductos;
     private ArrayList<Producto> listaProductosAll;
-    SparseBooleanArray prodSeleccionados = new SparseBooleanArray();
+    SparseBooleanArray selected_items = new SparseBooleanArray();
     int currentSelected = -1;
 
     IStoreListener listener;
@@ -103,6 +103,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> impl
                 Integer contadorMasUno =Integer.parseInt(holder.contador.getText().toString()) +1;
                 holder.contador.setText(contadorMasUno.toString());
                 holder.agregado.setVisibility(View.VISIBLE);
+                selected_items.put(position,true);
             }
         });
 
@@ -113,17 +114,34 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> impl
                 if(act !=0){
                     Integer contadorMenosUno =Integer.parseInt(holder.contador.getText().toString()) -1;
                     holder.contador.setText(contadorMenosUno.toString());
-                    if(contadorMenosUno == 0)
+                    if(contadorMenosUno == 0){
                         holder.agregado.setVisibility(View.GONE);
+                        if(selected_items.get(position,false))
+                        selected_items.delete(position);
+                    }
+
 
                 } else{
                     holder.agregado.setVisibility(View.GONE);
+                    if(selected_items.get(position,false))
+                        selected_items.delete(position);
+
                 }
             }
         });
 
     }
 
+    public ArrayList<Producto> getSelectedItems(){
+        ArrayList<Producto> aux = new ArrayList<>();
+
+       for(int i=0; i<listaProductosAll.size(); i++){
+           if(selected_items.get(i,false)){
+               aux.add(listaProductos.get(i));
+           }
+       }
+       return aux;
+    }
     @Override
     public int getItemCount() {
         return listaProductos.size();
@@ -133,6 +151,8 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> impl
     public Filter getFilter() {
         return filter;
     }
+
+
 
 
 

@@ -7,12 +7,17 @@
     android:id="@+id/item_product"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    app:cardCornerRadius="2dp"
+    app:cardCornerRadius="5dp"
     app:cardPreventCornerOverlap="true"
     app:cardUseCompatPadding="true"
     app:cardBackgroundColor="@color/cardview_shadow_start_color"
     android:elevation="10dp"
      >
+    <!--<FrameLayout
+        android:id="@+id/checked2"
+        android:background="#FF0000"
+        android:layout_width="4dp"
+        android:layout_height="match_parent"/>-->
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"

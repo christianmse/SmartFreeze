@@ -131,7 +131,9 @@ public StoreFragment(){
     }
 
     private void activityToPayMarket() {
+    ArrayList<Producto> aux = adapter.getSelectedItems();
     Intent i =new Intent(getActivity(), PaymarketActivity.class);
+    i.putExtra("productosSeleccionados", aux);
     startActivity(i);
     }
 
