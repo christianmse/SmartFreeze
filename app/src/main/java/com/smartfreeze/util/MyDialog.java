@@ -64,6 +64,7 @@ public class MyDialog extends DialogFragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 selectedItems.clear();
+                dismiss();
             }
         });
         return builder.create();

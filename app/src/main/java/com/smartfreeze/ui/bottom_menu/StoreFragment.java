@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
@@ -19,6 +20,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
@@ -40,7 +42,7 @@ public class StoreFragment extends Fragment implements IStoreListener {
     StoreAdapter adapter;
     Toolbar toolbar;
     View v;
-    private TabLayout tabLayout;
+    Button filtros;
 
     AppCompatActivity activity;
     private ArrayList<Producto> datosTienda = new ArrayList<>();
@@ -70,11 +72,8 @@ public StoreFragment(){
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         toolbar = view.findViewById(R.id.store_toolbar);
-        tabLayout = view.findViewById(R.id.tablayout_store);
-        tabLayout.addTab(tabLayout.newTab().setText("FILTRO"));
-        tabLayout.addTab(tabLayout.newTab().setText("CATEGORIAS"));
-        tabLayout.setSelectedTabIndicatorColor(Color.WHITE);
-        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+        toolbar.setTitle("PAYMARKET");
+        filtros = view.findViewById(R.id.filtros);
         setUpTablayout();
         activity = (AppCompatActivity) getActivity();
         activity.setSupportActionBar(toolbar);
@@ -99,6 +98,10 @@ public StoreFragment(){
      inflater.inflate(R.menu.store_menu, menu);
         MenuItem item = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) item.getActionView();
+        ActionBar.LayoutParams params = new ActionBar.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT);
+        searchView.setLayoutParams(params);
+        searchView.setBackgroundColor(Color.WHITE);
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -114,26 +117,10 @@ public StoreFragment(){
     }
 
     void setUpTablayout(){
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        filtros.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                switch (tab.getPosition()){
-                    case 0:
-                        break;
-                    case 1:
-                        showDialog();
-                        break;
-                }
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
+            public void onClick(View v) {
+                showDialog();
             }
         });
     }
