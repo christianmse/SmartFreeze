@@ -90,7 +90,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> impl
         holder.categoria.setText(categoria);
         holder.precio.setText(precio);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.imagen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 listener.clickProducto(listaProductos.get(position));
@@ -102,6 +102,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> impl
             public void onClick(View v) {
                 Integer contadorMasUno =Integer.parseInt(holder.contador.getText().toString()) +1;
                 holder.contador.setText(contadorMasUno.toString());
+                holder.agregado.setVisibility(View.VISIBLE);
             }
         });
 
@@ -112,9 +113,15 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> impl
                 if(act !=0){
                     Integer contadorMenosUno =Integer.parseInt(holder.contador.getText().toString()) -1;
                     holder.contador.setText(contadorMenosUno.toString());
+                    if(contadorMenosUno == 0)
+                        holder.agregado.setVisibility(View.GONE);
+
+                } else{
+                    holder.agregado.setVisibility(View.GONE);
                 }
             }
         });
+
     }
 
     @Override
@@ -137,6 +144,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> impl
         private ImageView imagen;
         ImageView anadir, quitar;
         TextView contador;
+        ImageView agregado;
 
 
         public Holder(@NonNull View itemView) {
@@ -149,6 +157,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> impl
             anadir = itemView.findViewById(R.id.btn_add);
             quitar = itemView.findViewById(R.id.btn_quitar);
             contador= itemView.findViewById(R.id.contador);
+            agregado= itemView.findViewById(R.id.agregado);
 
 
         }

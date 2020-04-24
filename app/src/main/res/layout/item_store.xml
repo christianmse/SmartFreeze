@@ -18,10 +18,17 @@
     android:layout_height="wrap_content"
     >
     <ImageView
+        android:id="@+id/agregado"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:src="@drawable/ic_check_black"
         android:visibility="gone"
+        tools:visibility="visible"
+        android:layout_alignParentEnd="true"/>
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/ic_bullet_white_empty"
         android:layout_alignParentEnd="true"/>
 
     <LinearLayout
@@ -116,7 +123,7 @@
                 android:id="@+id/contador"
                 app:autoSizeTextType="uniform"
                 android:padding="10dp"
-                android:text="12"
+                android:text="0"
                 android:layout_height="match_parent"
                 android:layout_width="50dp" />
             <ImageView
