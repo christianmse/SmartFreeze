@@ -10,26 +10,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
- 
-        <activity android:name=".ListadoComida"
+        <activity
+            android:name=".PaymarketActivity"
             android:screenOrientation="landscape"
-            tools:ignore="LockedOrientationActivity"></activity>
-        <activity android:name=".ListadoBebidas"
+            tools:ignore="LockedOrientationActivity"
+            ></activity>
+        <activity
+            android:name=".ListadoComida"
             android:screenOrientation="landscape"
-            tools:ignore="LockedOrientationActivity"/>
-        
-      
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".ListadoBebidas"
+            android:screenOrientation="landscape"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".MainActivity"
             android:screenOrientation="landscape"
             tools:ignore="LockedOrientationActivity">
-            <intent-filter >
-                <action
-                    android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

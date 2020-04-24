@@ -37,6 +37,7 @@ public class MyDialog extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+        setShowsDialog(true);
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Selecciona las categorias");
         builder.setMultiChoiceItems(R.array.categories, null, new DialogInterface.OnMultiChoiceClickListener() {

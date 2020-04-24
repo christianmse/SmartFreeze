@@ -1,5 +1,6 @@
 package com.smartfreeze.ui.bottom_menu;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -11,6 +12,7 @@ import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,6 +27,7 @@ import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 import com.smartfreeze.MainActivity;
+import com.smartfreeze.PaymarketActivity;
 import com.smartfreeze.R;
 import com.smartfreeze.domain.Producto;
 import com.smartfreeze.ui.IStoreListener;
@@ -79,7 +82,7 @@ public StoreFragment(){
         activity.setSupportActionBar(toolbar);
         recyclerView = view.findViewById(R.id.rv_store);
         adapter = new StoreAdapter(getListaProductos(), getContext(), this);
-        layoutManager = new GridLayoutManager(requireContext(),2);
+        layoutManager = new GridLayoutManager(requireContext(),4);
         layoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
@@ -96,8 +99,8 @@ public StoreFragment(){
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
      super.onCreateOptionsMenu(menu, inflater);
      inflater.inflate(R.menu.store_menu, menu);
-        MenuItem item = menu.findItem(R.id.action_search);
-        SearchView searchView = (SearchView) item.getActionView();
+        MenuItem itemSV = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) itemSV.getActionView();
         ActionBar.LayoutParams params = new ActionBar.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT);
         searchView.setLayoutParams(params);
         searchView.setBackgroundColor(Color.WHITE);
@@ -115,6 +118,23 @@ public StoreFragment(){
             }
         });
     }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+    switch (item.getItemId()){
+        case R.id.carrito: activityToPayMarket();
+        return true;
+
+        default: return super.onOptionsItemSelected(item);
+    }
+    }
+
+    private void activityToPayMarket() {
+    Intent i =new Intent(getActivity(), PaymarketActivity.class);
+    startActivity(i);
+    }
+
 
     void setUpTablayout(){
         filtros.setOnClickListener(new View.OnClickListener() {

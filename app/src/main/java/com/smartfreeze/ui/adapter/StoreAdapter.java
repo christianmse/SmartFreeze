@@ -77,7 +77,6 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> impl
         String titulo = listaProductos.get(position).getNombre();
         String categoria = listaProductos.get(position).getCategorioa();
         String precio = listaProductos.get(position).getPrecio();
-        String descripcion = listaProductos.get(position).getDescripcion();
         int drawable = listaProductos.get(position).getDrawable();
         Drawable img = context.getResources().getDrawable(drawable);
 
@@ -85,7 +84,6 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> impl
         holder.titulo.setText(titulo);
         holder.categoria.setText(categoria);
         holder.precio.setText(precio);
-        holder.descripcion.setText(descripcion);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,7 +108,6 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> impl
 
     public static class Holder extends RecyclerView.ViewHolder{
         private TextView titulo;
-        private TextView descripcion;
         private TextView categoria;
         private TextView precio;
         private ImageView imagen;
@@ -119,7 +116,6 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> impl
         public Holder(@NonNull View itemView) {
             super(itemView);
             titulo = (TextView) itemView.findViewById(R.id.titleText);
-            descripcion = itemView.findViewById(R.id.productDescription);
             categoria = itemView.findViewById(R.id.productCategoria);
             precio = itemView.findViewById(R.id.price);
             imagen = itemView.findViewById(R.id.image);

@@ -9,5 +9,11 @@
         app:showAsAction="always|collapseActionView"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         />
+    <item
+        android:id="@+id/carrito"
+        android:title="cart"
+        android:icon="@drawable/ic_cart"
+        app:showAsAction="always"
+        />
 
 </menu>
