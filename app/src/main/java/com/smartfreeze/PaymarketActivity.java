@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 public class PaymarketActivity extends AppCompatActivity {
     ArrayList<Producto> productosSeleccionados = new ArrayList<>();
-    TextView txt;
+    TextView articulosTotal, precioTotal;
     View vacio;
     RecyclerView recyclerView;
     CartAdapter adapter;
@@ -35,12 +35,17 @@ public class PaymarketActivity extends AppCompatActivity {
         comenzarComprar = findViewById(R.id.emp_comprar);
         toolbar = findViewById(R.id.toolbar);
         recyclerView = findViewById(R.id.rv_cart);
+        articulosTotal = findViewById(R.id.articulosTotal);
+        precioTotal = findViewById(R.id.precioTotal);
 
 
         if(getIntent().getParcelableArrayListExtra("productosSeleccionados").size() > 0 ){
             productosSeleccionados = getIntent().getParcelableArrayListExtra("productosSeleccionados");
-            String aux = ((Producto)productosSeleccionados.get(0)).getNombre() + ((Producto)productosSeleccionados.get(0)).getCantidad();
+
             vacio.setVisibility(View.GONE);
+            int precio = calcularPrecioTotal(productosSeleccionados);
+            articulosTotal.setText(String.valueOf(productosSeleccionados.size()));
+            precioTotal.setText(String.valueOf(precio));
 
             adapter = new CartAdapter(productosSeleccionados, this,this);
             LinearLayoutManager manager = new LinearLayoutManager(this);
@@ -56,6 +61,15 @@ public class PaymarketActivity extends AppCompatActivity {
         }
 
 
+    }
+
+    private int calcularPrecioTotal(ArrayList<Producto> productosSeleccionados) {
+        int result =0;
+        for(int i=0; i<productosSeleccionados.size(); i++){
+            String precio =((Producto)productosSeleccionados.get(i)).getPrecio();
+            result += ((Producto)productosSeleccionados.get(i)).getCantidad() * Integer.parseInt(precio);
+        }
+        return result;
     }
 
 
