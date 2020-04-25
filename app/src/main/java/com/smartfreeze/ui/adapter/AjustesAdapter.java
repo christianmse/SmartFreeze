@@ -33,9 +33,24 @@ public class AjustesAdapter extends RecyclerView.Adapter<AjustesAdapter.AjustesV
         AjustesViewHolder holder = new AjustesViewHolder(vista);
         return holder;
     }
+    public AjustesViewHolder onCreateViewHolder2(@NonNull ViewGroup parent, int viewType) {
+        View vista = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_ajuste_activable, parent,false);
+        AjustesViewHolder holder = new AjustesViewHolder(vista);
+        return holder;
+    }
+
 
     @Override
     public void onBindViewHolder(@NonNull AjustesViewHolder holder, int position) {
+        String nombre = data.get(position).getNombre();
+        int drawable = data.get(position).getDrawable();
+        Drawable img = context.getResources().getDrawable(drawable);
+        holder.btnOpcion.setText(nombre);
+        //holder.btnOpcion.setCompoundDrawablesWithIntrinsicBounds(img,null,null,null);
+        holder.imageView.setImageDrawable(img);
+    }
+
+    public void onBindViewHolder2(@NonNull AjustesViewHolder holder, int position) {
         String nombre = data.get(position).getNombre();
         int drawable = data.get(position).getDrawable();
         Drawable img = context.getResources().getDrawable(drawable);

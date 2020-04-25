@@ -41,27 +41,25 @@
                 <TextView
                     android:id="@+id/btn_ajuste"
                     style="@style/AppTheme.titulo"
-                    android:layout_width="532dp"
+                    android:layout_width="260dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_marginLeft="10dp"
                     android:layout_marginBottom="10dp"
                     android:text="TITULO" />
 
-
+                <Switch
+                    android:id="@+id/switch1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
 
 
             </LinearLayout>
 
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="36dp"
-            android:layout_height="28dp"
-            android:layout_alignEnd="@+id/layout1"
-            android:layout_marginEnd="2dp"
-            app:srcCompat="@drawable/ic_go" />
+
     </RelativeLayout>
     <View
         android:layout_width="match_parent"
