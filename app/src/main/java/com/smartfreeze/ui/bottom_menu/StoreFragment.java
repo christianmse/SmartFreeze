@@ -164,9 +164,16 @@ public StoreFragment(){
 
     @Override
     public void clickProducto(Producto producto) {
-        MainActivity.replaceFragmentNoBottomNavigation(new DetailFragment(producto));
-        //getChildFragmentManager().beginTransaction().replace(R.id.producto_clicked, new DetailFragment(producto)).commit();
-        //v.findViewById(R.id.store_lyt).setVisibility(View.GONE);
+        //MainActivity.replaceFragmentNoBottomNavigation(new DetailFragment(producto));
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        Fragment prev = getFragmentManager().findFragmentByTag("dialog");
+        if (prev != null) {
+            ft.remove(prev);
+        }
+        ft.addToBackStack(null);
+
+        DialogFragment dialogFragment = new DetailFragment(producto);
+        dialogFragment.show(ft, "dialog");
     }
 
     @Override

@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.core.widget.NestedScrollView;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.transition.ChangeBounds;
 import androidx.transition.Transition;
@@ -27,7 +28,7 @@ import com.smartfreeze.MainActivity;
 import com.smartfreeze.R;
 import com.smartfreeze.domain.Producto;
 
-public class DetailFragment extends Fragment {
+public class DetailFragment extends DialogFragment {
 
     Producto producto;
     TextView descripcionLabel, description, precio, titulo;
