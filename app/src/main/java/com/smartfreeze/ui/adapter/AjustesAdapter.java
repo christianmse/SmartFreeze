@@ -26,18 +26,24 @@ public class AjustesAdapter extends RecyclerView.Adapter<AjustesAdapter.AjustesV
         this.context = context;
     }
 
+    @Override
+    public int getItemViewType(int position) {
+        // Just as an example, return 0 or 2 depending on position
+        // Note that unlike in ListView adapters, types don't have to be contiguous
+        return position % 2 * 2;
+    }
+
     @NonNull
     @Override
     public AjustesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View vista = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_ajuste, parent,false);
+        View vista2 = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_ajuste_activable, parent,false);
         AjustesViewHolder holder = new AjustesViewHolder(vista);
-        return holder;
+        AjustesViewHolder holder2 = new AjustesViewHolder(vista);
+        if (viewType == 0) return holder;
+        else return holder2;
     }
-    public AjustesViewHolder onCreateViewHolder2(@NonNull ViewGroup parent, int viewType) {
-        View vista = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_ajuste_activable, parent,false);
-        AjustesViewHolder holder = new AjustesViewHolder(vista);
-        return holder;
-    }
+
 
 
     @Override
@@ -50,14 +56,7 @@ public class AjustesAdapter extends RecyclerView.Adapter<AjustesAdapter.AjustesV
         holder.imageView.setImageDrawable(img);
     }
 
-    public void onBindViewHolder2(@NonNull AjustesViewHolder holder, int position) {
-        String nombre = data.get(position).getNombre();
-        int drawable = data.get(position).getDrawable();
-        Drawable img = context.getResources().getDrawable(drawable);
-        holder.btnOpcion.setText(nombre);
-        //holder.btnOpcion.setCompoundDrawablesWithIntrinsicBounds(img,null,null,null);
-        holder.imageView.setImageDrawable(img);
-    }
+
 
     @Override
     public int getItemCount() {
