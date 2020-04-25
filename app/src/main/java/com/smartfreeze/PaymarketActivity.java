@@ -18,7 +18,8 @@ public class PaymarketActivity extends AppCompatActivity {
         setContentView(R.layout.activity_paymarket);
         txt = findViewById(R.id.txt_paymarket);
         productosSeleccionados = getIntent().getParcelableArrayListExtra("productosSeleccionados");
-        txt.setText(productosSeleccionados.toString());
+        String aux = ((Producto)productosSeleccionados.get(0)).getNombre() + ((Producto)productosSeleccionados.get(0)).getCantidad();
+        txt.setText(aux);
     }
 
 

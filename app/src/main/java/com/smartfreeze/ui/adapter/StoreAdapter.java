@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.util.SparseBooleanArray;
+import android.util.SparseIntArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> impl
     private ArrayList<Producto> listaProductos;
     private ArrayList<Producto> listaProductosAll;
     SparseBooleanArray selected_items = new SparseBooleanArray();
+    SparseIntArray selected_items_cantidad = new SparseIntArray();
     int currentSelected = -1;
 
     IStoreListener listener;
@@ -104,6 +106,8 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> impl
                 holder.contador.setText(contadorMasUno.toString());
                 holder.agregado.setVisibility(View.VISIBLE);
                 selected_items.put(position,true);
+                selected_items_cantidad.put(position, contadorMasUno);
+
             }
         });
 
@@ -118,13 +122,18 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> impl
                         holder.agregado.setVisibility(View.GONE);
                         if(selected_items.get(position,false))
                         selected_items.delete(position);
+                        selected_items_cantidad.put(position, contadorMenosUno);
                     }
 
 
                 } else{
                     holder.agregado.setVisibility(View.GONE);
-                    if(selected_items.get(position,false))
+                    if(selected_items.get(position,false)){
                         selected_items.delete(position);
+                        selected_items_cantidad.put(position, 0);
+                    }
+
+
 
                 }
             }
@@ -137,7 +146,10 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> impl
 
        for(int i=0; i<listaProductosAll.size(); i++){
            if(selected_items.get(i,false)){
-               aux.add(listaProductos.get(i));
+               int cantidad = selected_items_cantidad.get(i,0);
+               Producto producto = listaProductos.get(i);
+               producto.setCantidad(cantidad);
+               aux.add(producto);
            }
        }
        return aux;
