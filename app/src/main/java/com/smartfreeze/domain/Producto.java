@@ -10,6 +10,7 @@ public class Producto implements Parcelable {
     private String precio;
     private int drawable;
     private String descripcion;
+    int cantidad;
 
     public Producto(String nombre, String categoria, String precio, int drawable, String descripcion){
         this.categoria = categoria;
@@ -17,8 +18,18 @@ public class Producto implements Parcelable {
         this.precio = precio;
         this.drawable = drawable;
         this.descripcion = descripcion;
+        this.cantidad =0 ;
 
     }
+
+    public void setCantidad(int cantidad){
+        this.cantidad = cantidad;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -59,14 +70,13 @@ public class Producto implements Parcelable {
         this.descripcion = descripcion;
     }
 
-
-
     protected Producto(Parcel in) {
         nombre = in.readString();
         categoria = in.readString();
         precio = in.readString();
         drawable = in.readInt();
         descripcion = in.readString();
+        cantidad = in.readInt();
     }
 
     @Override
@@ -81,6 +91,7 @@ public class Producto implements Parcelable {
         dest.writeString(precio);
         dest.writeInt(drawable);
         dest.writeString(descripcion);
+        dest.writeInt(cantidad);
     }
 
     @SuppressWarnings("unused")

@@ -27,7 +27,8 @@ public class NeveraTab extends Fragment {
 
     private ImageButton iBNeveraCerrada, iBFrigoCerrado, iBCerrarNevera, iBCerrarFrigo;
     private ImageView iVNeveraAbierta, iVFrigoAbierto;
-    private Button b3CajonF, b2CajonF, b1CajonF, b1Nevera, b2Nevera, b3Nevera, b4Nevera, b5Nevera;
+    private Button  b3CajonF, b2CajonF, b1CajonF, b1Nevera, b2Nevera, b3Nevera, b4Nevera, b5Nevera,
+                    b1Estante, b2Estante, b3Estante;
 
     public static final String ARG_OBJECT = "object";
     private String nombre;
@@ -61,6 +62,9 @@ public class NeveraTab extends Fragment {
         b3Nevera = view.findViewById(R.id.b3Nevera);
         b4Nevera = view.findViewById(R.id.b4CajonIzq);
         b5Nevera = view.findViewById(R.id.b5CajonDer);
+        b1Estante = view.findViewById(R.id.bEstante1);
+        b2Estante = view. findViewById(R.id.bEstante2);
+        b3Estante = view.findViewById(R.id.bEstante3);
 
 
 //        BOTONES DEL FRIGORIFICO
@@ -83,6 +87,9 @@ public class NeveraTab extends Fragment {
                 b3Nevera.setVisibility(View.VISIBLE);
                 b4Nevera.setVisibility(View.VISIBLE);
                 b5Nevera.setVisibility(View.VISIBLE);
+                b1Estante.setVisibility(View.VISIBLE);
+                b2Estante.setVisibility(View.VISIBLE);
+                b3Estante.setVisibility(View.VISIBLE);
 
             }
         });
@@ -98,6 +105,9 @@ public class NeveraTab extends Fragment {
                 b3Nevera.setVisibility(View.GONE);
                 b4Nevera.setVisibility(View.GONE);
                 b5Nevera.setVisibility(View.GONE);
+                b1Estante.setVisibility(View.GONE);
+                b2Estante.setVisibility(View.GONE);
+                b3Estante.setVisibility(View.GONE);
             }
         });
 //        ABRIR FRIGORIFICO
@@ -124,7 +134,7 @@ public class NeveraTab extends Fragment {
                 b1CajonF.setVisibility(View.GONE);
             }
         });
-//        3ª CAJON DEL FRIGORIFICO
+//                3ª CAJON DEL FRIGORIFICO
         b3CajonF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -149,6 +159,80 @@ public class NeveraTab extends Fragment {
                 Intent abrircajon1f = new Intent(getActivity(), ListadoComida.class);
                 abrircajon1f.putExtra("Boton", R.id.b1Cajon);
                 startActivity(abrircajon1f);
+            }
+        });
+
+//        1º CAJON DE LA NEVERA
+        b1Nevera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent abrirCajon1N = new Intent(getActivity(), ListadoComida.class);
+                abrirCajon1N.putExtra("Boton", R.id.b1Nevera);
+                startActivity(abrirCajon1N);
+            }
+        });
+//               2º CAJON DE LA NEVERA
+        b2Nevera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent abrirCajon2N = new Intent(getActivity(), ListadoComida.class);
+                abrirCajon2N.putExtra("Boton", R.id.b2Nevera);
+                startActivity(abrirCajon2N);
+            }
+        });
+//               3º CAJON DE LA NEVERA
+        b3Nevera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent abrirCajon3N = new Intent(getActivity(), ListadoComida.class);
+                abrirCajon3N.putExtra("Boton", R.id.b3Nevera);
+                startActivity(abrirCajon3N);
+            }
+        });
+//               4º CAJON DE LA NEVERA
+        b4Nevera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent abrirCajon4N = new Intent(getActivity(), ListadoComida.class);
+                abrirCajon4N.putExtra("Boton", R.id.b4CajonIzq);
+                startActivity(abrirCajon4N);
+            }
+        });
+//              5º CAJON DE LA NEVERA
+        b5Nevera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent abrirCajon5N = new Intent(getActivity(), ListadoComida.class);
+                abrirCajon5N.putExtra("Boton", R.id.b5CajonDer);
+                startActivity(abrirCajon5N);
+            }
+        });
+
+//        1º CAJON DE LA PUERTA
+        b1Estante.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent abrirEstante1 = new Intent(getActivity(), ListadoComida.class);
+                abrirEstante1.putExtra("Boton", R.id.bEstante1);
+                startActivity(abrirEstante1);
+            }
+        });
+        //        2º CAJON DE LA PUERTA
+        b2Estante.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent abrirEstante2 = new Intent(getActivity(), ListadoComida.class);
+                abrirEstante2.putExtra("Boton", R.id.bEstante2);
+                startActivity(abrirEstante2);
+            }
+        });
+        //        3º CAJON DE LA PUERTA
+        b3Estante.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent abrirEstante3 = new Intent(getActivity(), ListadoComida.class);
+                abrirEstante3.putExtra("Boton", R.id.bEstante3);
+                startActivity(abrirEstante3);
             }
         });
     }

@@ -151,23 +151,32 @@ public StoreFragment(){
         dialogo.show(getChildFragmentManager(), "dialogo_categorias");
     }
     public ArrayList<Producto> getListaProductos(){
-        datosTienda.add(new Producto("Lengua", "Frescos", "3$", R.drawable.ic_launcher_foreground, "descripcion"));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcisaon"));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descrasipcion"));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descrisapcion"));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcion"));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcion"));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcion"));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcion"));
+        datosTienda.add(new Producto("Lengua", "Frescos", "3", R.drawable.ic_launcher_foreground, "descripcion"));
+        datosTienda.add(new Producto("Pollo", "Frescos", "3", R.drawable.ic_tienda, "descripcisaon"));
+        datosTienda.add(new Producto("Pollo", "Frescos", "3", R.drawable.ic_tienda, "descrasipcion"));
+        datosTienda.add(new Producto("Pollo", "Frescos", "3", R.drawable.ic_tienda, "descrisapcion"));
+        datosTienda.add(new Producto("Pollo", "Frescos", "3", R.drawable.ic_tienda, "descripcion"));
+        datosTienda.add(new Producto("Pollo", "Frescos", "3", R.drawable.ic_tienda, "descripcion"));
+        datosTienda.add(new Producto("Pollo", "Frescos", "3", R.drawable.ic_tienda, "descripcion"));
+        datosTienda.add(new Producto("Pollo", "Frescos", "3", R.drawable.ic_tienda, "descripcion"));
         return datosTienda;
     }
 
     @Override
     public void clickProducto(Producto producto) {
-        MainActivity.replaceFragmentNoBottomNavigation(new DetailFragment(producto));
-        //getChildFragmentManager().beginTransaction().replace(R.id.producto_clicked, new DetailFragment(producto)).commit();
-        //v.findViewById(R.id.store_lyt).setVisibility(View.GONE);
+        //MainActivity.replaceFragmentNoBottomNavigation(new DetailFragment(producto));
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        Fragment prev = getFragmentManager().findFragmentByTag("dialog");
+        if (prev != null) {
+            ft.remove(prev);
+        }
+        ft.addToBackStack(null);
+
+        DialogFragment dialogFragment = new DetailFragment(producto);
+        dialogFragment.show(ft, "dialog");
+
     }
+
 
     @Override
     public void categoriasSelected(List<String> selectedItems) {

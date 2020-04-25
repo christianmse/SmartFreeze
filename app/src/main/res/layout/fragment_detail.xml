@@ -21,12 +21,26 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:id="@+id/info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:padding="3dp"
+                android:src="@drawable/information"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
                 android:id="@+id/galleryContainer"
-                android:layout_width="250dp"
-                android:layout_height="250dp"
+                android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/galleryContainer2"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
                 android:id="@+id/priceValue"
@@ -59,35 +73,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/priceValue" />
 
-            <TextView
-                android:id="@+id/quantity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/horizontal_space"
-                android:gravity="start"
-                android:labelFor="@id/quantityEditText"
-                android:text="Cantidad"
-                android:textColor="@color/textColorPrimary"
-                android:textSize="13sp"
-                app:layout_constraintBaseline_toBaselineOf="@+id/quantityEditText"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <EditText
-                android:id="@+id/quantityEditText"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:ems="10"
-                android:gravity="center"
-                android:inputType="number"
-                android:maxLength="3"
-                android:minWidth="50dp"
-                android:text="0"
-                android:textSize="13sp"
-                android:theme="@style/EditText"
-                app:layout_constraintStart_toEndOf="@+id/quantity"
-                app:layout_constraintTop_toBottomOf="@+id/productTitle" />
 
 
 
@@ -99,7 +84,7 @@
                 android:background="@color/colorBackgroundDarkTranslucent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/quantityEditText" />
+                app:layout_constraintTop_toBottomOf="@+id/productTitle" />
 
             <TextView
                 android:id="@+id/descriptionLabel"
@@ -170,7 +155,7 @@
         android:background="@drawable/selector_accent_button"
         android:ellipsize="end"
         android:maxLines="1"
-        android:text="anadir al carro"
+        android:text="ENTENDIDO"
         android:textColor="@drawable/selector_accent_button_text"
         android:textSize="14sp"
         android:textStyle="bold"
