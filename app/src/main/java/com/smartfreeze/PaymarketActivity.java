@@ -5,6 +5,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,7 +26,7 @@ public class PaymarketActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     CartAdapter adapter;
     Toolbar toolbar;
-    Button comenzarComprar;
+    Button comenzarComprar, procederPago;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,13 +38,15 @@ public class PaymarketActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.rv_cart);
         articulosTotal = findViewById(R.id.articulosTotal);
         precioTotal = findViewById(R.id.precioTotal);
+        procederPago = findViewById(R.id.cartButton);
+        final Intent intent = new Intent(this, PagoActivity.class);
 
 
         if(getIntent().getParcelableArrayListExtra("productosSeleccionados").size() > 0 ){
             productosSeleccionados = getIntent().getParcelableArrayListExtra("productosSeleccionados");
 
             vacio.setVisibility(View.GONE);
-            int precio = calcularPrecioTotal(productosSeleccionados);
+            final int precio = calcularPrecioTotal(productosSeleccionados);
             articulosTotal.setText(String.valueOf(productosSeleccionados.size()));
             precioTotal.setText(String.valueOf(precio));
 
@@ -51,6 +54,14 @@ public class PaymarketActivity extends AppCompatActivity {
             LinearLayoutManager manager = new LinearLayoutManager(this);
             recyclerView.setLayoutManager(manager);
             recyclerView.setAdapter(adapter);
+            procederPago.setOnClickListener(new View.OnClickListener(){
+
+                @Override
+                public void onClick(View v) {
+                   intent.putExtra("precio", precio);
+                   startActivity(intent);
+                }
+            });
         }else{
             comenzarComprar.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -58,6 +69,7 @@ public class PaymarketActivity extends AppCompatActivity {
                     finish();
                 }
             });
+            procederPago.setVisibility(View.GONE);
         }
 
 

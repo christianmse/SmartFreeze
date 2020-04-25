@@ -176,7 +176,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> impl
         private ImageView imagen;
         ImageView anadir, quitar;
         TextView contador;
-        ImageView agregado;
+        View agregado;
 
 
         public Holder(@NonNull View itemView) {
