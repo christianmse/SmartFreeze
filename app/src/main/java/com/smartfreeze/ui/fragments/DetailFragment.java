@@ -54,9 +54,9 @@ public class DetailFragment extends DialogFragment {
         mainContainer = v.findViewById(R.id.mainContainer);
         dataContainer = v.findViewById(R.id.dataContainer);
         precio = v.findViewById(R.id.priceValue);
-        imagen = v.findViewById(R.id.galleryContainer);
+        imagen = v.findViewById(R.id.galleryContainer2);
         titulo = v.findViewById(R.id.productTitle);
-        cantidad = v.findViewById(R.id.quantityEditText);
+        //cantidad = v.findViewById(R.id.quantityEditText);
         anadirCarrito = v.findViewById(R.id.cartButton);
 
         int drawable = producto.getDrawable();
@@ -76,7 +76,7 @@ public class DetailFragment extends DialogFragment {
         anadirCarrito.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                dismiss();
             }
         });
     }

@@ -174,7 +174,9 @@ public StoreFragment(){
 
         DialogFragment dialogFragment = new DetailFragment(producto);
         dialogFragment.show(ft, "dialog");
+
     }
+
 
     @Override
     public void categoriasSelected(List<String> selectedItems) {
