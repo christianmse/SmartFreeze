@@ -22,7 +22,7 @@ import java.util.ArrayList;
 public class PaymarketActivity extends AppCompatActivity {
     ArrayList<Producto> productosSeleccionados = new ArrayList<>();
     TextView articulosTotal, precioTotal;
-    View vacio;
+    View vacio, cabecera;
     RecyclerView recyclerView;
     CartAdapter adapter;
     Toolbar toolbar;
@@ -33,6 +33,7 @@ public class PaymarketActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paymarket);
         vacio = findViewById(R.id.cesta_vacia);
+        cabecera = findViewById(R.id.cabecera);
         comenzarComprar = findViewById(R.id.emp_comprar);
         toolbar = findViewById(R.id.toolbar);
         recyclerView = findViewById(R.id.rv_cart);
@@ -70,6 +71,7 @@ public class PaymarketActivity extends AppCompatActivity {
                 }
             });
             procederPago.setVisibility(View.GONE);
+            cabecera.setVisibility(View.GONE);
         }
 
 

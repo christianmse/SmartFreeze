@@ -33,6 +33,7 @@ import com.smartfreeze.domain.Producto;
 import com.smartfreeze.ui.IStoreListener;
 import com.smartfreeze.ui.adapter.StoreAdapter;
 import com.smartfreeze.ui.fragments.DetailFragment;
+import com.smartfreeze.util.Datos;
 import com.smartfreeze.util.MyDialog;
 
 import java.util.ArrayList;
@@ -81,7 +82,7 @@ public StoreFragment(){
         activity = (AppCompatActivity) getActivity();
         activity.setSupportActionBar(toolbar);
         recyclerView = view.findViewById(R.id.rv_store);
-        adapter = new StoreAdapter(getListaProductos(), getContext(), this);
+        adapter = new StoreAdapter(Datos.getInstance().getDatos(), getContext(), this);
         layoutManager = new GridLayoutManager(requireContext(),4);
         layoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
@@ -151,11 +152,11 @@ public StoreFragment(){
         dialogo.show(getChildFragmentManager(), "dialogo_categorias");
     }
     public ArrayList<Producto> getListaProductos(){
-        datosTienda.add(new Producto("Lengua", "Frescos", "3", R.drawable.ic_launcher_foreground, "descripcion"));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3", R.drawable.ic_tienda, "descripcisaon"));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3", R.drawable.ic_tienda, "descrasipcion"));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3", R.drawable.ic_tienda, "descrisapcion"));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3", R.drawable.ic_tienda, "descripcion"));
+        datosTienda.add(new Producto("Arroz", "Legumbres", "3", R.drawable.arroz, "Arroz a granel de Andalucia"));
+        datosTienda.add(new Producto("Coca Cola", "Bebidas", "3", R.drawable.cocacola, "CocaCola de 2L"));
+        datosTienda.add(new Producto("Hamburguesa", "Carnes", "3", R.drawable.hamburguesa, "Hamburgesa de carne vacuno"));
+        datosTienda.add(new Producto("Lentejas", "Legumbres", "3", R.drawable.lentejas, "Lentejas a granel de Andalucia"));
+        datosTienda.add(new Producto("Salmon", "Pescado", "3", R.drawable.salmon, "Salmon fresco. Origen Noruega."));
         datosTienda.add(new Producto("Pollo", "Frescos", "3", R.drawable.ic_tienda, "descripcion"));
         datosTienda.add(new Producto("Pollo", "Frescos", "3", R.drawable.ic_tienda, "descripcion"));
         datosTienda.add(new Producto("Pollo", "Frescos", "3", R.drawable.ic_tienda, "descripcion"));
