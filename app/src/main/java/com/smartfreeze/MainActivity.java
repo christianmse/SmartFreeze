@@ -3,12 +3,21 @@ package com.smartfreeze;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+
 import androidx.lifecycle.MutableLiveData;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+
+import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.annotation.SuppressLint;
+
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Adapter;
@@ -33,19 +42,27 @@ public class MainActivity extends AppCompatActivity implements IPrincipalListene
     RelativeLayout notificacionesLayout;
     NotificacionesAdapter adapter;
     RecyclerView recyclerView;
+
     String texto;
     TextView textViewBebida;
     public static MutableLiveData<String> mText = new MutableLiveData<>();
 
+    public static BottomNavigationView bottomNavigationView;
+    public static FragmentManager fm;
+
+
+
+    @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        fm = getSupportFragmentManager();
         if(savedInstanceState == null){
-            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout_main, new PrincipalOpcion()).commit();
+            fm.beginTransaction().replace(R.id.frameLayout_main, new PrincipalOpcion()).commit();
         }
         notificacionesLayout = findViewById(R.id.notificaciones_layout);
-        BottomNavigationView bottomNavigationView = findViewById(R.id.nav_bar);
+        bottomNavigationView = findViewById(R.id.nav_bar);
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
 
         recyclerView = findViewById(R.id.recycler_principal);
@@ -130,5 +147,13 @@ public class MainActivity extends AppCompatActivity implements IPrincipalListene
     }
 
 
+    public static void replaceFragmentNoBottomNavigation(Fragment fragment){
+
+        fm.beginTransaction().replace(R.id.frameLayout_main2, fragment)
+                .addToBackStack(null)
+                .commit();
+        bottomNavigationView.setVisibility(View.GONE);
+
+    }
 
 }

@@ -1,78 +1,128 @@
 package com.smartfreeze.ui.adapter;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.smartfreeze.R;
-import com.smartfreeze.domain.ItemStore;
+import com.smartfreeze.domain.Producto;
+import com.smartfreeze.ui.IStoreListener;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
-public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.MyViewHolder> {
+public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> implements Filterable {
+    private ArrayList<Producto> listaProductos;
+    private ArrayList<Producto> listaProductosAll;
+    IStoreListener listener;
+    private Context context;
 
-    private final ArrayList<ItemStore> mArrayList;
-    private Context mContext;
+    Filter filter = new Filter() {
+        //run on background
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            ArrayList<Producto> filteredList = new ArrayList<>();
+            if(constraint.toString().isEmpty()){
+                filteredList.addAll(listaProductosAll);
+            } else{
+                for (Producto producto : listaProductosAll){
+                    if(producto.getNombre().toLowerCase().contains(constraint.toString().toLowerCase())){
+                        filteredList.add(producto);
+                    }
+                }
+            }
 
-    public StoreAdapter(ArrayList<ItemStore> mArrayList) {
-        this.mArrayList = mArrayList;
+            FilterResults filterResults = new FilterResults();
+            filterResults.values = filteredList;
+            return filterResults;
+        }
+        //run on ui thread
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results ) {
+            listaProductos.clear();
+            listaProductos.addAll((Collection<? extends Producto>) results.values);
+            notifyDataSetChanged();
+        }
+    };
+
+
+    public StoreAdapter(ArrayList<Producto> listaProductos, Context context, IStoreListener listener) {
+        this.context = context;
+        this.listaProductos = listaProductos;
+        this.listaProductosAll = new ArrayList<>(listaProductos);
+        this.listener = listener;
     }
 
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        mContext = parent.getContext();
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_store, parent, false);
-        return new MyViewHolder(view);
+    public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View vista = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_store,parent,false);
+        Holder holder = new Holder(vista);
+        return holder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull Holder holder, final int position) {
+        String titulo = listaProductos.get(position).getNombre();
+        String categoria = listaProductos.get(position).getCategorioa();
+        String precio = listaProductos.get(position).getPrecio();
+        String descripcion = listaProductos.get(position).getDescripcion();
+        int drawable = listaProductos.get(position).getDrawable();
+        Drawable img = context.getResources().getDrawable(drawable);
 
-        Glide.with(mContext)
-                .load(mArrayList.get(position).getAppImage())
-                .into(holder.iv_app_item);
+        holder.imagen.setImageDrawable(img);
+        holder.titulo.setText(titulo);
+        holder.categoria.setText(categoria);
+        holder.precio.setText(precio);
+        holder.descripcion.setText(descripcion);
 
-        holder.tv_app_item_number.setText(String.valueOf(position + 1));
-        holder.tv_app_name.setText(mArrayList.get(position).getAppName());
-        holder.tv_app_developer.setText(mArrayList.get(position).getAppDeveloper());
-
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.clickProducto(listaProductos.get(position));
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return mArrayList.size();
+        return listaProductos.size();
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder {
-        private final ImageView iv_app_item;
-        private final TextView tv_app_item_number;
-        private final TextView tv_app_name;
-        private final TextView tv_app_developer;
-        private ImageButton add;
-        private ImageButton remove;
-        private TextView unidades;
+    @Override
+    public Filter getFilter() {
+        return filter;
+    }
 
 
 
-        MyViewHolder(View view) {
-            super(view);
 
-            iv_app_item = view.findViewById(R.id.iv_app_item);
-            tv_app_item_number = view.findViewById(R.id.tv_app_item_number);
-            tv_app_name = view.findViewById(R.id.tv_app_name);
-            tv_app_developer = view.findViewById(R.id.tv_app_developer);
-            add =view.findViewById(R.id.add);
-            remove = view.findViewById(R.id.remove);
-            unidades = view.findViewById(R.id.unidades);
+    public static class Holder extends RecyclerView.ViewHolder{
+        private TextView titulo;
+        private TextView descripcion;
+        private TextView categoria;
+        private TextView precio;
+        private ImageView imagen;
+
+
+        public Holder(@NonNull View itemView) {
+            super(itemView);
+            titulo = (TextView) itemView.findViewById(R.id.titleText);
+            descripcion = itemView.findViewById(R.id.productDescription);
+            categoria = itemView.findViewById(R.id.productCategoria);
+            precio = itemView.findViewById(R.id.price);
+            imagen = itemView.findViewById(R.id.image);
 
         }
     }

@@ -4,14 +4,15 @@
 
 
     <item
+        android:id="@+id/navigation_principal"
+        android:icon="@drawable/ic_principal"
+        android:title="Menu Principal" />
+    <item
         android:id="@+id/navigation_tienda"
         android:icon="@drawable/ic_tienda"
         android:title="Tienda" />
 
-    <item
-        android:id="@+id/navigation_principal"
-        android:icon="@drawable/ic_principal"
-        android:title="Menu Principal" />
+
 
     <item
         android:id="@+id/navigation_ajustes"
