@@ -3,6 +3,8 @@ package com.smartfreeze.ui.adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,27 +48,20 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CHolder> {
     @Override
     public void onBindViewHolder(@NonNull final CHolder holder, int position) {
         String titulo = data.get(position).getNombre();
-        String precio = data.get(position).getPrecio();
+        final String precio = data.get(position).getPrecio();
         int drawable = data.get(position).getDrawable();
         Drawable img = context.getResources().getDrawable(drawable);
+        int cantidad =  data.get(position).getCantidad();
+        String cantidadText = String.valueOf(cantidad);
+
+        holder.cantidad.setText(cantidadText, TextView.BufferType.EDITABLE);
 
         //holder.btnOpcion.setCompoundDrawablesWithIntrinsicBounds(img,null,null,null);
         holder.imageView.setImageDrawable(img);
         holder.titulo.setText(titulo);
         holder.precio.setText(precio);
+        
 
-        String cantidadIntroducida = holder.cantidad.getText().toString();
-        cantidad.setValue(cantidadIntroducida);
-
-        final Observer<String> observer = new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String texto) {
-                //Update the textview that holds the score
-                holder.precioObserver.setText(texto);
-            }
-        };
-
-        cantidad.observe((LifecycleOwner) actividad, observer);
     }
 
     @Override

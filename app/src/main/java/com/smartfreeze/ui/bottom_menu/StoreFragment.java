@@ -151,14 +151,14 @@ public StoreFragment(){
         dialogo.show(getChildFragmentManager(), "dialogo_categorias");
     }
     public ArrayList<Producto> getListaProductos(){
-        datosTienda.add(new Producto("Lengua", "Frescos", "3$", R.drawable.ic_launcher_foreground, "descripcion"));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcisaon"));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descrasipcion"));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descrisapcion"));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcion"));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcion"));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcion"));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcion"));
+        datosTienda.add(new Producto("Lengua", "Frescos", "3", R.drawable.ic_launcher_foreground, "descripcion"));
+        datosTienda.add(new Producto("Pollo", "Frescos", "3", R.drawable.ic_tienda, "descripcisaon"));
+        datosTienda.add(new Producto("Pollo", "Frescos", "3", R.drawable.ic_tienda, "descrasipcion"));
+        datosTienda.add(new Producto("Pollo", "Frescos", "3", R.drawable.ic_tienda, "descrisapcion"));
+        datosTienda.add(new Producto("Pollo", "Frescos", "3", R.drawable.ic_tienda, "descripcion"));
+        datosTienda.add(new Producto("Pollo", "Frescos", "3", R.drawable.ic_tienda, "descripcion"));
+        datosTienda.add(new Producto("Pollo", "Frescos", "3", R.drawable.ic_tienda, "descripcion"));
+        datosTienda.add(new Producto("Pollo", "Frescos", "3", R.drawable.ic_tienda, "descripcion"));
         return datosTienda;
     }
 
