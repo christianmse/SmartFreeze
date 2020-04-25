@@ -34,7 +34,7 @@ public class ListadoBebidas extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listado_bebidas);
-
+        setListaBebidas();
         recyclerView = findViewById(R.id.recycler_tienda);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new AjustesAdapter(getListaBebidas(), this);
@@ -61,15 +61,13 @@ public class ListadoBebidas extends Activity {
 
 //          Creacion de las bebidas
     public ArrayList<Ajustes> getListaBebidas(){
+        return datosBebidas;
+    }
+    public void setListaBebidas(){
         datosBebidas.add(new Ajustes("   Agua", R.drawable.water));
         datosBebidas.add(new Ajustes("   Cerveza", R.drawable.water));
         datosBebidas.add(new Ajustes("   Fanta", R.drawable.water));
         datosBebidas.add(new Ajustes("   Cocacola", R.drawable.water));
         datosBebidas.add(new Ajustes("   Agua con gas", R.drawable.water));
-
-        return datosBebidas;
     }
-
-
-
 }
