@@ -27,8 +27,6 @@ public class AjustesOpcion extends Fragment {
     AjustesAdapter adapter;
     AjustesAdapter adapter2;
 
-    private ArrayList<Ajustes> datosAjustes = new ArrayList<>();
-    private ArrayList<Ajustes> datosAjustes2 = new ArrayList<>();
 
     @Nullable
     @Override
@@ -36,21 +34,14 @@ public class AjustesOpcion extends Fragment {
         return inflater.inflate(R.layout.opcion_ajustes,container,false);
     }
 
+
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        recyclerView = view.findViewById(R.id.recycler_ajustes);
-        //recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter = new AjustesAdapter(getListaAjustes(), getContext());
-
-        adapter2 = new AjustesAdapter(getDatosAjustes2(), getContext());
-        recyclerView.setAdapter(adapter);
-
     }
 
-    public ArrayList<Ajustes> getDatosAjustes2(){
+/*    public ArrayList<Ajustes> getDatosAjustes2(){
         datosAjustes2.add(new Ajustes("   Envio de factura a tu correo electrónico", R.drawable.ic_alarm));
         datosAjustes2.add(new Ajustes("   Notificaciones", R.drawable.ic_alarm));
         return datosAjustes2;
@@ -60,10 +51,10 @@ public class AjustesOpcion extends Fragment {
 
 
     public ArrayList<Ajustes> getListaAjustes(){
-                datosAjustes.add(new Ajustes("   Contacta con el servicio técnico", R.drawable.ic_alarm));
-                datosAjustes.add(new Ajustes("   Cambiar método de pago", R.drawable.ic_alarm));
-                datosAjustes.add(new Ajustes("   Cambiar correo electrónico", R.drawable.ic_alarm));
+        datosAjustes.add(new Ajustes("   Contacta con el servicio técnico", R.drawable.ic_alarm));
+        datosAjustes.add(new Ajustes("   Cambiar método de pago", R.drawable.ic_alarm));
+        datosAjustes.add(new Ajustes("   Cambiar correo electrónico", R.drawable.ic_alarm));
 
-                return datosAjustes;
-    }
+        return datosAjustes;
+    }*/
 }

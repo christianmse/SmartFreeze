@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -29,23 +31,17 @@ public class AjustesAdapter extends RecyclerView.Adapter<AjustesAdapter.AjustesV
 
     @Override
     public int getItemViewType(int position) {
-        // Just as an example, return 0 or 2 depending on position
-        // Note that unlike in ListView adapters, types don't have to be contiguous
-        return position % 2 * 2;
+        return data.size();
     }
 
     @NonNull
     @Override
     public AjustesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View vista = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_ajuste, parent,false);
-        View vista2 = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_ajuste_activable, parent,false);
+        View vista = LayoutInflater.from(parent.getContext()).inflate(R.layout.opcion_ajustes, parent,false);
         AjustesViewHolder holder = new AjustesViewHolder(vista);
-        AjustesViewHolder holder2 = new AjustesViewHolder(vista);
-        if (viewType == 0) return holder;
-        else return holder2;
+        return holder;
+
     }
-
-
 
     @Override
     public void onBindViewHolder(@NonNull AjustesViewHolder holder, int position) {
@@ -55,8 +51,6 @@ public class AjustesAdapter extends RecyclerView.Adapter<AjustesAdapter.AjustesV
         holder.btnOpcion.setText(nombre);
         holder.imageView.setImageDrawable(img);
     }
-
-
 
     @Override
     public int getItemCount() {
@@ -68,10 +62,17 @@ public class AjustesAdapter extends RecyclerView.Adapter<AjustesAdapter.AjustesV
     public static class AjustesViewHolder extends RecyclerView.ViewHolder{
         private TextView btnOpcion;
         private ImageView imageView;
+        private Switch switchView;
         public AjustesViewHolder(@NonNull View itemView) {
             super(itemView);
             btnOpcion = (TextView) itemView.findViewById(R.id.btn_ajuste);
             imageView = (ImageView) itemView.findViewById(R.id.imageAjuste);
+        }
+        public AjustesViewHolder(@NonNull View itemView, Switch switchView) {
+            super(itemView);
+            btnOpcion = (TextView) itemView.findViewById(R.id.btn_ajuste);
+            imageView = (ImageView) itemView.findViewById(R.id.imageAjuste);
+            switchView = this.switchView.findViewById(R.id.switch1);
         }
     }
 
