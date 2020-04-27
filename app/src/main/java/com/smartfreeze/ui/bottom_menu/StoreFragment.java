@@ -151,17 +151,6 @@ public StoreFragment(){
         DialogFragment dialogo = new MyDialog(this);
         dialogo.show(getChildFragmentManager(), "dialogo_categorias");
     }
-    public ArrayList<Producto> getListaProductos(){
-        datosTienda.add(new Producto("Arroz", "Legumbres", "3", R.drawable.arroz, "Arroz a granel de Andalucia"));
-        datosTienda.add(new Producto("Coca Cola", "Bebidas", "3", R.drawable.cocacola, "CocaCola de 2L"));
-        datosTienda.add(new Producto("Hamburguesa", "Carnes", "3", R.drawable.hamburguesa, "Hamburgesa de carne vacuno"));
-        datosTienda.add(new Producto("Lentejas", "Legumbres", "3", R.drawable.lentejas, "Lentejas a granel de Andalucia"));
-        datosTienda.add(new Producto("Salmon", "Pescado", "3", R.drawable.salmon, "Salmon fresco. Origen Noruega."));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3", R.drawable.ic_tienda, "descripcion"));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3", R.drawable.ic_tienda, "descripcion"));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3", R.drawable.ic_tienda, "descripcion"));
-        return datosTienda;
-    }
 
     @Override
     public void clickProducto(Producto producto) {
@@ -181,7 +170,28 @@ public StoreFragment(){
 
     @Override
     public void categoriasSelected(List<String> selectedItems) {
-        Toast.makeText(getContext(),selectedItems.toString(),Toast.LENGTH_SHORT).show();
+        ArrayList<Producto> todosProductos = Datos.getInstance().getDatos();
+        ArrayList<Producto> productosFiltrdos = new ArrayList<>(todosProductos.size());
+        Producto aux = new Producto();
+        for(int i=0; i<todosProductos.size(); i++){
+            aux = todosProductos.get(i);
+            for (int j=0; j<selectedItems.size();j++){
+                if(aux.getCategorioa().equals(selectedItems.get(j))){
+                   productosFiltrdos.add(aux);
+                }
+            }
 
+        }
+        StoreAdapter nuevo = new StoreAdapter(productosFiltrdos, getContext(), this);
+        recyclerView.setAdapter(nuevo);
+        adapter.notifyDataSetChanged();
+
+    }
+
+    @Override
+    public void categoriasSelectedTodas(ArrayList<Producto> datos) {
+        StoreAdapter nuevo = new StoreAdapter(datos, getContext(), this);
+        recyclerView.setAdapter(nuevo);
+        adapter.notifyDataSetChanged();
     }
 }

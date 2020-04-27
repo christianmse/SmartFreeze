@@ -22,6 +22,10 @@ public class Producto implements Parcelable {
 
     }
 
+    public Producto(){
+
+    }
+
     public void setCantidad(int cantidad){
         this.cantidad = cantidad;
     }
