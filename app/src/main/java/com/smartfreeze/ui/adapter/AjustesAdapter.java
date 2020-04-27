@@ -1,10 +1,13 @@
 package com.smartfreeze.ui.adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Switch;
@@ -23,6 +26,7 @@ public class AjustesAdapter extends RecyclerView.Adapter<AjustesAdapter.AjustesV
     private ArrayList<Ajustes> data;
     private Context context;
     private int posicion;
+    private Switch simpleSwitch1, simpleSwitch2;
 
     public AjustesAdapter(ArrayList<Ajustes> data, Context context){
         this.data = data;
@@ -50,6 +54,7 @@ public class AjustesAdapter extends RecyclerView.Adapter<AjustesAdapter.AjustesV
         Drawable img = context.getResources().getDrawable(drawable);
         holder.btnOpcion.setText(nombre);
         holder.imageView.setImageDrawable(img);
+
     }
 
     @Override
@@ -63,17 +68,14 @@ public class AjustesAdapter extends RecyclerView.Adapter<AjustesAdapter.AjustesV
         private TextView btnOpcion;
         private ImageView imageView;
         private Switch switchView;
+
         public AjustesViewHolder(@NonNull View itemView) {
             super(itemView);
-            btnOpcion = (TextView) itemView.findViewById(R.id.btn_ajuste);
-            imageView = (ImageView) itemView.findViewById(R.id.imageAjuste);
+            btnOpcion = itemView.findViewById(R.id.btn_ajuste);
+            imageView = itemView.findViewById(R.id.imageAjuste);
+            switchView = itemView.findViewById(R.id.switch1);
         }
-        public AjustesViewHolder(@NonNull View itemView, Switch switchView) {
-            super(itemView);
-            btnOpcion = (TextView) itemView.findViewById(R.id.btn_ajuste);
-            imageView = (ImageView) itemView.findViewById(R.id.imageAjuste);
-            switchView = this.switchView.findViewById(R.id.switch1);
-        }
+
     }
 
     public void setPosicion(int posicion){

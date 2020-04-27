@@ -1,10 +1,17 @@
 package com.smartfreeze.ui.bottom_menu;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.RelativeLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -22,11 +29,9 @@ import org.adw.library.widgets.discreteseekbar.DiscreteSeekBar;
 import java.util.ArrayList;
 
 public class AjustesOpcion extends Fragment {
-
-    RecyclerView recyclerView;
-    AjustesAdapter adapter;
-    AjustesAdapter adapter2;
-
+    Switch Switch1, Switch2;
+    TextView text1, text3;
+    RelativeLayout elem1, elem2, elem3;
 
     @Nullable
     @Override
@@ -37,17 +42,97 @@ public class AjustesOpcion extends Fragment {
 
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        text1 = view.findViewById(R.id.btn_ajusteS1);
+        text3 = view.findViewById(R.id.btn_ajuste3);
+
+        Switch1 = view.findViewById(R.id.switch1);
+        Switch2 = view.findViewById(R.id.switch2);
+
+        elem1 = view.findViewById(R.id.elem1);
+        elem2 = view.findViewById(R.id.elem2);
+        elem3 = view.findViewById(R.id.elem3);
+
+        Switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    Log.d("switch-prueba", "Activo");
+                    elem3.setVisibility(elem3.VISIBLE);
+                    elem3.animate().translationY(elem3.getHeight());
+                }else{
+                    Log.d("switch-prueba", "desactivado");
+                    elem3.setVisibility(elem3.GONE);
+                    elem3.animate().alpha(0.0f);
+                }
+            }
+        });
+        Switch2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    Log.d("switch-prueba", "Activo");
+                }else{
+                    Log.d("switch-prueba", "desactivado");
+                }
+            }
+        });
+        elem3.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v){
+                Log.d("elem3-prueba", "Activo");
+
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getContext());
+                final EditText et = new EditText(getContext());
+                // set prompts.xml to alertdialog builder
+                alertDialogBuilder.setView(et);
+
+                // set dialog message
+                alertDialogBuilder.setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        text3.setText("Cambiar correo electrónico\n(Actualmente usted usa: "+ et.getText().toString() +")");
+                    }
+                });
+                // create alert dialog
+                AlertDialog alertDialog = alertDialogBuilder.create();
+
+                // show it
+                alertDialog.show();
+            }
+        });
+
+/*        if(view.getId()==R.id.switch1){
+            if(Switch1.isChecked()){
+                text1.setText("Fue activado");
+*//*              AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getContext());
+                final EditText et = new EditText(getContext());
+                // set prompts.xml to alertdialog builder
+                alertDialogBuilder.setView(et);
+
+                // set dialog message
+                alertDialogBuilder.setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                    }
+                });
+                // create alert dialog
+                AlertDialog alertDialog = alertDialogBuilder.create();
+
+                // show it
+                alertDialog.show();*//*
+                }
+
+            }*/
+
     }
+
 
 /*    public ArrayList<Ajustes> getDatosAjustes2(){
         datosAjustes2.add(new Ajustes("   Envio de factura a tu correo electrónico", R.drawable.ic_alarm));
         datosAjustes2.add(new Ajustes("   Notificaciones", R.drawable.ic_alarm));
         return datosAjustes2;
     }
-
-
 
 
     public ArrayList<Ajustes> getListaAjustes(){
