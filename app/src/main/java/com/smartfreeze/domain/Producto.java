@@ -8,9 +8,10 @@ public class Producto implements Parcelable {
     private String nombre;
     private String categoria;
     private String precio;
+    private String caducidad;
     private int drawable;
     private String descripcion;
-    int cantidad;
+    int cantidad, cajon;
 
     public Producto(String nombre, String categoria, String precio, int drawable, String descripcion){
         this.categoria = categoria;
@@ -20,6 +21,17 @@ public class Producto implements Parcelable {
         this.descripcion = descripcion;
         this.cantidad =0 ;
 
+    }
+
+    public Producto(String nombre, String categoria, String precio, int drawable, String descripcion, String caducidad, int cajon){
+        this.categoria = categoria;
+        this.nombre = nombre;
+        this.precio = precio;
+        this.drawable = drawable;
+        this.descripcion = descripcion;
+        this.cantidad =0 ;
+        this.caducidad = caducidad;
+        this.cajon = cajon;
     }
 
     public Producto(){
@@ -110,4 +122,12 @@ public class Producto implements Parcelable {
             return new Producto[size];
         }
     };
+
+    public String getCaducidad() {
+        return caducidad;
+    }
+
+    public void setCaducidad(String caducidad) {
+        this.caducidad = caducidad;
+    }
 }

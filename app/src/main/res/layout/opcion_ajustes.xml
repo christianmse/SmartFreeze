@@ -248,6 +248,7 @@ xmlns:tools="http://schemas.android.com/tools"
             android:layout_height="wrap_content"
             android:clickable="true"
             android:padding="16dp"
+            tools:visibility="visible"
             android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@+id/elem2">>
 

@@ -45,9 +45,13 @@ public class DespensaAdapter extends RecyclerView.Adapter<DespensaAdapter.Tienda
         String subtitulo = listaProductos.get(position).getCategorioa();
         String precio = listaProductos.get(position).getPrecio();
         String descripcion = listaProductos.get(position).getDescripcion();
+        String caducidad = listaProductos.get(position).getCaducidad();
+        int cantidad = listaProductos.get(position).getCantidad();
         int drawable = listaProductos.get(position).getDrawable();
         Drawable img = context.getResources().getDrawable(drawable);
 
+        holder.cantidad.setText(String.valueOf(cantidad));
+        holder.caducidad.setText(caducidad);
         holder.imagen.setImageDrawable(img);
         holder.titulo.setText(titulo);
         holder.subtitulo.setText(subtitulo);
@@ -71,7 +75,7 @@ public class DespensaAdapter extends RecyclerView.Adapter<DespensaAdapter.Tienda
     public static class TiendaViewHolder extends RecyclerView.ViewHolder{
         private TextView titulo;
         private TextView subtitulo;
-        private TextView expanded_text;
+        private TextView expanded_text, caducidad, cantidad;
         private ImageView imagen;
         private Button accion1, accion2;
         private ImageButton btn_expand;
@@ -81,6 +85,8 @@ public class DespensaAdapter extends RecyclerView.Adapter<DespensaAdapter.Tienda
             titulo = (TextView) itemView.findViewById(R.id.primary_text);
             subtitulo = itemView.findViewById(R.id.sub_text);
             expanded_text = itemView.findViewById(R.id.supporting_text);
+            caducidad = itemView.findViewById(R.id.supporting_text2);
+            cantidad = itemView.findViewById(R.id.supporting_text3);
             imagen = itemView.findViewById(R.id.media_image);
             accion1 = itemView.findViewById(R.id.action_button_1);
             accion2= itemView.findViewById(R.id.action_button_2);

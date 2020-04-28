@@ -21,6 +21,7 @@ import com.smartfreeze.R;
 import com.smartfreeze.domain.Producto;
 import com.smartfreeze.ui.adapter.DespensaAdapter;
 import com.smartfreeze.util.Datos;
+import com.smartfreeze.util.Stock;
 
 import java.util.ArrayList;
 
@@ -46,24 +47,12 @@ public class DespensaOpcion extends Fragment implements IDespensaListener {
         layoutManager = new GridLayoutManager(requireContext(), 2);
         layoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new DespensaAdapter(Datos.getInstance().getDatos(), getContext(), this);
+        adapter = new DespensaAdapter(Stock.getInstance().getDatos(), getContext(), this);
         recyclerView.setAdapter(adapter);
         rl = (ConstraintLayout) view.findViewById(R.id.myLayout);
     }
 
-    public ArrayList<Producto> getListaProductos(){
-        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcion"));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcion"));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcion"));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcion"));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcion"));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcion"));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcion"));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3$", R.drawable.ic_tienda, "descripcion"));
 
-
-        return datosTienda;
-    }
 
     @Override
     public void accion2() {
