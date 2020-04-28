@@ -10,12 +10,11 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/Aceptar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:focusableInTouchMode="true">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/holderNameInputLayout"
-            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="45dp"
@@ -23,6 +22,7 @@
             android:layout_marginEnd="45dp"
             android:animateLayoutChanges="true"
             android:hint="Titular de la tarjeta"
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar"
             app:hintTextAppearance="@style/HintTextAppearance"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -170,6 +170,7 @@
             android:layout_marginTop="48dp"
             android:layout_marginEnd="45dp"
             android:enabled="false"
+            android:clickable="true"
             android:text="Aceptar esta tarjeta"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -182,7 +183,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="8dp"
-            android:text="Aceptada"
+            android:text="Aceptamos"
             android:textAllCaps="true"
             android:textColor="@color/textColorSecondary"
             android:textSize="12sp"
@@ -195,6 +196,7 @@
             android:id="@+id/visa"
             style="@style/AcceptedCardLogo"
             android:src="@drawable/ic_visa"
+            android:visibility="visible"
             app:layout_constraintEnd_toStartOf="@+id/amex"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
@@ -204,6 +206,7 @@
             android:id="@+id/amex"
             style="@style/AcceptedCardLogo"
             android:src="@drawable/ic_amex"
+            android:visibility="visible"
             app:layout_constraintEnd_toStartOf="@+id/masterCard"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/visa"
@@ -213,6 +216,7 @@
             android:id="@+id/masterCard"
             style="@style/AcceptedCardLogo"
             android:src="@drawable/ic_master_card"
+            android:visibility="visible"
             app:layout_constraintEnd_toStartOf="@+id/discover"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/amex"
@@ -222,6 +226,7 @@
             android:id="@+id/discover"
             style="@style/AcceptedCardLogo"
             android:src="@drawable/ic_discover"
+            android:visibility="visible"
             app:layout_constraintEnd_toStartOf="@+id/jcb"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/masterCard"
@@ -231,6 +236,7 @@
             android:id="@+id/jcb"
             style="@style/AcceptedCardLogo"
             android:src="@drawable/ic_jcb_card"
+            android:visibility="visible"
             app:layout_constraintEnd_toStartOf="@+id/dc"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/discover"
@@ -240,17 +246,33 @@
             android:id="@+id/dc"
             style="@style/AcceptedCardLogo"
             android:src="@drawable/ic_dc_card"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/jcb"
             app:layout_constraintTop_toBottomOf="@+id/weAcceptLabel" />
 
         <Space
+            android:id="@+id/space2"
             android:layout_width="wrap_content"
-            android:layout_height="20dp"
+            android:layout_height="300dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dc" />
+
+        <TextView
+            android:id="@+id/textoMostrarTarjeta"
+            android:layout_width="413dp"
+            android:layout_height="104dp"
+            android:text="Tarjeta de crédito actual:\n"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="30sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/space2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/weAcceptLabel" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
