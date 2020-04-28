@@ -2,6 +2,7 @@ package com.smartfreeze.ui.bottom_menu;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,6 +21,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.smartfreeze.CambioTarjetaPago;
 import com.smartfreeze.R;
 import com.smartfreeze.domain.Ajustes;
 import com.smartfreeze.ui.adapter.AjustesAdapter;
@@ -32,6 +34,7 @@ public class AjustesOpcion extends Fragment {
     Switch Switch1, Switch2;
     TextView text1, text3;
     RelativeLayout elem1, elem2, elem3;
+
 
     @Nullable
     @Override
@@ -54,6 +57,18 @@ public class AjustesOpcion extends Fragment {
         elem2 = view.findViewById(R.id.elem2);
         elem3 = view.findViewById(R.id.elem3);
 
+
+
+
+        final Intent intent = new Intent(view.getContext(), CambioTarjetaPago.class);
+        //A LA PLATAFORMA DE CAMBIO DE TARJETA
+        elem2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                getActivity().startActivity(intent);
+            }
+        });
+        //AÑADE EL BOTÓN DE CAMBIO DE CORREO ELECTRÓNICO
         Switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -68,6 +83,7 @@ public class AjustesOpcion extends Fragment {
                 }
             }
         });
+        //ACTIVAR NOTIFICACIONES
         Switch2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -78,6 +94,7 @@ public class AjustesOpcion extends Fragment {
                 }
             }
         });
+        //INTRODUCCION CORREO ELECTRONICO
         elem3.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -85,7 +102,9 @@ public class AjustesOpcion extends Fragment {
                 Log.d("elem3-prueba", "Activo");
 
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getContext());
+                
                 final EditText et = new EditText(getContext());
+
                 // set prompts.xml to alertdialog builder
                 alertDialogBuilder.setView(et);
 
