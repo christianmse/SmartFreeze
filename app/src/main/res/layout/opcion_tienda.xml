@@ -22,6 +22,7 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimaryDark"
+            app:title="Consulta todas tus mercancias"
             >
 
             <androidx.appcompat.widget.Toolbar
@@ -29,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                app:title="Tienda"
+                app:title="Despensa"
                 app:layout_collapseMode="pin"/>
 
 
@@ -45,6 +46,7 @@
         <!--        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"-->
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/myLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -53,12 +55,12 @@
                 android:id="@+id/recycler_tienda"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior"
-                tools:ignore="MissingConstraints"
                 android:clickable="true"
-                android:layout_marginBottom="30dp"
-                tools:listitem="@layout/item_ajuste"
-                android:scrollbars="vertical" />
+                android:scrollbars="vertical"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:listitem="@layout/item_ajuste" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

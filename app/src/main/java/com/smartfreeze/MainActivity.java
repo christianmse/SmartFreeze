@@ -11,17 +11,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 
 import androidx.fragment.app.FragmentManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Adapter;
-import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,8 +28,7 @@ import com.smartfreeze.ui.adapter.NotificacionesAdapter;
 import com.smartfreeze.ui.bottom_menu.AjustesOpcion;
 import com.smartfreeze.ui.bottom_menu.PrincipalOpcion;
 import com.smartfreeze.ui.bottom_menu.StoreFragment;
-import com.smartfreeze.ui.bottom_menu.TiendaOpcion;
-import com.smartfreeze.ui.fragments.DispensadorTab;
+import com.smartfreeze.ui.bottom_menu.DespensaOpcion;
 
 import java.util.ArrayList;
 
@@ -103,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements IPrincipalListene
                             break;
 
                         case R.id.navigation_tienda:
-                            fragment = new TiendaOpcion();
+                            fragment = new DespensaOpcion();
                             //notificacionesLayout.setVisibility(View.GONE);
                             break;
 

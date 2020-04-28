@@ -190,8 +190,8 @@ public StoreFragment(){
 
     @Override
     public void categoriasSelectedTodas(ArrayList<Producto> datos) {
-        StoreAdapter nuevo = new StoreAdapter(datos, getContext(), this);
+        /*StoreAdapter nuevo = new StoreAdapter(datos, getContext(), this);
         recyclerView.setAdapter(nuevo);
-        adapter.notifyDataSetChanged();
+        adapter.notifyDataSetChanged();*/
     }
 }

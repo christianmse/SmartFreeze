@@ -41,7 +41,7 @@ public class AjustesAdapter extends RecyclerView.Adapter<AjustesAdapter.AjustesV
     @NonNull
     @Override
     public AjustesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View vista = LayoutInflater.from(parent.getContext()).inflate(R.layout.opcion_ajustes, parent,false);
+        View vista = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_ajuste, parent,false);
         AjustesViewHolder holder = new AjustesViewHolder(vista);
         return holder;
 

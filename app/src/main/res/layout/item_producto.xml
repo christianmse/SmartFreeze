@@ -83,7 +83,7 @@
             android:minWidth="0dp"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
-            android:text="Accion1"
+            android:text="Descongelar"
             android:textColor="@color/colorPrimaryTextDefaultMaterialLight"
             app:layout_constraintTop_toTopOf="@+id/action_button_1"
             app:layout_constraintStart_toEndOf="@+id/action_button_1" />

@@ -13,21 +13,21 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.smartfreeze.IDespensaListener;
 import com.smartfreeze.R;
-import com.smartfreeze.domain.Ajustes;
 import com.smartfreeze.domain.Producto;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
-public class TiendaAdapter extends RecyclerView.Adapter<TiendaAdapter.TiendaViewHolder> {
+public class DespensaAdapter extends RecyclerView.Adapter<DespensaAdapter.TiendaViewHolder> {
     private ArrayList<Producto> listaProductos;
     private Context context;
+    IDespensaListener listener;
 
 
-    public TiendaAdapter(ArrayList<Producto> listaProductos, Context context) {
+    public DespensaAdapter(ArrayList<Producto> listaProductos, Context context, IDespensaListener listener) {
         this.context = context;
+        this.listener = listener;
         this.listaProductos = listaProductos;
     }
 
@@ -53,6 +53,12 @@ public class TiendaAdapter extends RecyclerView.Adapter<TiendaAdapter.TiendaView
         holder.subtitulo.setText(subtitulo);
         holder.expanded_text.setText(descripcion);
 
+        holder.accion2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.accion2();
+            }
+        });
 
     }
 

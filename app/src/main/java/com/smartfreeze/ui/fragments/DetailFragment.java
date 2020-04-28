@@ -64,7 +64,7 @@ public class DetailFragment extends DialogFragment {
         imagen.setImageDrawable(img);
         precio.setText(producto.getPrecio());
         titulo.setText(producto.getNombre());
-        description.setText(producto.getCategorioa());
+        description.setText(producto.getDescripcion());
         return v;
     }
 
