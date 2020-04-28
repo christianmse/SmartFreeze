@@ -18,10 +18,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.smartfreeze.CambioTarjetaPago;
+import com.smartfreeze.MainActivity;
 import com.smartfreeze.R;
 import com.smartfreeze.domain.Ajustes;
 import com.smartfreeze.ui.adapter.AjustesAdapter;
@@ -34,6 +37,7 @@ public class AjustesOpcion extends Fragment {
     Switch Switch1, Switch2;
     TextView text1, text3;
     RelativeLayout elem1, elem2, elem3;
+    public static MutableLiveData<String> correo = new MutableLiveData<>();
 
 
     @Nullable
@@ -57,8 +61,15 @@ public class AjustesOpcion extends Fragment {
         elem2 = view.findViewById(R.id.elem2);
         elem3 = view.findViewById(R.id.elem3);
 
+        final Observer<String> scoreObserver = new Observer<String>() {
+            @Override
+            public void onChanged(@Nullable String texto) {
+                //Update the textview that holds the score
+                text3.setText(texto);
+            }
+        };
 
-
+        AjustesOpcion.correo.observe(getActivity(), scoreObserver);
 
         final Intent intent = new Intent(view.getContext(), CambioTarjetaPago.class);
         //A LA PLATAFORMA DE CAMBIO DE TARJETA
@@ -75,11 +86,9 @@ public class AjustesOpcion extends Fragment {
                 if(isChecked){
                     Log.d("switch-prueba", "Activo");
                     elem3.setVisibility(elem3.VISIBLE);
-                    elem3.animate().translationY(elem3.getHeight());
                 }else{
                     Log.d("switch-prueba", "desactivado");
                     elem3.setVisibility(elem3.GONE);
-                    elem3.animate().alpha(0.0f);
                 }
             }
         });
@@ -102,8 +111,9 @@ public class AjustesOpcion extends Fragment {
                 Log.d("elem3-prueba", "Activo");
 
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getContext());
-                
+
                 final EditText et = new EditText(getContext());
+                correo.setValue(et.getText().toString());
 
                 // set prompts.xml to alertdialog builder
                 alertDialogBuilder.setView(et);

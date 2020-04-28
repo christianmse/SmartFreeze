@@ -7,6 +7,41 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="PrimaryButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/selector_primary_button</item>
+        <item name="android:textColor">@drawable/selector_primary_button_text</item>
+    </style>
+    <style name="AcceptedCardLogo">
+        <item name="android:layout_width">38dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:visibility">gone</item>
+    </style>
+    <style name="TextInputLayoutStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:theme">@style/TextInputLayout</item>
+    </style>
+    <style name="TextInputLayout" parent="@style/Widget.Design.TextInputLayout">
+        <item name="android:textColorHint">@color/textColorPrimary</item>
+        <item name="colorControlNormal">@color/textColorSecondary</item>
+        <item name="colorControlActivated">@color/textColorPrimary</item>
+        <item name="colorControlHighlight">@color/textColorPrimary</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
+    <style name="TextInputEditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="HintTextAppearance" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/textColorPrimary</item>
+        <item name="android:textSize">11sp</item>
+    </style>
 
     <style name="ButtonNoStyle" parent="Base.Widget.AppCompat.Button.Borderless.Colored">
         <item name="android:textColor">#FFFFFF</item>
