@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_height="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
 
     <androidx.appcompat.widget.Toolbar
@@ -16,11 +16,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_scrollFlags="scroll|enterAlways"
         app:popupTheme="@style/Base.Theme.AppCompat.Light"
-        app:title="Mi carrito"
+        app:title="CESTA DE COMPRA"
         app:titleTextColor="@color/white" />
 
 <RelativeLayout
     android:id="@+id/cesta_vacia"
+    tools:visibility="gone"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     app:layout_constraintBottom_toBottomOf="parent"
@@ -66,15 +67,95 @@
 
 </RelativeLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_cart"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+
+    <View
+        android:id="@+id/espacio"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:background="@color/colorBackgroundDarkTranslucent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cabecera"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@id/espacio"
 
+        >
+
+        <TextView
+            android:id="@+id/articulosTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textColorPrimary"
+            android:textStyle="bold"
+            android:textSize="23sp"
+            android:text="0"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textColorPrimary"
+            android:textStyle="bold"
+            android:textSize="23sp"
+            android:layout_marginStart="5dp"
+            android:text="artículos: "/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textColorPrimary"
+            android:textStyle="bold"
+            android:textSize="23sp"
+            android:text="Total "/>
+        <TextView
+            android:id="@+id/precioTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textColorPrimary"
+            android:textStyle="bold"
+            android:textSize="23sp"
+            android:text="0"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textColorPrimary"
+            android:textStyle="bold"
+            android:textSize="23sp"
+            android:text="$"/>
+
+
+
+    </LinearLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_cart"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/cartButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cabecera" />
+
+
+        <Button
+            android:id="@+id/cartButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/selector_accent_button"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Proceder a pagar"
+            android:textColor="@drawable/selector_accent_button_text"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
 
 

@@ -53,10 +53,11 @@ public class InicioPagerAdapter extends FragmentPagerAdapter {
 
         switch (position){
             case 0: nombre=
-                    ((DispensadorTab)fragmentList.get(position)).getNombre();
+                    ((NeveraTab)fragmentList.get(position)).getNombre();
             break;
             case 1: nombre =
-                    ((NeveraTab)fragmentList.get(position)).getNombre();
+
+                ((DispensadorTab)fragmentList.get(position)).getNombre();
             break;
 
             default: nombre="default";

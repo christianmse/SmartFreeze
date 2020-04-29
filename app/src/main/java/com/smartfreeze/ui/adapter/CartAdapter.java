@@ -53,14 +53,16 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CHolder> {
         Drawable img = context.getResources().getDrawable(drawable);
         int cantidad =  data.get(position).getCantidad();
         String cantidadText = String.valueOf(cantidad);
+        String precioTotal = String.valueOf(cantidad * Integer.parseInt(precio));
 
-        holder.cantidad.setText(cantidadText, TextView.BufferType.EDITABLE);
-
+        holder.precioObserver.setText(precioTotal);
+        holder.cantidad.setText(cantidadText);
         //holder.btnOpcion.setCompoundDrawablesWithIntrinsicBounds(img,null,null,null);
         holder.imageView.setImageDrawable(img);
         holder.titulo.setText(titulo);
         holder.precio.setText(precio);
-        
+
+
 
     }
 
@@ -72,9 +74,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CHolder> {
 
 
     public static class CHolder extends RecyclerView.ViewHolder{
-        private TextView precioObserver, precio, titulo;
+        private TextView precioObserver, precio, titulo, cantidad;
         private ImageView imageView;
-        EditText cantidad;
 
 
         public CHolder(@NonNull View itemView) {

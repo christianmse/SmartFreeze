@@ -58,7 +58,7 @@ public class ListadoComida extends AppCompatActivity implements View.OnCreateCon
         setDatosEstante3();
         setDatosBebidas();
 //      FIN
-        recyclerView = findViewById(R.id.recycler_tienda);
+        recyclerView = findViewById(R.id.recycler_listadoComida);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         Intent intent = getIntent();

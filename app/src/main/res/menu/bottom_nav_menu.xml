@@ -9,8 +9,8 @@
         android:title="Menu Principal" />
     <item
         android:id="@+id/navigation_tienda"
-        android:icon="@drawable/ic_tienda"
-        android:title="Tienda" />
+        android:icon="@drawable/ic_show_password_active"
+        android:title="Despensa" />
 
 
 

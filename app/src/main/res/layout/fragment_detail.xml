@@ -35,31 +35,54 @@
                 android:layout_height="match_parent">
             <ImageView
                 android:id="@+id/galleryContainer2"
-                android:layout_width="300dp"
-                android:layout_height="300dp"
+                android:layout_width="700dp"
+                android:layout_height="500dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                android:id="@+id/priceValue"
+            <LinearLayout
+                android:id="@+id/priceValue_lyt"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:orientation="horizontal"
                 android:layout_marginEnd="@dimen/horizontal_space"
                 android:layout_marginStart="@dimen/horizontal_space"
                 android:layout_marginTop="@dimen/vertical_space"
-                android:ellipsize="end"
-                android:lines="1"
-                android:textColor="@drawable/selector_text"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                android:text="Precio"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/galleryContainer" />
+                app:layout_constraintTop_toBottomOf="@+id/galleryContainer">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Precio: "
+                    android:textColor="@drawable/selector_text"
+                    android:textSize="17sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/priceValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:textColor="@drawable/selector_text"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:text="Precio"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$"
+                    android:layout_marginStart="4dp"
+                    android:textColor="@drawable/selector_text"
+                    android:textSize="17sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
 
             <TextView
                 android:id="@+id/productTitle"
@@ -71,7 +94,7 @@
                 android:textColor="@color/textColorPrimary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/priceValue" />
+                app:layout_constraintTop_toBottomOf="@+id/priceValue_lyt" />
 
 
 
