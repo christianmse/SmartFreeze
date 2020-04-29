@@ -82,6 +82,7 @@ public class PrincipalOpcion extends Fragment {
         tabLayout = view.findViewById(R.id.tablayout);
         viewPager = view.findViewById(R.id.pager);
         toolbar= view.findViewById(R.id.toolbar);
+        toolbar.setVisibility(View.GONE);
         pagerAdapter = new InicioPagerAdapter(getChildFragmentManager(), 2);
         setUpViewPager();
 
@@ -100,7 +101,8 @@ public class PrincipalOpcion extends Fragment {
 
     private void setUpViewPager(){
 
-        pagerAdapter.addFragments(new DispensadorTab("DISPENSADOR"));
         pagerAdapter.addFragments(new NeveraTab("NEVERA"));
+        pagerAdapter.addFragments(new DispensadorTab("DISPENSADOR"));
+
     }
 }

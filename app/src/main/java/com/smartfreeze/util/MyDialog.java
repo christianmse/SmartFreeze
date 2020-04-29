@@ -68,6 +68,13 @@ public class MyDialog extends DialogFragment {
                 dismiss();
             }
         });
+
+        builder.setNeutralButton("Todo", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                listener.categoriasSelectedTodas(Datos.getInstance().getDatos());
+            }
+        });
         return builder.create();
     }
 }

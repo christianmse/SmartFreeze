@@ -32,8 +32,6 @@
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/foregroundView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -57,11 +55,22 @@
             android:layout_marginStart="16dp"
             android:gravity="start"
             android:textColor="@color/textColorPrimary"
-            android:textSize="13sp"
+            android:textSize="23sp"
             android:textStyle="bold"
             tools:text="12$PrecioObserver"
             app:layout_constraintStart_toEndOf="@+id/productImage"
             app:layout_constraintTop_toTopOf="@+id/topHorizontalGuideline" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$"
+            android:textColor="@color/textColorPrimary"
+            android:textStyle="bold"
+            android:textSize="23sp"
+            android:layout_marginStart="5dp"
+            app:layout_constraintBottom_toTopOf="@+id/titleText"
+            app:layout_constraintStart_toEndOf="@id/totalPrice" />
 
         <TextView
             android:id="@+id/titleText"
@@ -70,7 +79,7 @@
             android:layout_marginStart="16dp"
             tools:text="Titulo del producto"
             android:textColor="@color/textColorSecondary"
-            android:textSize="13sp"
+            android:textSize="23sp"
             app:layout_constraintEnd_toStartOf="@+id/endVerticalGuideline"
             app:layout_constraintStart_toEndOf="@+id/productImage"
             app:layout_constraintTop_toBottomOf="@+id/totalPrice" />
@@ -88,7 +97,7 @@
             app:layout_constraintBaseline_toBaselineOf="@+id/quantityEditText"
             app:layout_constraintStart_toEndOf="@+id/productImage" />
 
-        <EditText
+        <TextView
             android:id="@+id/quantityEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -106,13 +115,36 @@
             app:layout_constraintStart_toEndOf="@+id/quantity" />
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textColorSecondary"
+            android:textSize="23sp"
+            android:text="$"
+            app:layout_constraintStart_toEndOf="@+id/eachPrice"
+            app:layout_constraintBottom_toTopOf="@+id/bottomHorizontalGuideline"
+            app:layout_constraintEnd_toStartOf="@+id/endVerticalGuideline" />
+
+        <TextView
             android:id="@+id/eachPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/textColorSecondary"
-            android:textSize="13sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/quantityEditText"
+            android:textSize="23sp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/bottomHorizontalGuideline"
+            app:layout_constraintStart_toEndOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="25dp"
+            android:text="Precio unidad:  "
+            android:textColor="@color/textColorSecondary"
+            android:textSize="23sp"
+            app:layout_constraintBottom_toTopOf="@+id/bottomHorizontalGuideline"
             app:layout_constraintEnd_toStartOf="@+id/endVerticalGuideline" />
+
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/startVerticalGuideline"

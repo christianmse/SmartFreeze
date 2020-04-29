@@ -33,6 +33,7 @@ import com.smartfreeze.domain.Producto;
 import com.smartfreeze.ui.IStoreListener;
 import com.smartfreeze.ui.adapter.StoreAdapter;
 import com.smartfreeze.ui.fragments.DetailFragment;
+import com.smartfreeze.util.Datos;
 import com.smartfreeze.util.MyDialog;
 
 import java.util.ArrayList;
@@ -81,7 +82,7 @@ public StoreFragment(){
         activity = (AppCompatActivity) getActivity();
         activity.setSupportActionBar(toolbar);
         recyclerView = view.findViewById(R.id.rv_store);
-        adapter = new StoreAdapter(getListaProductos(), getContext(), this);
+        adapter = new StoreAdapter(Datos.getInstance().getDatos(), getContext(), this);
         layoutManager = new GridLayoutManager(requireContext(),4);
         layoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
@@ -150,17 +151,6 @@ public StoreFragment(){
         DialogFragment dialogo = new MyDialog(this);
         dialogo.show(getChildFragmentManager(), "dialogo_categorias");
     }
-    public ArrayList<Producto> getListaProductos(){
-        datosTienda.add(new Producto("Lengua", "Frescos", "3", R.drawable.ic_launcher_foreground, "descripcion"));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3", R.drawable.ic_tienda, "descripcisaon"));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3", R.drawable.ic_tienda, "descrasipcion"));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3", R.drawable.ic_tienda, "descrisapcion"));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3", R.drawable.ic_tienda, "descripcion"));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3", R.drawable.ic_tienda, "descripcion"));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3", R.drawable.ic_tienda, "descripcion"));
-        datosTienda.add(new Producto("Pollo", "Frescos", "3", R.drawable.ic_tienda, "descripcion"));
-        return datosTienda;
-    }
 
     @Override
     public void clickProducto(Producto producto) {
@@ -180,7 +170,28 @@ public StoreFragment(){
 
     @Override
     public void categoriasSelected(List<String> selectedItems) {
-        Toast.makeText(getContext(),selectedItems.toString(),Toast.LENGTH_SHORT).show();
+        ArrayList<Producto> todosProductos = Datos.getInstance().getDatos();
+        ArrayList<Producto> productosFiltrdos = new ArrayList<>(todosProductos.size());
+        Producto aux = new Producto();
+        for(int i=0; i<todosProductos.size(); i++){
+            aux = todosProductos.get(i);
+            for (int j=0; j<selectedItems.size();j++){
+                if(aux.getCategorioa().equals(selectedItems.get(j))){
+                   productosFiltrdos.add(aux);
+                }
+            }
 
+        }
+        StoreAdapter nuevo = new StoreAdapter(productosFiltrdos, getContext(), this);
+        recyclerView.setAdapter(nuevo);
+        adapter.notifyDataSetChanged();
+
+    }
+
+    @Override
+    public void categoriasSelectedTodas(ArrayList<Producto> datos) {
+        /*StoreAdapter nuevo = new StoreAdapter(datos, getContext(), this);
+        recyclerView.setAdapter(nuevo);
+        adapter.notifyDataSetChanged();*/
     }
 }

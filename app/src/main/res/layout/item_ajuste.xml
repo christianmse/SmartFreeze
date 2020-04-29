@@ -41,7 +41,7 @@
                 <TextView
                     android:id="@+id/btn_ajuste"
                     style="@style/AppTheme.titulo"
-                    android:layout_width="260dp"
+                    android:layout_width="532dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_marginLeft="10dp"

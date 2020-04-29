@@ -71,6 +71,12 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> impl
         this.listener = listener;
     }
 
+    public void setData(ArrayList<Producto> listaProductos){
+        listaProductosAll.clear();
+        this.listaProductosAll = listaProductos;
+        notifyDataSetChanged();
+    }
+
     @NonNull
     @Override
     public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -176,7 +182,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> impl
         private ImageView imagen;
         ImageView anadir, quitar;
         TextView contador;
-        ImageView agregado;
+        View agregado;
 
 
         public Holder(@NonNull View itemView) {
