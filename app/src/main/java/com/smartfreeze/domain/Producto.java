@@ -3,6 +3,8 @@ package com.smartfreeze.domain;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.Comparator;
+
 public class Producto implements Parcelable {
 
     private String nombre;
@@ -58,6 +60,14 @@ public class Producto implements Parcelable {
         return categoria;
     }
 
+    public String getCaducidad() {
+        return caducidad;
+    }
+
+    public void setCaducidad(String caducidad) {
+        this.caducidad = caducidad;
+    }
+
     public void setCategorioa(String categorioa) {
         this.categoria = categorioa;
     }
@@ -85,6 +95,14 @@ public class Producto implements Parcelable {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
+    public static final Comparator<Producto> BY_CANTIDAD = new Comparator<Producto>() {
+        @Override
+        public int compare(Producto o1, Producto o2) {
+            //ascendente
+            return String.valueOf(o1.getCantidad()).compareTo(String.valueOf(o2.getCantidad()));
+        }
+    };
 
     protected Producto(Parcel in) {
         nombre = in.readString();
@@ -123,11 +141,5 @@ public class Producto implements Parcelable {
         }
     };
 
-    public String getCaducidad() {
-        return caducidad;
-    }
 
-    public void setCaducidad(String caducidad) {
-        this.caducidad = caducidad;
-    }
 }

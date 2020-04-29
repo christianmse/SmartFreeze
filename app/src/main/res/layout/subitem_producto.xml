@@ -108,8 +108,9 @@
                 android:layout_marginEnd="@dimen/horizontal_space"
                 android:layout_marginStart="@dimen/horizontal_space"
                 android:paddingBottom="@dimen/vertical_space"
-                android:textColor="@color/textColorSecondary"
-                android:textSize="13sp"
+                android:text="descripcion"
+                android:textColor="@color/colorPrimaryTextDefaultMaterialLight"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/descriptionLabel"/>
