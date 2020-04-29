@@ -16,188 +16,157 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:visibility="visible"
+            android:visibility="gone"
             android:src="@drawable/nevera_puerta" />
 
-        <ImageButton
-            android:id="@+id/iBFrigoDoor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/iBNeveDoor"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/frigorifico_puerta"
-            android:visibility="visible" />
+
 
         <ImageView
             android:id="@+id/iVNeveraAbierta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:visibility="gone"
+            android:visibility="visible"
             app:srcCompat="@drawable/nevera_abierta1" />
 
-        <ImageButton
-            android:id="@+id/iBCloseNevera"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:layout_centerVertical="true"
-            app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
+
 
         <ImageView
             android:id="@+id/iVFrigoAbierto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/iBNeveDoor"
+            android:layout_below="@id/iVNeveraAbierta"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="0dp"
-            android:visibility="gone"
+            android:visibility="visible"
             app:srcCompat="@drawable/frigorifico_abierto1" />
 
-        <ImageButton
-            android:id="@+id/iBCloseFrigo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/iBNeveDoor"
-            android:layout_marginTop="212dp"
-            android:layout_marginEnd="2dp"
-            android:layout_marginBottom="52dp"
-            android:visibility="gone"
-            app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
+        <!--        BOTONES DEL FRIGORIFICO (3)   -->
 
-<!--        BOTONES DEL FRIGORIFICO (3)   -->
         <Button
-            android:id="@+id/b3Cajon"
+            android:id="@+id/b3Cajon1"
             android:layout_width="270dp"
             android:layout_height="64dp"
             android:layout_below="@+id/iBNeveDoor"
             android:layout_alignStart="@+id/iVFrigoAbierto"
             android:layout_alignEnd="@+id/iVFrigoAbierto"
             android:layout_alignParentBottom="false"
-            android:layout_marginStart="23dp"
-            android:layout_marginTop="180dp"
-            android:layout_marginEnd="334dp"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="541dp"
+            android:layout_marginEnd="335dp"
             android:layout_marginBottom="450dp"
             android:text="Cajón 3"
-            android:visibility="gone" />
+            android:visibility="visible" />
+
+        <!--        BOTONES DE LA NEVERA (7)-->
+
         <Button
-            android:id="@+id/b2Cajon"
+            android:id="@+id/b2Cajon1"
             android:layout_width="270dp"
             android:layout_height="64dp"
             android:layout_below="@+id/iBNeveDoor"
             android:layout_alignStart="@+id/iVFrigoAbierto"
             android:layout_alignEnd="@+id/iVFrigoAbierto"
             android:layout_alignParentBottom="false"
-            android:layout_marginStart="23dp"
-            android:layout_marginTop="110dp"
-            android:layout_marginEnd="334dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="477dp"
+            android:layout_marginEnd="332dp"
             android:layout_marginBottom="450dp"
-            android:text="Cajón 2"
-            android:visibility="gone" />
+            android:text="Cajón 2" />
+
         <Button
-            android:id="@+id/b1Cajon"
+            android:id="@+id/b1Cajon1"
             android:layout_width="270dp"
             android:layout_height="64dp"
             android:layout_below="@+id/iBNeveDoor"
             android:layout_alignStart="@+id/iVFrigoAbierto"
             android:layout_alignEnd="@+id/iVFrigoAbierto"
             android:layout_alignParentBottom="false"
-            android:layout_marginStart="23dp"
-            android:layout_marginTop="44dp"
-            android:layout_marginEnd="334dp"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="408dp"
+            android:layout_marginEnd="335dp"
             android:layout_marginBottom="450dp"
-            android:text="Cajón 1"
-            android:visibility="gone" />
-
-<!--        BOTONES DE LA NEVERA (7)-->
+            android:text="Cajón 1" />
 
         <Button
-            android:id="@+id/b1Nevera"
+            android:id="@+id/b1Nevera1"
             android:layout_width="270dp"
             android:layout_height="80dp"
             android:layout_alignEnd="@+id/iVNeveraAbierta"
             android:layout_alignParentTop="true"
             android:layout_marginTop="35dp"
             android:layout_marginEnd="325dp"
-            android:visibility="gone"
             android:text="Cajón 1" />
 
         <Button
-            android:id="@+id/b2Nevera"
+            android:id="@+id/b2Nevera1"
             android:layout_width="270dp"
             android:layout_height="80dp"
             android:layout_alignEnd="@+id/iVNeveraAbierta"
             android:layout_alignParentTop="true"
             android:layout_marginTop="108dp"
             android:layout_marginEnd="325dp"
-            android:visibility="gone"
             android:text="Cajón 2" />
         <Button
-            android:id="@+id/b3Nevera"
+            android:id="@+id/b3Nevera1"
             android:layout_width="270dp"
             android:layout_height="80dp"
             android:layout_alignEnd="@+id/iVNeveraAbierta"
             android:layout_alignParentTop="true"
             android:layout_marginTop="185dp"
             android:layout_marginEnd="325dp"
-            android:visibility="gone"
             android:text="Cajón 3" />
 
         <Button
-            android:id="@+id/b4CajonIzq"
+            android:id="@+id/b4CajonIzq1"
             android:layout_width="135dp"
             android:layout_height="75dp"
             android:layout_alignEnd="@+id/iVNeveraAbierta"
             android:layout_alignParentTop="true"
             android:layout_marginTop="264dp"
             android:layout_marginEnd="460dp"
-            android:visibility="gone"
             android:text="Cajón 4"/>
 
         <Button
-            android:id="@+id/b5CajonDer"
+            android:id="@+id/b5CajonDer1"
             android:layout_width="135dp"
             android:layout_height="75dp"
             android:layout_alignEnd="@+id/iVNeveraAbierta"
             android:layout_alignParentTop="true"
             android:layout_marginTop="266dp"
             android:layout_marginEnd="326dp"
-            android:visibility="gone"
             android:text="Cajón 5" />
 
-<!--        BOTONES DE LA PUERTA (ESTANTES DE BEBIDA Y SALSAS ) MAX 5 BEBIDAS POR ESTANTE-->
+        <!--        BOTONES DE LA PUERTA (ESTANTES DE BEBIDA Y SALSAS ) MAX 5 BEBIDAS POR ESTANTE-->
         <Button
-            android:id="@+id/bEstante1"
+            android:id="@+id/bEstante11"
             android:layout_width="250dp"
             android:layout_height="75dp"
             android:layout_alignEnd="@+id/iVNeveraAbierta"
             android:layout_alignParentTop="true"
             android:layout_marginTop="221dp"
             android:layout_marginEnd="28dp"
-            android:text="Estante 1"
-            android:visibility="gone"/>
+            android:text="Estante 1"/>
 
         <Button
-            android:id="@+id/bEstante2"
+            android:id="@+id/bEstante21"
             android:layout_width="250dp"
             android:layout_height="75dp"
             android:layout_alignEnd="@+id/iVNeveraAbierta"
             android:layout_alignParentTop="true"
             android:layout_marginTop="127dp"
             android:layout_marginEnd="32dp"
-            android:text="Estante 2"
-            android:visibility="gone"/>
+            android:text="Estante 2"/>
 
         <Button
-            android:id="@+id/bEstante3"
+            android:id="@+id/bEstante31"
             android:layout_width="250dp"
             android:layout_height="75dp"
             android:layout_alignEnd="@+id/iVNeveraAbierta"
             android:layout_alignParentTop="true"
             android:layout_marginTop="35dp"
             android:layout_marginEnd="29dp"
-            android:text="Estante 3"
-            android:visibility="gone"/>
+            android:text="Estante 3"/>
 
     </RelativeLayout>
 </ScrollView>

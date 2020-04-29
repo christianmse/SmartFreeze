@@ -5,6 +5,6 @@
         android:title="Sacar" />
     <item
         android:id="@+id/cambiar_cajon"
-        android:title="Cambiar Cajón" />
+        android:title="Cambiar de cajón" />
 
 </menu>
