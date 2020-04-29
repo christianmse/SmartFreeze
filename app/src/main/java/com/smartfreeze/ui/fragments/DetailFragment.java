@@ -89,6 +89,7 @@ public class DetailFragment extends DialogFragment {
 
     private void setupDescripcion() {
         final Transition transition = new ChangeBounds();
+
         transition.addListener(new Transition.TransitionListener() {
             @Override
             public void onTransitionStart(@NonNull Transition transition) {
@@ -136,8 +137,7 @@ public class DetailFragment extends DialogFragment {
                 if(isExpanded) {
                     icon= R.drawable.ic_plus;
                     height = 0;
-                }
-                else {
+                } else {
                     icon = R.drawable.ic_minus;
                     height = ViewGroup.LayoutParams.WRAP_CONTENT;
                 }
@@ -148,7 +148,6 @@ public class DetailFragment extends DialogFragment {
                 constraintSet.clone(dataContainer);
                 constraintSet.constrainHeight(description.getId(), height);
                 constraintSet.applyTo(dataContainer);
-
             }
         });
 
