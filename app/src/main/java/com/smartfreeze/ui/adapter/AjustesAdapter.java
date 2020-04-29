@@ -20,7 +20,6 @@ public class AjustesAdapter extends RecyclerView.Adapter<AjustesAdapter.AjustesV
 
     private ArrayList<Ajustes> data;
     private Context context;
-    private int posicion;
 
     public AjustesAdapter(ArrayList<Ajustes> data, Context context){
         this.data = data;
@@ -61,10 +60,7 @@ public class AjustesAdapter extends RecyclerView.Adapter<AjustesAdapter.AjustesV
         }
     }
 
-    public void setPosicion(int posicion){
-        this.posicion = posicion;
-    }
-    public int getPosicion(){
-        return this.posicion;
+    public ArrayList<Ajustes> getData(){
+        return this.data;
     }
 }

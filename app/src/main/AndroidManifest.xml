@@ -10,11 +10,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".SeleccionCajon"></activity>
         <activity
             android:name=".PaymarketActivity"
             android:screenOrientation="landscape"
-            tools:ignore="LockedOrientationActivity"
-            ></activity>
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".ListadoComida"
             android:screenOrientation="landscape"
