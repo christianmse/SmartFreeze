@@ -39,7 +39,6 @@ public class PagoActivity extends AppCompatActivity {
             public void onClick(View v) {
                 crearNotificacion();
                 // notificationId is a unique int for each notification that you must define
-
                 startActivity(intent);
             }
         });
