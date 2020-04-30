@@ -51,6 +51,10 @@ public class StoreFragment extends Fragment implements IStoreListener {
     View v;
     Button filtros;
     Drawable carrito;
+    ArrayList<Producto> todosProductos;
+    ArrayList<Producto> todosProductosAll;
+
+
 
     AppCompatActivity activity;
     private ArrayList<Producto> datosTienda = new ArrayList<>();
@@ -86,7 +90,9 @@ public StoreFragment(){
         activity = (AppCompatActivity) getActivity();
         activity.setSupportActionBar(toolbar);
         recyclerView = view.findViewById(R.id.rv_store);
-        adapter = new StoreAdapter(Datos.getInstance().getDatos(), getContext(), this);
+        todosProductos = Datos.getInstance().getDatos();
+        todosProductosAll = Datos.getInstance().getDatos();
+        adapter = new StoreAdapter(todosProductos, getContext(), this);
         layoutManager = new GridLayoutManager(requireContext(),4);
         layoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
@@ -175,7 +181,6 @@ public StoreFragment(){
 
     @Override
     public void categoriasSelected(List<String> selectedItems) {
-        ArrayList<Producto> todosProductos = Datos.getInstance().getDatos();
         ArrayList<Producto> productosFiltrdos = new ArrayList<>(todosProductos.size());
         Producto aux = new Producto();
         for(int i=0; i<todosProductos.size(); i++){
@@ -187,6 +192,10 @@ public StoreFragment(){
             }
 
         }
+
+        /*todosProductos.clear();
+        todosProductos.addAll(productosFiltrdos);
+        adapter.notifyDataSetChanged();*/
         StoreAdapter nuevo = new StoreAdapter(productosFiltrdos, getContext(), this);
         recyclerView.setAdapter(nuevo);
         adapter.notifyDataSetChanged();
@@ -195,9 +204,10 @@ public StoreFragment(){
 
     @Override
     public void categoriasSelectedTodas(ArrayList<Producto> datos) {
-        /*StoreAdapter nuevo = new StoreAdapter(datos, getContext(), this);
+    StoreAdapter nuevo = new StoreAdapter(datos, getContext(), this);
         recyclerView.setAdapter(nuevo);
-        adapter.notifyDataSetChanged();*/
+        adapter.notifyDataSetChanged();
+    cambiarColor(false);
     }
 
     @Override

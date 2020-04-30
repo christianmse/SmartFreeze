@@ -1,6 +1,7 @@
 package com.smartfreeze.ui.adapter;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.util.SparseBooleanArray;
@@ -26,11 +27,14 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> implements Filterable {
+    public static final String SHARED_PREF_NAME = "carrito" ;
     private ArrayList<Producto> listaProductos;
     private ArrayList<Producto> listaProductosAll;
     SparseBooleanArray selected_items = new SparseBooleanArray();
     SparseIntArray selected_items_cantidad = new SparseIntArray();
     int currentSelected = -1;
+    SharedPreferences.Editor editor;
+    SharedPreferences sharedPreferences;
 
     IStoreListener listener;
     private Context context;
@@ -69,6 +73,9 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> impl
         this.listaProductos = listaProductos;
         this.listaProductosAll = new ArrayList<>(listaProductos);
         this.listener = listener;
+        sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
     }
 
     public void setData(ArrayList<Producto> listaProductos){
@@ -113,8 +120,8 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> impl
                 holder.agregado.setVisibility(View.VISIBLE);
                 selected_items.put(position,true);
                 selected_items_cantidad.put(position, contadorMasUno);
-
                 pintarCarrito(selected_items.size());
+                anadirSharedPreferences(listaProductos.get(position), contadorMasUno);
 
             }
         });
@@ -133,7 +140,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> impl
                         selected_items_cantidad.put(position, contadorMenosUno);
 
                         pintarCarrito(selected_items.size());
-
+                        eleminarSharedPreferences(listaProductos.get(position));
                     }
 
 
@@ -144,7 +151,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> impl
                         selected_items_cantidad.put(position, 0);
 
                         pintarCarrito(selected_items.size());
-
+                        eleminarSharedPreferences(listaProductos.get(position));
                     }
 
 
@@ -156,6 +163,20 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> impl
 
 
     }
+
+    private void eleminarSharedPreferences(Producto producto) {
+        editor.remove(producto.getNombre());
+        editor.apply();
+    }
+
+    private void anadirSharedPreferences(Producto producto, Integer contadorMasUno) {
+        if(!sharedPreferences.contains(producto.getNombre())){
+            editor.putInt(producto.getNombre(), contadorMasUno);
+            editor.apply();
+        }
+    }
+
+
 
     private void pintarCarrito(int size) {
         if(selected_items.size() > 0){
@@ -188,6 +209,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> impl
     public Filter getFilter() {
         return filter;
     }
+
 
 
 
