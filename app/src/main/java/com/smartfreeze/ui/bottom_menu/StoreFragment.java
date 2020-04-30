@@ -1,7 +1,10 @@
 package com.smartfreeze.ui.bottom_menu;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -47,6 +50,11 @@ public class StoreFragment extends Fragment implements IStoreListener {
     Toolbar toolbar;
     View v;
     Button filtros;
+    Drawable carrito;
+    ArrayList<Producto> todosProductos;
+    ArrayList<Producto> todosProductosAll;
+
+
 
     AppCompatActivity activity;
     private ArrayList<Producto> datosTienda = new ArrayList<>();
@@ -82,7 +90,9 @@ public StoreFragment(){
         activity = (AppCompatActivity) getActivity();
         activity.setSupportActionBar(toolbar);
         recyclerView = view.findViewById(R.id.rv_store);
-        adapter = new StoreAdapter(Datos.getInstance().getDatos(), getContext(), this);
+        todosProductos = Datos.getInstance().getDatos();
+        todosProductosAll = Datos.getInstance().getDatos();
+        adapter = new StoreAdapter(todosProductos, getContext(), this);
         layoutManager = new GridLayoutManager(requireContext(),4);
         layoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
@@ -101,6 +111,7 @@ public StoreFragment(){
      super.onCreateOptionsMenu(menu, inflater);
      inflater.inflate(R.menu.store_menu, menu);
         MenuItem itemSV = menu.findItem(R.id.action_search);
+        carrito = menu.findItem(R.id.carrito).getIcon();
         SearchView searchView = (SearchView) itemSV.getActionView();
         ActionBar.LayoutParams params = new ActionBar.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT);
         searchView.setLayoutParams(params);
@@ -170,7 +181,6 @@ public StoreFragment(){
 
     @Override
     public void categoriasSelected(List<String> selectedItems) {
-        ArrayList<Producto> todosProductos = Datos.getInstance().getDatos();
         ArrayList<Producto> productosFiltrdos = new ArrayList<>(todosProductos.size());
         Producto aux = new Producto();
         for(int i=0; i<todosProductos.size(); i++){
@@ -182,6 +192,10 @@ public StoreFragment(){
             }
 
         }
+
+        /*todosProductos.clear();
+        todosProductos.addAll(productosFiltrdos);
+        adapter.notifyDataSetChanged();*/
         StoreAdapter nuevo = new StoreAdapter(productosFiltrdos, getContext(), this);
         recyclerView.setAdapter(nuevo);
         adapter.notifyDataSetChanged();
@@ -190,8 +204,20 @@ public StoreFragment(){
 
     @Override
     public void categoriasSelectedTodas(ArrayList<Producto> datos) {
-        /*StoreAdapter nuevo = new StoreAdapter(datos, getContext(), this);
+    StoreAdapter nuevo = new StoreAdapter(datos, getContext(), this);
         recyclerView.setAdapter(nuevo);
-        adapter.notifyDataSetChanged();*/
+        adapter.notifyDataSetChanged();
+    cambiarColor(false);
+    }
+
+    @Override
+    public void cambiarColor(boolean b) {
+    carrito.mutate();
+        if(b){
+            carrito.setColorFilter(Color.RED, PorterDuff.Mode.SRC_ATOP);
+        } else {
+            carrito.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
+
+        }
     }
 }

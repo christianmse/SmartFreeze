@@ -9,7 +9,7 @@
         android:title="Menu Principal" />
     <item
         android:id="@+id/navigation_tienda"
-        android:icon="@drawable/ic_show_password_active"
+        android:icon="@drawable/ic_despensa"
         android:title="Despensa" />
 
 
