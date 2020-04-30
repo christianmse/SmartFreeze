@@ -28,4 +28,10 @@
         <item>Pastas</item>
         <item>Legumbres</item>
     </string-array>
+
+    <string-array name="spinner_opciones">
+        <item>Ordenar por cajon</item>
+        <item>Ordenar por caducidad</item>
+        <item>Ordenar por Cantidad</item>
+    </string-array>
 </resources>
