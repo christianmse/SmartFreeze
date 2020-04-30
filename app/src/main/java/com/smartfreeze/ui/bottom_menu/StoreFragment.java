@@ -1,7 +1,10 @@
 package com.smartfreeze.ui.bottom_menu;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -47,6 +50,7 @@ public class StoreFragment extends Fragment implements IStoreListener {
     Toolbar toolbar;
     View v;
     Button filtros;
+    Drawable carrito;
 
     AppCompatActivity activity;
     private ArrayList<Producto> datosTienda = new ArrayList<>();
@@ -101,6 +105,7 @@ public StoreFragment(){
      super.onCreateOptionsMenu(menu, inflater);
      inflater.inflate(R.menu.store_menu, menu);
         MenuItem itemSV = menu.findItem(R.id.action_search);
+        carrito = menu.findItem(R.id.carrito).getIcon();
         SearchView searchView = (SearchView) itemSV.getActionView();
         ActionBar.LayoutParams params = new ActionBar.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT);
         searchView.setLayoutParams(params);
@@ -193,5 +198,16 @@ public StoreFragment(){
         /*StoreAdapter nuevo = new StoreAdapter(datos, getContext(), this);
         recyclerView.setAdapter(nuevo);
         adapter.notifyDataSetChanged();*/
+    }
+
+    @Override
+    public void cambiarColor(boolean b) {
+    carrito.mutate();
+        if(b){
+            carrito.setColorFilter(Color.RED, PorterDuff.Mode.SRC_ATOP);
+        } else {
+            carrito.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
+
+        }
     }
 }

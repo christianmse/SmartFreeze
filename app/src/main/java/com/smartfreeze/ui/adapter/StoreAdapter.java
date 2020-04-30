@@ -114,6 +114,8 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> impl
                 selected_items.put(position,true);
                 selected_items_cantidad.put(position, contadorMasUno);
 
+                pintarCarrito(selected_items.size());
+
             }
         });
 
@@ -129,6 +131,9 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> impl
                         if(selected_items.get(position,false))
                         selected_items.delete(position);
                         selected_items_cantidad.put(position, contadorMenosUno);
+
+                        pintarCarrito(selected_items.size());
+
                     }
 
 
@@ -137,6 +142,9 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> impl
                     if(selected_items.get(position,false)){
                         selected_items.delete(position);
                         selected_items_cantidad.put(position, 0);
+
+                        pintarCarrito(selected_items.size());
+
                     }
 
 
@@ -145,7 +153,18 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.Holder> impl
             }
         });
 
+
+
     }
+
+    private void pintarCarrito(int size) {
+        if(selected_items.size() > 0){
+            listener.cambiarColor(true);
+        } else {
+            listener.cambiarColor(false);
+        }
+    }
+
 
     public ArrayList<Producto> getSelectedItems(){
         ArrayList<Producto> aux = new ArrayList<>();
