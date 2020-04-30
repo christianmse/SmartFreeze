@@ -344,7 +344,7 @@ public class ListadoComida extends AppCompatActivity implements View.OnCreateCon
                 return super.onContextItemSelected(item);
         }
     }
-    
+
     public void sacarProducto(){
         Toast.makeText(this, "Producto sacado", Toast.LENGTH_SHORT).show();
     }

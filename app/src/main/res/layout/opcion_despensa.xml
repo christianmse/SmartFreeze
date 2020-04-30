@@ -14,13 +14,24 @@
         >
 
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
+                android:id="@+id/toolbar_store"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
                 app:title="Consulta todas tus mercancias"
                 app:titleTextColor="@color/white"
-                app:layout_collapseMode="pin"/>
+                app:layout_collapseMode="pin">
+
+                    <Spinner
+                        android:id="@+id/spinner"
+                        android:layout_width="wrap_content"
+                        tools:entries="@array/spinner_opciones"
+                        android:gravity="end"
+                        android:layout_marginStart="700dp"
+                        android:layout_height="match_parent"/>
+
+
+            </androidx.appcompat.widget.Toolbar>
 
 
 
@@ -44,13 +55,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clickable="true"
-                android:scrollbars="vertical"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:listitem="@layout/item_ajuste" />
+                tools:listitem="@layout/item_ajuste"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"/>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,12 +9,18 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.databinding.DataBindingUtil;
+import androidx.databinding.ViewDataBinding;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -36,11 +42,14 @@ public class DespensaOpcion extends Fragment implements IDespensaListener {
     DespensaAdapter adapter;
     private ArrayList<Producto> datosTienda = new ArrayList<>();
     private LinearLayoutManager layoutManager;
-    ConstraintLayout rl;
+    Spinner spinner;
+    Toolbar toolbar;
+
+
+
 
 
     @Nullable
-
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.opcion_despensa,container,false);
     }
@@ -54,7 +63,11 @@ public class DespensaOpcion extends Fragment implements IDespensaListener {
         recyclerView.setLayoutManager(layoutManager);
         adapter = new DespensaAdapter(getContext(), getInstance().getDatos(),  this);
         recyclerView.setAdapter(adapter);
-        rl = (ConstraintLayout) view.findViewById(R.id.myLayout);
+        toolbar = view.findViewById(R.id.toolbar_store);
+        spinner = view.findViewById(R.id.spinner);
+        ArrayAdapter<String> adaptadores = new ArrayAdapter<String>(getContext(), R.layout.spinner, getResources().getStringArray(R.array.spinner_opciones));
+        spinner.setAdapter(adaptadores);
+
     }
 
 
@@ -76,6 +89,12 @@ public class DespensaOpcion extends Fragment implements IDespensaListener {
         switch (item.getItemId()){
             case R.id.action_sort: showSortDialog();
             return true;
+            case  R.id.ordenar_caducidad: Toast.makeText(getContext(), "por Caducidad", Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.ordenar_cajon: Toast.makeText(getContext(), "Cajon", Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.ordenar_cantidad: Toast.makeText(getContext(), "Cantidad", Toast.LENGTH_LONG).show();
+                return true;
             default: return super.onOptionsItemSelected(item);
 
         }

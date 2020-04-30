@@ -83,8 +83,9 @@
         android:id="@+id/cabecera"
         android:gravity="center_horizontal"
         app:layout_constraintTop_toBottomOf="@id/espacio"
-
         >
+
+
 
         <TextView
             android:id="@+id/articulosTotal"
@@ -92,14 +93,14 @@
             android:layout_height="wrap_content"
             android:textColor="@color/textColorPrimary"
             android:textStyle="bold"
-            android:textSize="23sp"
+            android:textSize="33sp"
             android:text="0"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/textColorPrimary"
             android:textStyle="bold"
-            android:textSize="23sp"
+            android:textSize="33sp"
             android:layout_marginStart="5dp"
             android:text="artículos: "/>
         <TextView
@@ -107,7 +108,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/textColorPrimary"
             android:textStyle="bold"
-            android:textSize="23sp"
+            android:textSize="33sp"
             android:text="Total "/>
         <TextView
             android:id="@+id/precioTotal"
@@ -115,7 +116,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/textColorPrimary"
             android:textStyle="bold"
-            android:textSize="23sp"
+            android:textSize="33sp"
             android:text="0"
             />
         <TextView
@@ -123,7 +124,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/textColorPrimary"
             android:textStyle="bold"
-            android:textSize="23sp"
+            android:textSize="33sp"
             android:text="$"/>
 
 
@@ -131,6 +132,14 @@
     </LinearLayout>
 
 
+    <View
+        android:id="@+id/separador"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cabecera"
+        />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_cart"
         android:layout_width="0dp"
@@ -138,7 +147,7 @@
         app:layout_constraintBottom_toTopOf="@+id/cartButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cabecera" />
+        app:layout_constraintTop_toBottomOf="@id/separador" />
 
 
         <Button
