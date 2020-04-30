@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.PointerIcon;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -42,8 +43,8 @@ public class DespensaAdapter extends RecyclerView.Adapter<DespensaAdapter.Holder
     @Override
     public void onBindViewHolder(@NonNull DespensaAdapter.Holder holder, int position) {
         GridLayoutManager layoutManager;
-        layoutManager = new GridLayoutManager(holder.rvSubItem.getContext(), 3);
-        layoutManager.setOrientation(RecyclerView.VERTICAL);
+        layoutManager = new GridLayoutManager(holder.rvSubItem.getContext(), 1, GridLayoutManager.HORIZONTAL, false);
+
         layoutManager.setInitialPrefetchItemCount(listaProductos.size());
 
         //subitem adapter
