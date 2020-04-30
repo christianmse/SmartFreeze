@@ -25,11 +25,11 @@ public class Stock {
         datosPorCajon.add(new Producto("Hamburguesa", "Carnes", "4", R.drawable.hamburguesa, "Hamburgesa de carne vacuno", "03/05/2020",1));
         datosPorCajon.add(new Producto("Lentejas", "Legumbres", "2", R.drawable.lentejas, "Lentejas a granel de Andalucia", "03/05/2020",1));
         datosPorCajon.add(new Producto("Salmon", "Pescados", "8", R.drawable.salmon, "Salmon fresco. Origen Noruega.", "03/05/2020",1));
-        datosPorCajon.add(new Producto("Pollo", "Carnes", "3", R.drawable.pollo, "Pollo fresco", "03/05/2020",1));
+        //  datosPorCajon.add(new Producto("Pollo", "Carnes", "3", R.drawable.pollo, "Pollo fresco", "03/05/2020",1));
         datosPorCajon.add(new Producto("Macarrones", "Pastas", "4", R.drawable.macarrones, "Macarrones hacendado", "03/05/2020",1));
         datosPorCajon.add(new Producto("Spaguetti", "Pastas", "2", R.drawable.spaghetti, "descripcion", "03/05/2020",1));
         datosPorCajon.add(new Producto("Cinta de lomo", "Carnes", "4", R.drawable.cintalomo, "descripcion", "03/05/2020",1));
-        datosPorCajon.add(new Producto("Pollo", "Carnes", "1", R.drawable.ic_tienda, "descripcion", "03/05/2020",1));
+       // datosPorCajon.add(new Producto("Pollo", "Carnes", "1", R.drawable.ic_tienda, "descripcion", "03/05/2020",1));
         datos.put(0,datosPorCajon);
         datos.put(1,datosPorCajon);
         datos.put(2,datosPorCajon);
@@ -54,7 +54,15 @@ public class Stock {
         return datos;
     }
 
-    public void eliminarProducto (Producto producto){
-        datosPorCajon.remove(producto);
+    public void eliminarProducto (/*Producto producto,*/ String nombre, Integer cajon){
+        for(Producto aux : Datos.getInstance().getDatos()){
+            if(aux.getNombre().equals(nombre)) {
+                datos.get(cajon).remove(aux);
+                break;
+            }
+        }
+
     }
+
+
 }
