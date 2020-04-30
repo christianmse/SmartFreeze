@@ -11,9 +11,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".SeleccionCajon"></activity>
+        <activity android:name=".SeleccionCajon"
+            android:screenOrientation="landscape"
+            tools:ignore="LockedOrientationActivity"></activity>
 
-        <activity android:name=".PagoActivity"></activity>
+        <activity android:name=".PagoActivity"
+            android:screenOrientation="landscape"
+            tools:ignore="LockedOrientationActivity"></activity>
 
         <activity
             android:name=".PaymarketActivity"
