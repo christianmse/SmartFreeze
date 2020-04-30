@@ -70,6 +70,7 @@ public class PaymarketActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     editor.clear().apply();
+                   intent.putExtra("productos_seleccionados",productosSeleccionados);
                    intent.putExtra("precio", precio);
                    startActivity(intent);
                 }

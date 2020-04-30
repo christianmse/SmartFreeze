@@ -33,6 +33,7 @@ public class Stock {
         datos.put(0,datosPorCajon);
         datos.put(1,datosPorCajon);
         datos.put(2,datosPorCajon);
+
     }
 
     public static Stock getInstance(){
@@ -46,15 +47,23 @@ public class Stock {
         return datos.getOrDefault(cajon, datosPorCajon);
     }
 
-    public void insertarDatosPorCajon (Integer cajon, Producto producto){
-        datos.get(cajon).add(producto);
+    public void insertarDatosPorCajon (Integer cajon, Producto producto, String nombre){
+        for(Producto aux : Datos.getInstance().getDatos()){
+            if(aux.getNombre().equals(nombre))
+                datos.get(cajon).add(producto);
+        }
+
     }
 
     public HashMap<Integer, ArrayList<Producto>> getDatos(){
         return datos;
     }
 
-    public void eliminarProducto (Producto producto){
-        datosPorCajon.remove(producto);
+    public void eliminarProducto (Integer cajon,Producto producto, String nombre){
+        for(Producto aux : Datos.getInstance().getDatos()){
+            if(aux.getNombre().equals(nombre))
+                datos.get(cajon).remove(producto);
+        }
+
     }
 }

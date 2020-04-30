@@ -16,8 +16,11 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.databinding.DataBindingUtil;
+import androidx.databinding.ViewDataBinding;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -44,8 +47,9 @@ public class DespensaOpcion extends Fragment implements IDespensaListener {
 
 
 
-    @Nullable
 
+
+    @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.opcion_despensa,container,false);
     }
@@ -61,9 +65,9 @@ public class DespensaOpcion extends Fragment implements IDespensaListener {
         recyclerView.setAdapter(adapter);
         toolbar = view.findViewById(R.id.toolbar_store);
         spinner = view.findViewById(R.id.spinner);
-
         ArrayAdapter<String> adaptadores = new ArrayAdapter<String>(getContext(), R.layout.spinner, getResources().getStringArray(R.array.spinner_opciones));
         spinner.setAdapter(adaptadores);
+
     }
 
 
