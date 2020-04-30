@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.DispensadorTab">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+
+    <ImageButton
+        android:id="@+id/iBDispensador"
+        android:layout_width="200dp"
+        android:layout_height="348dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/dispensador"
+        />
+
+    <ImageButton
+        android:id="@+id/iBBotella"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/iBDispensador"
+        android:src="@drawable/water"
+        />
+
+    <TextView
+        android:id="@+id/text_bebida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iBBotella"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="52dp"
+        android:layout_toStartOf="@+id/iBDispensador" />
+
+
+</RelativeLayout>

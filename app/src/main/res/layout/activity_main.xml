@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_gradiente"
+    tools:context=".MainActivity">
+
+
+
+    <RelativeLayout
+        android:id="@+id/notificaciones_layout"
+        android:layout_width="500dp"
+        android:layout_height="330dp"
+        android:visibility="gone"
+        android:layout_alignBottom="@+id/frameLayout_main"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp">
+
+        <TextView
+            android:id="@+id/txt_titulo_notificaciones"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_horizontal"
+            android:text="Notficaciones"
+            android:textSize="30sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@+id/txt_titulo_notificaciones"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_principal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical"
+                tools:listitem="@layout/item_ajuste" />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+    <FrameLayout
+        android:id="@+id/frameLayout_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/nav_bar"
+        android:layout_alignParentTop="true"
+         />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="?android:attr/windowBackground"
+        app:itemIconSize="29dp"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout_main"
+        app:menu="@menu/bottom_nav_menu" />
+    <FrameLayout
+        android:id="@+id/frameLayout_main2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        />
+
+</RelativeLayout>
