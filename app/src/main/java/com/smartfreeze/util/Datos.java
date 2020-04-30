@@ -18,6 +18,7 @@ public class Datos {
     //        <item>Legumbres</item>
 
     public Datos(){
+
         datosTienda.add(new Producto("Fanta Naranja", "Bebidas", "2", R.drawable.fanta_naranja, "Fanta Naranja 2L"));
         datosTienda.add(new Producto("Fanta Limón", "Bebidas", "2", R.drawable.fanta_limon, "Fanta Limón 2L"));
         datosTienda.add(new Producto("Coca Cola", "Bebidas", "2", R.drawable.cocacola, "CocaCola de 2L"));
@@ -39,7 +40,6 @@ public class Datos {
         datosTienda.add(new Producto("Calabacín", "Verduras", "9", R.drawable.calabacin, "Calabacín de huerta familiar"));
         datosTienda.add(new Producto("Espárragos", "Verduras", "2", R.drawable.esparragos, "Espárragos frescos manchegos"));
         datosTienda.add(new Producto("Berenjena", "Verduras", "8", R.drawable.berenjena, "Berenjenas de granja de increíble sabor"));
-
     }
 
     public static Datos getInstance(){

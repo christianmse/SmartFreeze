@@ -47,8 +47,13 @@ import java.util.ArrayList;
 import static androidx.core.content.ContextCompat.getSystemService;
 
 public class AjustesOpcion extends Fragment {
+<<<<<<< HEAD
     Switch Switch1, Switch2;
     TextView text1, text3, txt_frigo, txt_cong;
+=======
+    Switch Switch1, Switch2, Switch3;
+    TextView text1, text3, txt_frigo, txt_cong, text4;
+>>>>>>> 8f820d66c82b8c1e3ba928313b1f57afcff5b971
     RelativeLayout elem1, elem2, elem3;
     DiscreteSeekBar skb1, skb2;
     public static MutableLiveData<String> correo = new MutableLiveData<>();
@@ -69,9 +74,17 @@ public class AjustesOpcion extends Fragment {
         txt_cong = view.findViewById(R.id.txt_congelador);
         text1 = view.findViewById(R.id.btn_ajusteS1);
         text3 = view.findViewById(R.id.btn_ajuste3);
+<<<<<<< HEAD
 
         Switch1 = view.findViewById(R.id.switch1);
         Switch2 = view.findViewById(R.id.switch2);
+=======
+        text4 = view.findViewById(R.id.btn_ajusteS3);
+
+        Switch1 = view.findViewById(R.id.switch1);
+        Switch2 = view.findViewById(R.id.switch2);
+        Switch3 = view.findViewById(R.id.switch3);
+>>>>>>> 8f820d66c82b8c1e3ba928313b1f57afcff5b971
 
         elem1 = view.findViewById(R.id.elem1);
         elem2 = view.findViewById(R.id.elem2);
@@ -201,6 +214,22 @@ public class AjustesOpcion extends Fragment {
                 alertDialog.show();
             }
         });
+<<<<<<< HEAD
+=======
+        //APAGAR NEVERA
+        Switch3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    Log.d("switch-prueba", "Activo");
+                    text4.setText("Apagar nevera (Actualmente encendida)");
+                }else{
+                    Log.d("switch-prueba", "desactivado");
+                    text4.setText("Encender nevera (Actualmente apagada)");
+                }
+            }
+        });
+>>>>>>> 8f820d66c82b8c1e3ba928313b1f57afcff5b971
 
     }
 }
