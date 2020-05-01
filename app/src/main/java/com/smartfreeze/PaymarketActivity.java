@@ -1,10 +1,12 @@
 package com.smartfreeze;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -34,6 +36,7 @@ public class PaymarketActivity extends AppCompatActivity {
     Button comenzarComprar, procederPago;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
+    AlertDialog dialogo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,16 +54,38 @@ public class PaymarketActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences(StoreAdapter.SHARED_PREF_NAME, MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+
+
 
         if(getIntent().getParcelableArrayListExtra("productosSeleccionados").size() > 0 ){
             productosSeleccionados = getIntent().getParcelableArrayListExtra("productosSeleccionados");
             comprobarTodosSeleccionados(Datos.getInstance().getDatos());
+
 
             vacio.setVisibility(View.GONE);
             final int precio = calcularPrecioTotal(productosSeleccionados);
             articulosTotal.setText(String.valueOf(productosSeleccionados.size()));
             precioTotal.setText(String.valueOf(precio));
 
+            builder.setTitle("¿Seguro de realizar la compra?");
+            builder.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    editor.clear().apply();
+                    intent.putExtra("productos_seleccionados",productosSeleccionados);
+                    intent.putExtra("precio", precio);
+                    startActivity(intent);
+                }
+            })
+                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            dialogo = builder.create();
             adapter = new CartAdapter(productosSeleccionados, this,this);
             LinearLayoutManager manager = new LinearLayoutManager(this);
             recyclerView.setLayoutManager(manager);
@@ -69,10 +94,7 @@ public class PaymarketActivity extends AppCompatActivity {
 
                 @Override
                 public void onClick(View v) {
-                    editor.clear().apply();
-                   intent.putExtra("productos_seleccionados",productosSeleccionados);
-                   intent.putExtra("precio", precio);
-                   startActivity(intent);
+                    dialogo.show();
                 }
             });
         }else{
