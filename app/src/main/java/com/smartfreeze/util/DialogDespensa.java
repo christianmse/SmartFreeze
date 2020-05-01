@@ -11,12 +11,17 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
 import com.smartfreeze.R;
+import com.smartfreeze.domain.Producto;
 import com.smartfreeze.ui.IDialogDespensa;
 
 public class DialogDespensa extends DialogFragment {
     IDialogDespensa listener;
-    public DialogDespensa(IDialogDespensa listener){
+    int cajonAntiguo;
+    Producto producto;
+    public DialogDespensa(IDialogDespensa listener, int cajonAntiguo, Producto producto){
         this.listener = listener;
+        this.cajonAntiguo = cajonAntiguo;
+        this.producto = producto;
     }
 
 
@@ -34,7 +39,7 @@ public class DialogDespensa extends DialogFragment {
 
                         switch (which){
                             case 0: //Cambiar de cajon
-                                listener.cambiarCajon();
+                                listener.cambiarCajon(cajonAntiguo, producto);
                                 dismiss();
                                 break;
 

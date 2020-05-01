@@ -40,6 +40,13 @@ public class Producto implements Parcelable {
 
     }
 
+    public int getCajon(){
+        return cajon;
+    }
+    public void setCajon(int cajon){
+        this.cajon = cajon;
+    }
+
     public void setCantidad(int cantidad){
         this.cantidad = cantidad;
     }

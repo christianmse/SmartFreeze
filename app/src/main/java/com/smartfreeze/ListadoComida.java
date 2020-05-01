@@ -1,6 +1,5 @@
 package com.smartfreeze;
 
-import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -15,9 +14,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Toast;
 
-import com.smartfreeze.domain.Ajustes;
 import com.smartfreeze.domain.Producto;
-import com.smartfreeze.ui.adapter.AjustesAdapter;
 import com.smartfreeze.ui.adapter.DespensaAdapter2;
 import com.smartfreeze.util.Stock;
 
@@ -275,6 +272,6 @@ public class ListadoComida extends AppCompatActivity implements View.OnCreateCon
     }
 
     @Override
-    public void accion2() {
+    public void accion2(int cajonAntiguo, Producto producto){
     }
 }

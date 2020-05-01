@@ -11,10 +11,17 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
 import com.smartfreeze.R;
+import com.smartfreeze.domain.Producto;
 
 public class DialogCajon extends DialogFragment {
-
-public DialogCajon(){}
+IDialogCajon listener;
+int cajonAntiguo;
+Producto producto;
+public DialogCajon(IDialogCajon listener, int cajonAntiguo, Producto producto){
+    this.listener = listener;
+    this.cajonAntiguo = cajonAntiguo;
+    this.producto = producto;
+}
 
     @NonNull
     @Override
@@ -26,53 +33,8 @@ public DialogCajon(){}
                 .setItems(R.array.cajones, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
-                        switch (which){
-                            case 0: //Cambiar de cajon al 1
-                                Toast.makeText(getContext(),"Cambiando de cajon al"+(which+1), Toast.LENGTH_SHORT).show();
-                                dismiss();
-                                break;
-
-                            case 1: //Cambiar de cajon al 2
-                                Toast.makeText(getContext(), "Cambiando de cajon al"+(which+1), Toast.LENGTH_SHORT).show();
-                                dismiss();
-                                break;
-
-                                case 2: //Cambiar de cajon al 3
-                                Toast.makeText(getContext(), "Cambiando de cajon al"+(which+1), Toast.LENGTH_SHORT).show();
-                                dismiss();
-                                break;
-                            case 3: //Cambiar de cajon al 4
-                                Toast.makeText(getContext(), "Cambiando de cajon al"+(which+1), Toast.LENGTH_SHORT).show();
-                                dismiss();
-                                break;
-                            case 4: //Cambiar de cajon al 5
-                                Toast.makeText(getContext(), "Cambiando de cajon al"+(which+1), Toast.LENGTH_SHORT).show();
-                                dismiss();
-                                break;
-                            case 5: //Cambiar de cajon al 6
-                                Toast.makeText(getContext(), "Cambiando de cajon al"+(which+1), Toast.LENGTH_SHORT).show();
-                                dismiss();
-                                break;
-                            case 6: //Cambiar de cajon al 7
-                                Toast.makeText(getContext(), "Cambiando de cajon al"+(which+1), Toast.LENGTH_SHORT).show();
-                                dismiss();
-                                break;
-                                case 7: //Cambiar de cajon al estante 8
-                                Toast.makeText(getContext(), "Cambiando de cajon al"+(which+1), Toast.LENGTH_SHORT).show();
-                                dismiss();
-                                break;
-
-                            case 8: //Cambiar de cajon al estante 9
-                                Toast.makeText(getContext(), "Cambiando de cajon al"+(which+1), Toast.LENGTH_SHORT).show();
-                                dismiss();
-                                break;
-
-                            case 9: //Cambiar de cajon al estante 10
-                                Toast.makeText(getContext(), "Cambiando de cajon al"+(which+1), Toast.LENGTH_SHORT).show();
-                                dismiss();
-                                break;
-                        }
+                        listener.cambiarCajonSeleccionado(which, cajonAntiguo, producto);
+                        dismiss();
 
                     }
 

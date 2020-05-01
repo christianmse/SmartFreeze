@@ -47,7 +47,7 @@ public class SubItemAdapter extends RecyclerView.Adapter<SubItemAdapter.TiendaVi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TiendaViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull TiendaViewHolder holder, final int position) {
         String titulo = listaProductos.get(position).getNombre();
         String subtitulo = listaProductos.get(position).getCategorioa();
         String precio = listaProductos.get(position).getPrecio();
@@ -69,7 +69,7 @@ public class SubItemAdapter extends RecyclerView.Adapter<SubItemAdapter.TiendaVi
         holder.accion2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.accion2();
+                listener.accion2(listaProductos.get(position).getCajon(), listaProductos.get(position));
             }
         });
 
@@ -164,7 +164,7 @@ public class SubItemAdapter extends RecyclerView.Adapter<SubItemAdapter.TiendaVi
                     Boolean isExpanded = descripcion.getHeight() != 0;
                     int icon, height;
                     if(isExpanded) {
-                        icon= R.drawable.ic_expand_more_black_36dp;
+                        icon= R.drawable.ic_expandir;
                         height = 0;
                     } else {
                         icon = R.drawable.ic_expand_less_black_36dp;
