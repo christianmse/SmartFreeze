@@ -11,10 +11,11 @@
 
     <ImageButton
         android:id="@+id/iBDispensador"
-        android:layout_width="207dp"
-        android:layout_height="360dp"
+        android:layout_width="218dp"
+        android:layout_height="386dp"
         android:layout_centerInParent="true"
-        android:background="@drawable/fondo_gradiente"
+        android:background="@drawable/marco_azul_gradiente"
+        android:foreground="?android:selectableItemBackground"
         android:src="@drawable/dispensador" />
 
     <ImageButton
@@ -24,7 +25,8 @@
         android:layout_marginRight="5dp"
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@id/iBDispensador"
-        android:background="@drawable/fondo_gradiente"
+        android:background="@drawable/marco_azul_gradiente"
+        android:foreground="?android:selectableItemBackground"
         android:src="@drawable/water" />
 
     <TextView
@@ -38,13 +40,14 @@
 
     <ImageButton
         android:id="@+id/iBCubito"
-        android:layout_width="184dp"
-        android:layout_height="162dp"
+        android:layout_width="wrap_content"
+        android:layout_height="177dp"
         android:layout_centerVertical="true"
         android:layout_marginStart="2dp"
         android:layout_toEndOf="@+id/iBDispensador"
-        android:src="@drawable/cubitorec"
-        android:background="@drawable/fondo_gradiente"/>
+        android:background="@drawable/marco_azul_gradiente"
+        android:foreground="?android:selectableItemBackground"
+        android:src="@drawable/cubitorec" />
 
     <TextView
         android:id="@+id/cubito"
@@ -55,5 +58,35 @@
         android:layout_marginTop="2dp"
         android:layout_marginEnd="73dp"
         android:text="Hielo" />
+
+    <TextView
+        android:id="@+id/tSelector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/iBBotella"
+        android:layout_alignEnd="@+id/iBBotella"
+        android:layout_marginEnd="-2dp"
+        android:layout_marginBottom="7dp"
+        android:text="SELECTOR DE BEBIDAS" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/iBDispensador"
+        android:layout_alignEnd="@+id/iBDispensador"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="7dp"
+        android:text="DISPENSADOR DE BEBIDA" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/iBCubito"
+        android:layout_alignEnd="@+id/iBCubito"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="7dp"
+        android:text="DISPENSADOR DE HIELO" />
 
 </RelativeLayout>
