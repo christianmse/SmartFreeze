@@ -117,7 +117,6 @@
             android:layout_marginEnd="324dp"
             android:text="Cajón 4" />
 
-
         <!--        BOTONES DE LA PUERTA (ESTANTES DE BEBIDA Y SALSAS ) MAX 5 BEBIDAS POR ESTANTE-->
         <Button
             android:id="@+id/bEstante11"
@@ -148,5 +147,15 @@
             android:layout_marginTop="35dp"
             android:layout_marginEnd="28dp"
             android:text="Estante 3"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iVNeveraAbierta"
+            android:layout_alignEnd="@+id/iVFrigoAbierto"
+            android:layout_marginTop="250dp"
+            android:layout_marginEnd="50dp"
+            android:text="SELECCIONA UN CAJÓN"
+            android:textSize="50dp" />
     </RelativeLayout>
 </ScrollView>

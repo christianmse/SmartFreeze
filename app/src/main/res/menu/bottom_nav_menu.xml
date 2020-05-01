@@ -5,8 +5,8 @@
 
     <item
         android:id="@+id/navigation_principal"
-        android:icon="@drawable/ic_principal"
-        android:title="Menu Principal" />
+        android:icon="@drawable/ic_nevera1"
+        android:title="Nevera" />
     <item
         android:id="@+id/navigation_tienda"
         android:icon="@drawable/ic_despensa"

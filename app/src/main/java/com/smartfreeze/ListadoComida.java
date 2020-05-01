@@ -26,9 +26,9 @@ public class ListadoComida extends AppCompatActivity implements View.OnCreateCon
             datosProducto4, datosProducto5, datosProducto6, datosProducto7, datosProducto8, datosProducto9;
     private Producto auxp;
     private GridLayoutManager manager;
-    private DespensaAdapter2 adapter2;
+    public static DespensaAdapter2 adapter2;
     private RecyclerView recyclerView;
-    private int boton;
+    private int boton, cajon;
 
 
     @Override
@@ -37,8 +37,8 @@ public class ListadoComida extends AppCompatActivity implements View.OnCreateCon
         setContentView(R.layout.activity_listado_comida);
 
         datosProducto0 = Stock.getInstance().getDatosPorCajon(0);
-        datosProducto1 = Stock.getInstance().getDatosPorCajon(0);
-        datosProducto2 = Stock.getInstance().getDatosPorCajon(0);
+        datosProducto1 = Stock.getInstance().getDatosPorCajon(1);
+        datosProducto2 = Stock.getInstance().getDatosPorCajon(2);
         datosProducto3 = Stock.getInstance().getDatosPorCajon(0);
         datosProducto4 = Stock.getInstance().getDatosPorCajon(0);
         datosProducto5 = Stock.getInstance().getDatosPorCajon(0);
@@ -62,109 +62,6 @@ public class ListadoComida extends AppCompatActivity implements View.OnCreateCon
             switch (boton) {
 //            FRIGORIFICO
                 case R.id.b3Cajon:
-                    adapter2 = new DespensaAdapter2(getApplicationContext(), datosProducto0, this);
-                    recyclerView.setAdapter(adapter2);
-                    recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, recyclerView,
-                            new RecyclerItemClickListener.OnItemClickListener() {
-                                @Override
-                                public void onItemClick(View view, int position) {
-//                                    Toast.makeText(ListadoComida.this, "Click corto", Toast.LENGTH_LONG).show();
-                                }
-
-                                @Override
-                                public void onLongItemClick(View view, int position) {
-                                    auxp = datosProducto0.get(position);
-                                    recyclerView.showContextMenu();
-                                }
-                            }));
-                    break;
-                case R.id.b2Cajon:
-                    adapter2 = new DespensaAdapter2(getApplicationContext(), datosProducto1, this);
-                    recyclerView.setAdapter(adapter2);
-                    recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, recyclerView,
-                            new RecyclerItemClickListener.OnItemClickListener() {
-                                @Override
-                                public void onItemClick(View view, int position) {
-//                                    Toast.makeText(ListadoComida.this, "Click corto", Toast.LENGTH_LONG).show();
-                                }
-
-                                @Override
-                                public void onLongItemClick(View view, int position) {
-                                    auxp = datosProducto1.get(position);
-                                    recyclerView.showContextMenu();
-                                }
-                            }));
-                    break;
-                case R.id.b1Cajon:
-                    adapter2 = new DespensaAdapter2(getApplicationContext(), datosProducto2, this);
-                    recyclerView.setAdapter(adapter2);
-                    recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, recyclerView,
-                            new RecyclerItemClickListener.OnItemClickListener() {
-                                @Override
-                                public void onItemClick(View view, int position) {
-//                                    Toast.makeText(ListadoComida.this, "Click corto", Toast.LENGTH_LONG).show();
-                                }
-
-                                @Override
-                                public void onLongItemClick(View view, int position) {
-                                    auxp = datosProducto2.get(position);
-                                    recyclerView.showContextMenu();
-                                }
-                            }));
-                    break;
-//            NEVERA
-                case R.id.b1Nevera:
-                    adapter2 = new DespensaAdapter2(getApplicationContext(), datosProducto3, this);
-                    recyclerView.setAdapter(adapter2);
-                    recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, recyclerView,
-                            new RecyclerItemClickListener.OnItemClickListener() {
-                                @Override
-                                public void onItemClick(View view, int position) {
-//                                    Toast.makeText(ListadoComida.this, "Click corto", Toast.LENGTH_LONG).show();
-                                }
-
-                                @Override
-                                public void onLongItemClick(View view, int position) {
-                                    auxp = datosProducto3.get(position);
-                                    recyclerView.showContextMenu();
-                                }
-                            }));
-                    break;
-                case R.id.b2Nevera:
-                    adapter2 = new DespensaAdapter2(getApplicationContext(), datosProducto4, this);
-                    recyclerView.setAdapter(adapter2);
-                    recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, recyclerView,
-                            new RecyclerItemClickListener.OnItemClickListener() {
-                                @Override
-                                public void onItemClick(View view, int position) {
-//                                    Toast.makeText(ListadoComida.this, "Click corto", Toast.LENGTH_LONG).show();
-                                }
-
-                                @Override
-                                public void onLongItemClick(View view, int position) {
-                                    auxp = datosProducto4.get(position);
-                                    recyclerView.showContextMenu();
-                                }
-                            }));
-                    break;
-                case R.id.b3Nevera:
-                    adapter2 = new DespensaAdapter2(getApplicationContext(), datosProducto5, this);
-                    recyclerView.setAdapter(adapter2);
-                    recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, recyclerView,
-                            new RecyclerItemClickListener.OnItemClickListener() {
-                                @Override
-                                public void onItemClick(View view, int position) {
-//                                    Toast.makeText(ListadoComida.this, "Click corto", Toast.LENGTH_LONG).show();
-                                }
-
-                                @Override
-                                public void onLongItemClick(View view, int position) {
-                                    auxp = datosProducto5.get(position);
-                                    recyclerView.showContextMenu();
-                                }
-                            }));
-                    break;
-                case R.id.b4CajonIzq:
                     adapter2 = new DespensaAdapter2(getApplicationContext(), datosProducto6, this);
                     recyclerView.setAdapter(adapter2);
                     recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, recyclerView,
@@ -177,6 +74,116 @@ public class ListadoComida extends AppCompatActivity implements View.OnCreateCon
                                 @Override
                                 public void onLongItemClick(View view, int position) {
                                     auxp = datosProducto6.get(position);
+                                    cajon = 6;
+                                    recyclerView.showContextMenu();
+                                }
+                            }));
+                    break;
+                case R.id.b2Cajon:
+                    adapter2 = new DespensaAdapter2(getApplicationContext(), datosProducto5, this);
+                    recyclerView.setAdapter(adapter2);
+                    recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, recyclerView,
+                            new RecyclerItemClickListener.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(View view, int position) {
+//                                    Toast.makeText(ListadoComida.this, "Click corto", Toast.LENGTH_LONG).show();
+                                }
+
+                                @Override
+                                public void onLongItemClick(View view, int position) {
+                                    auxp = datosProducto5.get(position);
+                                    cajon = 5;
+                                    recyclerView.showContextMenu();
+                                }
+                            }));
+                    break;
+                case R.id.b1Cajon:
+                    adapter2 = new DespensaAdapter2(getApplicationContext(), datosProducto4, this);
+                    recyclerView.setAdapter(adapter2);
+                    recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, recyclerView,
+                            new RecyclerItemClickListener.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(View view, int position) {
+//                                    Toast.makeText(ListadoComida.this, "Click corto", Toast.LENGTH_LONG).show();
+                                }
+
+                                @Override
+                                public void onLongItemClick(View view, int position) {
+                                    auxp = datosProducto4.get(position);
+                                    cajon = 4;
+                                    recyclerView.showContextMenu();
+                                }
+                            }));
+                    break;
+//            NEVERA
+                case R.id.b1Nevera:
+                    adapter2 = new DespensaAdapter2(getApplicationContext(), datosProducto0, this);
+                    recyclerView.setAdapter(adapter2);
+                    recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, recyclerView,
+                            new RecyclerItemClickListener.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(View view, int position) {
+//                                    Toast.makeText(ListadoComida.this, "Click corto", Toast.LENGTH_LONG).show();
+                                }
+
+                                @Override
+                                public void onLongItemClick(View view, int position) {
+                                    auxp = datosProducto0.get(position);
+                                    cajon = 0;
+                                    recyclerView.showContextMenu();
+                                }
+                            }));
+                    break;
+                case R.id.b2Nevera:
+                    adapter2 = new DespensaAdapter2(getApplicationContext(), datosProducto1, this);
+                    recyclerView.setAdapter(adapter2);
+                    recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, recyclerView,
+                            new RecyclerItemClickListener.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(View view, int position) {
+//                                    Toast.makeText(ListadoComida.this, "Click corto", Toast.LENGTH_LONG).show();
+                                }
+
+                                @Override
+                                public void onLongItemClick(View view, int position) {
+                                    auxp = datosProducto1.get(position);
+                                    cajon = 1;
+                                    recyclerView.showContextMenu();
+                                }
+                            }));
+                    break;
+                case R.id.b3Nevera:
+                    adapter2 = new DespensaAdapter2(getApplicationContext(), datosProducto2, this);
+                    recyclerView.setAdapter(adapter2);
+                    recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, recyclerView,
+                            new RecyclerItemClickListener.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(View view, int position) {
+//                                    Toast.makeText(ListadoComida.this, "Click corto", Toast.LENGTH_LONG).show();
+                                }
+
+                                @Override
+                                public void onLongItemClick(View view, int position) {
+                                    auxp = datosProducto2.get(position);
+                                    cajon = 2;
+                                    recyclerView.showContextMenu();
+                                }
+                            }));
+                    break;
+                case R.id.b4CajonIzq:
+                    adapter2 = new DespensaAdapter2(getApplicationContext(), datosProducto3, this);
+                    recyclerView.setAdapter(adapter2);
+                    recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, recyclerView,
+                            new RecyclerItemClickListener.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(View view, int position) {
+//                                    Toast.makeText(ListadoComida.this, "Click corto", Toast.LENGTH_LONG).show();
+                                }
+
+                                @Override
+                                public void onLongItemClick(View view, int position) {
+                                    auxp = datosProducto3.get(position);
+                                    cajon = 3;
                                     recyclerView.showContextMenu();
                                 }
                             }));
@@ -194,6 +201,7 @@ public class ListadoComida extends AppCompatActivity implements View.OnCreateCon
                                 @Override
                                 public void onLongItemClick(View view, int position) {
                                     auxp = datosProducto7.get(position);
+                                    cajon = 7;
                                     recyclerView.showContextMenu();
                                 }
                             }));
@@ -211,6 +219,7 @@ public class ListadoComida extends AppCompatActivity implements View.OnCreateCon
                                 @Override
                                 public void onLongItemClick(View view, int position) {
                                     auxp = datosProducto8.get(position);
+                                    cajon = 8;
                                     recyclerView.showContextMenu();
                                 }
                             }));
@@ -228,6 +237,7 @@ public class ListadoComida extends AppCompatActivity implements View.OnCreateCon
                                 @Override
                                 public void onLongItemClick(View view, int position) {
                                     auxp = datosProducto9.get(position);
+                                    cajon = 9;
                                     recyclerView.showContextMenu();
                                 }
                             }));
@@ -260,6 +270,7 @@ public class ListadoComida extends AppCompatActivity implements View.OnCreateCon
             case R.id.cambiar_cajon:
                 Intent intent = new Intent(this, SeleccionCajon.class);
                 intent.putExtra("Elemento", auxp);
+                intent.putExtra("Cajon", cajon);
                 startActivity(intent);
                 return true;
             default:

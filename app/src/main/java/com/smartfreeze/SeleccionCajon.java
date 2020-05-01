@@ -17,6 +17,7 @@ public class SeleccionCajon extends AppCompatActivity {
     private Producto elementop;
     private Button b3CajonF, b2CajonF, b1CajonF, b1Nevera, b2Nevera, b3Nevera, b4Nevera,
             b1Estante, b2Estante, b3Estante;
+    private int cajonant;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,7 @@ public class SeleccionCajon extends AppCompatActivity {
             setContentView(R.layout.activity_seleccion_cajon);
             Intent intent1 = getIntent();
             elementop = intent1.getParcelableExtra("Elemento");
+            cajonant = intent1.getIntExtra("Cajon", -1);
 
             //        BOTONES DE LA NEVERA
             iVNeveraAbierta = findViewById(R.id.iVNeveraAbierta);
@@ -50,7 +52,9 @@ public class SeleccionCajon extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent abrircajon3f = new Intent(SeleccionCajon.this, MainActivity.class);
-                    Stock.getInstance().insertarDatosPorCajon(0, elementop); //CAMBIAR EL NÚMERO DEL CAJÓN
+                    Stock.getInstance().insertarDatosPorCajon(6, elementop);
+                    Stock.getInstance().getDatosPorCajon(cajonant).remove(elementop);
+                    ListadoComida.adapter2.notifyDataSetChanged();
                     Toast.makeText(getApplicationContext(), "Producto " + elementop.getNombre() + " cambiado",Toast.LENGTH_LONG).show();
                     startActivity(abrircajon3f);
                 }
@@ -61,7 +65,9 @@ public class SeleccionCajon extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent abrircajon32f = new Intent(SeleccionCajon.this, MainActivity.class);
-                    Stock.getInstance().insertarDatosPorCajon(0, elementop); //CAMBIAR EL NÚMERO DEL CAJÓN
+                    Stock.getInstance().insertarDatosPorCajon(5, elementop);
+                    Stock.getInstance().getDatosPorCajon(cajonant).remove(elementop);
+                    ListadoComida.adapter2.notifyDataSetChanged();
                     Toast.makeText(getApplicationContext(), "Producto " + elementop.getNombre() + " cambiado",Toast.LENGTH_LONG).show();
                     startActivity(abrircajon32f);
                 }
@@ -72,7 +78,9 @@ public class SeleccionCajon extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent abrircajon1f = new Intent(SeleccionCajon.this, MainActivity.class);
-                    Stock.getInstance().insertarDatosPorCajon(0, elementop); //CAMBIAR EL NÚMERO DEL CAJÓN
+                    Stock.getInstance().insertarDatosPorCajon(4, elementop);
+                    Stock.getInstance().getDatosPorCajon(cajonant).remove(elementop);
+                    ListadoComida.adapter2.notifyDataSetChanged();
                     Toast.makeText(getApplicationContext(), "Producto " + elementop.getNombre() + " cambiado",Toast.LENGTH_LONG).show();
                     startActivity(abrircajon1f);
                 }
@@ -84,7 +92,9 @@ public class SeleccionCajon extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent abrircajon1n = new Intent(SeleccionCajon.this, MainActivity.class);
-                    Stock.getInstance().insertarDatosPorCajon(0, elementop); //CAMBIAR EL NÚMERO DEL CAJÓN
+                    Stock.getInstance().insertarDatosPorCajon(0, elementop);
+                    Stock.getInstance().getDatosPorCajon(cajonant).remove(elementop);
+                    ListadoComida.adapter2.notifyDataSetChanged();
                     Toast.makeText(getApplicationContext(), "Producto " + elementop.getNombre() + " cambiado",Toast.LENGTH_LONG).show();
                     startActivity(abrircajon1n);
                 }
@@ -95,7 +105,9 @@ public class SeleccionCajon extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent abrircajon2n = new Intent(SeleccionCajon.this, MainActivity.class);
-                    Stock.getInstance().insertarDatosPorCajon(0, elementop); //CAMBIAR EL NÚMERO DEL
+                    Stock.getInstance().insertarDatosPorCajon(1, elementop);
+                    Stock.getInstance().getDatosPorCajon(cajonant).remove(elementop);
+                    ListadoComida.adapter2.notifyDataSetChanged();
                     Toast.makeText(getApplicationContext(), "Producto " + elementop.getNombre() + " cambiado",Toast.LENGTH_LONG).show();
                     startActivity(abrircajon2n);
                 }
@@ -106,7 +118,9 @@ public class SeleccionCajon extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent abrircajon3n = new Intent(SeleccionCajon.this, MainActivity.class);
-                    Stock.getInstance().insertarDatosPorCajon(0, elementop); //CAMBIAR EL NÚMERO DEL CAJÓN
+                    Stock.getInstance().insertarDatosPorCajon(2, elementop);
+                    Stock.getInstance().getDatosPorCajon(cajonant).remove(elementop);
+                    ListadoComida.adapter2.notifyDataSetChanged();
                     Toast.makeText(getApplicationContext(), "Producto " + elementop.getNombre() + " cambiado",Toast.LENGTH_LONG).show();
                     startActivity(abrircajon3n);
                 }
@@ -116,7 +130,9 @@ public class SeleccionCajon extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent abrircajon4n = new Intent(SeleccionCajon.this, MainActivity.class);
-                    Stock.getInstance().insertarDatosPorCajon(0, elementop); //CAMBIAR EL NÚMERO DEL CAJÓN
+                    Stock.getInstance().insertarDatosPorCajon(3, elementop);
+                    Stock.getInstance().getDatosPorCajon(cajonant).remove(elementop);
+                    ListadoComida.adapter2.notifyDataSetChanged();
                     Toast.makeText(getApplicationContext(), "Producto " + elementop.getNombre() + " cambiado",Toast.LENGTH_LONG).show();
                     startActivity(abrircajon4n);
                 }
@@ -127,7 +143,9 @@ public class SeleccionCajon extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent abrircajon1e = new Intent(SeleccionCajon.this, MainActivity.class);
-                    Stock.getInstance().insertarDatosPorCajon(0, elementop); //CAMBIAR EL NÚMERO DEL CAJÓN
+                    Stock.getInstance().insertarDatosPorCajon(9, elementop);
+                    Stock.getInstance().getDatosPorCajon(cajonant).remove(elementop);
+                    ListadoComida.adapter2.notifyDataSetChanged();
                     Toast.makeText(getApplicationContext(), "Producto " + elementop.getNombre() + " cambiado",Toast.LENGTH_LONG).show();
                     startActivity(abrircajon1e);
                 }
@@ -138,7 +156,9 @@ public class SeleccionCajon extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent abrircajon2e = new Intent(SeleccionCajon.this, MainActivity.class);
-                    Stock.getInstance().insertarDatosPorCajon(0, elementop); //CAMBIAR EL NÚMERO DEL CAJÓN
+                    Stock.getInstance().insertarDatosPorCajon(8, elementop);
+                    Stock.getInstance().getDatosPorCajon(cajonant).remove(elementop);
+                    ListadoComida.adapter2.notifyDataSetChanged();
                     Toast.makeText(getApplicationContext(), "Producto " + elementop.getNombre() + " cambiado",Toast.LENGTH_LONG).show();
                     startActivity(abrircajon2e);
                 }
@@ -149,7 +169,9 @@ public class SeleccionCajon extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent abrircajon3e = new Intent(SeleccionCajon.this, MainActivity.class);
-                    Stock.getInstance().insertarDatosPorCajon(0, elementop); //CAMBIAR EL NÚMERO DEL CAJÓN
+                    Stock.getInstance().insertarDatosPorCajon(7, elementop);
+                    Stock.getInstance().getDatosPorCajon(cajonant).remove(elementop);
+                    ListadoComida.adapter2.notifyDataSetChanged();
                     Toast.makeText(getApplicationContext(), "Producto " + elementop.getNombre() + " cambiado",Toast.LENGTH_LONG).show();
                     startActivity(abrircajon3e);
                 }
