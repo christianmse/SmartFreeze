@@ -275,7 +275,7 @@ public class ListadoComida extends AppCompatActivity implements View.OnCreateCon
 
         switch (item.getItemId()){
             case R.id.sacar:
-                sacarProducto();
+                sacarProducto(cajon, auxp);
                 return true;
             case R.id.cambiar_cajon:
                 Intent intent = new Intent(this, SeleccionCajon.class);
@@ -288,8 +288,51 @@ public class ListadoComida extends AppCompatActivity implements View.OnCreateCon
         }
     }
 
-    public void sacarProducto(){
+    public void sacarProducto(int cajon, Producto producto){
+
         Toast.makeText(this, "Producto sacado", Toast.LENGTH_SHORT).show();
+        switch (cajon){
+            case 0:
+                Stock.getInstance().getDatosPorCajon(0).remove(producto);
+                ListadoComida.adapter2.notifyDataSetChanged();
+                break;
+            case 1:
+                Stock.getInstance().getDatosPorCajon(1).remove(producto);
+                ListadoComida.adapter2.notifyDataSetChanged();
+                break;
+            case 2:
+                Stock.getInstance().getDatosPorCajon(2).remove(auxp);
+                ListadoComida.adapter2.notifyDataSetChanged();
+                break;
+            case 3:
+                Stock.getInstance().getDatosPorCajon(3).remove(auxp);
+                ListadoComida.adapter2.notifyDataSetChanged();
+                break;
+            case 4:
+                Stock.getInstance().getDatosPorCajon(4).remove(auxp);
+                ListadoComida.adapter2.notifyDataSetChanged();
+                break;
+            case 5:
+                Stock.getInstance().getDatosPorCajon(5).remove(auxp);
+                ListadoComida.adapter2.notifyDataSetChanged();
+                break;
+            case 6:
+                Stock.getInstance().getDatosPorCajon(6).remove(auxp);
+                ListadoComida.adapter2.notifyDataSetChanged();
+                break;
+            case 7:
+                Stock.getInstance().getDatosPorCajon(7).remove(auxp);
+                ListadoComida.adapter2.notifyDataSetChanged();
+                break;
+            case 8:
+                Stock.getInstance().getDatosPorCajon(8).remove(auxp);
+                ListadoComida.adapter2.notifyDataSetChanged();
+                break;
+            case 9:
+                Stock.getInstance().getDatosPorCajon(9).remove(auxp);
+                ListadoComida.adapter2.notifyDataSetChanged();
+                break;
+        }
     }
 
     @Override
