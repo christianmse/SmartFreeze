@@ -67,7 +67,7 @@ public class DespensaAdapter extends RecyclerView.Adapter<DespensaAdapter.Holder
                 break;
             case 5: holder.nomCajon.setText("Congelador 2");
                 holder.cajon.setVisibility(View.GONE);
-                break;Consul
+                break;
             case 6:
                 holder.nomCajon.setText("Congelador 3");
                 holder.cajon.setVisibility(View.GONE);
