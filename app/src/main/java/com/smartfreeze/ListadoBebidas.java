@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.smartfreeze.domain.Ajustes;
+import com.smartfreeze.domain.Producto;
 import com.smartfreeze.ui.adapter.AjustesAdapter;
 import com.smartfreeze.ui.fragments.DispensadorTab;
 
@@ -25,7 +27,7 @@ import java.util.List;
 
 public class ListadoBebidas extends Activity {
 
-    private ArrayList<Ajustes> datosBebidas = new ArrayList<>();
+    private ArrayList<Producto> datosBebidas = new ArrayList<>();
     RecyclerView recyclerView;
     AjustesAdapter adapter;
 
@@ -36,7 +38,7 @@ public class ListadoBebidas extends Activity {
         setContentView(R.layout.activity_listado_bebidas);
         setListaBebidas();
         recyclerView = findViewById(R.id.recycler_tienda);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 4));
         adapter = new AjustesAdapter(getListaBebidas(), this);
         recyclerView.setAdapter(adapter);
 
@@ -59,14 +61,15 @@ public class ListadoBebidas extends Activity {
 
 
 //          Creacion de las bebidas
-    public ArrayList<Ajustes> getListaBebidas(){
+    public ArrayList<Producto> getListaBebidas(){
         return datosBebidas;
     }
     public void setListaBebidas(){
-        datosBebidas.add(new Ajustes("   Agua", R.drawable.botellaagua));
-        datosBebidas.add(new Ajustes("   Cerveza", R.drawable.beer));
-        datosBebidas.add(new Ajustes("   Fanta", R.drawable.fanta));
-        datosBebidas.add(new Ajustes("   Cocacola", R.drawable.coke));
-        datosBebidas.add(new Ajustes("   Agua con gas", R.drawable.nestea));
+        datosBebidas.add(new Producto("   Agua","Bebida","1", R.drawable.agauasingas,"Agua"));
+        datosBebidas.add(new Producto("   Chipys", "Bebida", "2", R.drawable.cerveza, "Cerveza de malta"));
+        datosBebidas.add(new Producto("   Fanta", "Bebida", "2", R.drawable.fanta_naranja, "Fanta de naranja"));
+        datosBebidas.add(new Producto("   Cocacola","Bebida", "2", R.drawable.cocacola, "Coke"));
+        datosBebidas.add(new Producto("   Agua con gas", "Bebida", "1,3", R.drawable.aguagas, "Gas"));
+        datosBebidas.add(new Producto("Zumo de naranja", "Bebidas", "4", R.drawable.zumo_naranja, "Zumo natural"));
     }
 }

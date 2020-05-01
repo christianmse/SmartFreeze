@@ -43,21 +43,11 @@
         android:layout_width="wrap_content"
         android:layout_height="177dp"
         android:layout_centerVertical="true"
-        android:layout_marginStart="2dp"
+        android:layout_marginStart="5dp"
         android:layout_toEndOf="@+id/iBDispensador"
         android:background="@drawable/marco_azul_gradiente"
         android:foreground="?android:selectableItemBackground"
         android:src="@drawable/cubitorec" />
-
-    <TextView
-        android:id="@+id/cubito"
-        android:layout_width="44dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/iBCubito"
-        android:layout_alignEnd="@+id/iBCubito"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="73dp"
-        android:text="Hielo" />
 
     <TextView
         android:id="@+id/tSelector"
