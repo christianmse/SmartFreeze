@@ -65,10 +65,11 @@ public class ListadoBebidas extends Activity {
         return datosBebidas;
     }
     public void setListaBebidas(){
-        datosBebidas.add(new Producto("   Agua","Bebida","1", R.drawable.botellaagua,"Agua"));
-        datosBebidas.add(new Producto("   Cerveza", "Bebida", "2", R.drawable.beer, "Cerveza de malta"));
-        datosBebidas.add(new Producto("   Fanta", "Bebida", "2", R.drawable.fanta, "Fanta de naranja"));
-        datosBebidas.add(new Producto("   Cocacola","Bebida", "2", R.drawable.coke, "Coke"));
-        datosBebidas.add(new Producto("   Agua con gas", "Bebida", "1,3", R.drawable.nestea, "Gas"));
+        datosBebidas.add(new Producto("   Agua","Bebida","1", R.drawable.agauasingas,"Agua"));
+        datosBebidas.add(new Producto("   Chipys", "Bebida", "2", R.drawable.cerveza, "Cerveza de malta"));
+        datosBebidas.add(new Producto("   Fanta", "Bebida", "2", R.drawable.fanta_naranja, "Fanta de naranja"));
+        datosBebidas.add(new Producto("   Cocacola","Bebida", "2", R.drawable.cocacola, "Coke"));
+        datosBebidas.add(new Producto("   Agua con gas", "Bebida", "1,3", R.drawable.aguagas, "Gas"));
+        datosBebidas.add(new Producto("Zumo de naranja", "Bebidas", "4", R.drawable.zumo_naranja, "Zumo natural"));
     }
 }

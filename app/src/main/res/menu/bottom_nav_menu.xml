@@ -6,11 +6,11 @@
     <item
         android:id="@+id/navigation_principal"
         android:icon="@drawable/ic_nevera1"
-        android:title="Nevera" />
+        android:title="Mi Nevera" />
     <item
         android:id="@+id/navigation_tienda"
         android:icon="@drawable/ic_despensa"
-        android:title="Despensa" />
+        android:title="Mis Productos" />
 
 
 

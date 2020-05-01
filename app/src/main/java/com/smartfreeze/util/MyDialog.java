@@ -69,7 +69,7 @@ public class MyDialog extends DialogFragment {
             }
         });
 
-        builder.setNeutralButton("Todo", new DialogInterface.OnClickListener() {
+        builder.setNeutralButton(" Ver todo", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 listener.categoriasSelectedTodas(Datos.getInstance().getDatos());
