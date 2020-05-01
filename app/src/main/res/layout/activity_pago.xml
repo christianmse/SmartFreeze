@@ -54,6 +54,7 @@
         android:textColor="@color/textColorPrimary"
         android:textSize="33sp"
         android:textStyle="bold"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/enhorabuena" />
@@ -66,6 +67,7 @@
         android:textColor="@color/textColorPrimary"
         android:textSize="33sp"
         android:textStyle="bold"
+
         app:layout_constraintBottom_toTopOf="@id/txt2"
         app:layout_constraintStart_toEndOf="@id/precioTotal"
         app:layout_constraintTop_toBottomOf="@+id/enhorabuena" />
@@ -93,7 +95,7 @@
         android:gravity="center"
         android:text="Volver"
         android:textColor="@color/white"
-        android:textSize="33sp"
+        android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 

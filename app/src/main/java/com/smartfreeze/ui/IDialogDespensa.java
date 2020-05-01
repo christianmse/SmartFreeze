@@ -4,4 +4,6 @@ import com.smartfreeze.domain.Producto;
 
 public interface IDialogDespensa {
     public void cambiarCajon(int cajonAntiguo, Producto producto);
+
+    void productoSacado(int cajonAntiguo, Producto producto);
 }

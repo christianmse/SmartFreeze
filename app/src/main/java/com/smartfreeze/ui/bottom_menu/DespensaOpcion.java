@@ -128,6 +128,12 @@ public class DespensaOpcion extends Fragment implements IDespensaListener, IDial
     }
 
     @Override
+    public void productoSacado(int cajonAntiguo, Producto producto) {
+        Stock.getInstance().getDatosPorCajon(cajonAntiguo).remove(producto);
+        adapter.notifyDataSetChanged();
+    }
+
+    @Override
     public void cambiarCajonSeleccionado(int i, int cajonAntiguo, Producto producto) {
         ArrayList<Producto> productosDelCajon = new ArrayList<>();
         switch (i){

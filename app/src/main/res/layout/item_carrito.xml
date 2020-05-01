@@ -93,7 +93,7 @@
             android:labelFor="@id/quantityEditText"
             android:text="CANTIDAD: "
             android:textColor="@color/textColorPrimary"
-            android:textSize="13sp"
+            android:textSize="18sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/quantityEditText"
             app:layout_constraintStart_toEndOf="@+id/productImage" />
 
@@ -107,7 +107,7 @@
             android:maxLength="3"
             android:minWidth="50dp"
             android:text="1"
-            android:textSize="13sp"
+            android:textSize="18sp"
             android:theme="@style/EditText"
             app:layout_constraintBottom_toTopOf="@+id/bottomHorizontalGuideline"
             app:layout_constraintEnd_toStartOf="@+id/totalPrice"

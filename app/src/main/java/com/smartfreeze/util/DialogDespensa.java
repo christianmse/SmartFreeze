@@ -45,6 +45,7 @@ public class DialogDespensa extends DialogFragment {
 
                             case 1: //Descongelar
                                 Toast.makeText(getContext(), "Producto sacado", Toast.LENGTH_SHORT).show();
+                                listener.productoSacado(cajonAntiguo, producto);
                                 dismiss();
                                 break;
                         }
