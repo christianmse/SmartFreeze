@@ -91,7 +91,7 @@
                 android:id="@+id/descriptionLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
-                android:drawableEnd="@drawable/ic_expand_more_black_36dp"
+                android:drawableEnd="@drawable/ic_expandir"
                 android:gravity="center_vertical"
                 android:paddingEnd="@dimen/horizontal_space"
                 android:paddingStart="@dimen/horizontal_space"

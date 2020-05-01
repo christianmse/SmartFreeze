@@ -6,6 +6,7 @@ import android.view.PointerIcon;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -56,8 +57,14 @@ public class DespensaAdapter extends RecyclerView.Adapter<DespensaAdapter.Holder
         holder.rvSubItem.setRecycledViewPool(viewPoll);
 
         //Reemplazar por cajon
-        String cajon = String.valueOf(position);
+        String cajon = String.valueOf(position+1);
         holder.cajon.setText(cajon);
+
+        if(aux.size() < 4){
+            holder.flecha2.setVisibility(View.GONE);
+            holder.flecha1.setVisibility(View.GONE);
+
+        }
     }
 
     @Override
@@ -68,10 +75,13 @@ public class DespensaAdapter extends RecyclerView.Adapter<DespensaAdapter.Holder
     public static class Holder extends RecyclerView.ViewHolder{
         RecyclerView rvSubItem;
         TextView cajon;
+        ImageView flecha1, flecha2;
         public Holder(@NonNull View itemView) {
             super(itemView);
             rvSubItem = itemView.findViewById(R.id.recycler_subItemProducto);
             cajon = itemView.findViewById(R.id.cajon);
+            flecha1 = itemView.findViewById(R.id.flecha1);
+            flecha2 = itemView.findViewById(R.id.flecha2);
         }
     }
 }
