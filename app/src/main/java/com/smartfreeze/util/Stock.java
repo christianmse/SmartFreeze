@@ -20,6 +20,7 @@ public class Stock {
     //        <item>Legumbres</item>
 
     public Stock(){
+        //cajon0
         datosPorCajon.add(new Producto("Arroz", "Legumbres", "1", R.drawable.arroz, "Arroz a granel de Andalucia", "03/05/2020",1));
         datosPorCajon.add(new Producto("Coca Cola", "Bebidas", "2", R.drawable.cocacola, "CocaCola de 2L", "03/05/2020",1));
         datosPorCajon.add(new Producto("Hamburguesa", "Carnes", "4", R.drawable.hamburguesa, "Hamburgesa de carne vacuno", "03/05/2020",1));
@@ -30,6 +31,9 @@ public class Stock {
         datosPorCajon.add(new Producto("Spaguetti", "Pastas", "2", R.drawable.spaghetti, "descripcion", "03/05/2020",1));
         datosPorCajon.add(new Producto("Cinta de lomo", "Carnes", "4", R.drawable.cintalomo, "descripcion", "03/05/2020",1));
         datosPorCajon.add(new Producto("Pollo", "Carnes", "1", R.drawable.ic_tienda, "descripcion", "03/05/2020",1));
+
+
+
         datos.put(0,datosPorCajon);
         datos.put(1,datosPorCajon);
         datos.put(2,datosPorCajon);
