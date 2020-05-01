@@ -2,6 +2,7 @@ package com.smartfreeze.ui.bottom_menu;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -135,48 +136,74 @@ public class DespensaOpcion extends Fragment implements IDespensaListener, IDial
                 Stock.getInstance().getDatosPorCajon(cajonAntiguo).remove(producto);
                 Stock.getInstance().getDatosPorCajon(i).add(producto);
                 adapter.notifyDataSetChanged();
-                Toast.makeText(getContext(), "Cambiando de cajon al "+(i+1)+" y el cajon antiguo es "+cajonAntiguo, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Cambiando de cajon al "+(i+1)+" desde cajon"+(cajonAntiguo+1), Toast.LENGTH_SHORT).show();
                 break;
 
             case 1: //Cambiar de cajon al 2
-                productosDelCajon = Stock.getInstance().getDatosPorCajon(1);
-                Toast.makeText(getContext(), "Cambiando de cajon al "+(i+1)+" y el cajon antiguo es "+cajonAntiguo, Toast.LENGTH_SHORT).show();
+                producto.setCajon(i);
+                Stock.getInstance().getDatosPorCajon(cajonAntiguo).remove(producto);
+                Stock.getInstance().getDatosPorCajon(i).add(producto);
+                adapter.notifyDataSetChanged();
+                Toast.makeText(getContext(), "Cambiando de cajon al "+(i+1)+" desde cajon"+(cajonAntiguo+1), Toast.LENGTH_SHORT).show();
                 break;
 
             case 2: //Cambiar de cajon al 3
-                productosDelCajon = Stock.getInstance().getDatosPorCajon(2);
-                Toast.makeText(getContext(), "Cambiando de cajon al "+(i+1)+" y el cajon antiguo es "+cajonAntiguo, Toast.LENGTH_SHORT).show();
+                producto.setCajon(i);
+                Stock.getInstance().getDatosPorCajon(cajonAntiguo).remove(producto);
+                Stock.getInstance().getDatosPorCajon(i).add(producto);
+                adapter.notifyDataSetChanged();
+                Toast.makeText(getContext(), "Cambiando de cajon al "+(i+1)+" desde cajon"+(cajonAntiguo+1), Toast.LENGTH_SHORT).show();
                 break;
             case 3: //Cambiar de cajon al 4
-                productosDelCajon = Stock.getInstance().getDatosPorCajon(3);
-                Toast.makeText(getContext(), "Cambiando de cajon al "+(i+1)+" y el cajon antiguo es "+cajonAntiguo, Toast.LENGTH_SHORT).show();
+                producto.setCajon(i);
+                Stock.getInstance().getDatosPorCajon(cajonAntiguo).remove(producto);
+                Stock.getInstance().getDatosPorCajon(i).add(producto);
+                adapter.notifyDataSetChanged();
+                Toast.makeText(getContext(), "Cambiando de cajon al "+(i+1)+" desde cajon"+(cajonAntiguo+1), Toast.LENGTH_SHORT).show();
                 break;
             case 4: //Cambiar de cajon al 5
-                productosDelCajon = Stock.getInstance().getDatosPorCajon(4);
-                Toast.makeText(getContext(), "Cambiando de cajon al "+(i+1)+" y el cajon antiguo es "+cajonAntiguo, Toast.LENGTH_SHORT).show();
+                producto.setCajon(i);
+                Stock.getInstance().getDatosPorCajon(cajonAntiguo).remove(producto);
+                Stock.getInstance().getDatosPorCajon(i).add(producto);
+                adapter.notifyDataSetChanged();
+                Toast.makeText(getContext(), "Cambiando de cajon al "+(i+1)+" desde cajon"+(cajonAntiguo+1), Toast.LENGTH_SHORT).show();
                 break;
             case 5: //Cambiar de cajon al 6
-                productosDelCajon = Stock.getInstance().getDatosPorCajon(5);
-
-                Toast.makeText(getContext(), "Cambiando de cajon al "+(i+1)+" y el cajon antiguo es "+cajonAntiguo, Toast.LENGTH_SHORT).show();
+                producto.setCajon(i);
+                Stock.getInstance().getDatosPorCajon(cajonAntiguo).remove(producto);
+                Stock.getInstance().getDatosPorCajon(i).add(producto);
+                adapter.notifyDataSetChanged();
+                Toast.makeText(getContext(), "Cambiando de cajon al "+(i+1)+" desde cajon"+(cajonAntiguo+1), Toast.LENGTH_SHORT).show();
                 break;
             case 6: //Cambiar de cajon al 7
-                productosDelCajon = Stock.getInstance().getDatosPorCajon(6);
-                Toast.makeText(getContext(), "Cambiando de cajon al "+(i+1)+" y el cajon antiguo es "+cajonAntiguo, Toast.LENGTH_SHORT).show();
+                producto.setCajon(i);
+                Stock.getInstance().getDatosPorCajon(cajonAntiguo).remove(producto);
+                Stock.getInstance().getDatosPorCajon(i).add(producto);
+                adapter.notifyDataSetChanged();
+                Toast.makeText(getContext(), "Cambiando de cajon al "+(i+1)+" desde cajon"+(cajonAntiguo+1), Toast.LENGTH_SHORT).show();
                 break;
             case 7: //Cambiar de cajon al estante 8
-                productosDelCajon = Stock.getInstance().getDatosPorCajon(7);
-                Toast.makeText(getContext(), "Cambiando de cajon al "+(i+1)+" y el cajon antiguo es "+cajonAntiguo, Toast.LENGTH_SHORT).show();
+                producto.setCajon(i);
+                Stock.getInstance().getDatosPorCajon(cajonAntiguo).remove(producto);
+                Stock.getInstance().getDatosPorCajon(i).add(producto);
+                adapter.notifyDataSetChanged();
+                Toast.makeText(getContext(), "Cambiando de cajon al "+(i+1)+" desde cajon"+(cajonAntiguo+1), Toast.LENGTH_SHORT).show();
                 break;
 
             case 8: //Cambiar de cajon al estante 9
-                productosDelCajon = Stock.getInstance().getDatosPorCajon(8);
-                Toast.makeText(getContext(), "Cambiando de cajon al "+(i+1)+" y el cajon antiguo es "+cajonAntiguo, Toast.LENGTH_SHORT).show();
+                producto.setCajon(i);
+                Stock.getInstance().getDatosPorCajon(cajonAntiguo).remove(producto);
+                Stock.getInstance().getDatosPorCajon(i).add(producto);
+                adapter.notifyDataSetChanged();
+                Toast.makeText(getContext(), "Cambiando de cajon al "+(i+1)+" desde cajon"+(cajonAntiguo+1), Toast.LENGTH_SHORT).show();
                 break;
 
             case 9: //Cambiar de cajon al estante 10
-                productosDelCajon = Stock.getInstance().getDatosPorCajon(9);
-                Toast.makeText(getContext(), "Cambiando de cajon al "+(i+1)+" y el cajon antiguo es "+cajonAntiguo, Toast.LENGTH_SHORT).show();
+                producto.setCajon(i);
+                Stock.getInstance().getDatosPorCajon(cajonAntiguo).remove(producto);
+                Stock.getInstance().getDatosPorCajon(i).add(producto);
+                adapter.notifyDataSetChanged();
+                Toast.makeText(getContext(), "Cambiando de cajon al "+(i+1)+" desde cajon"+(cajonAntiguo+1), Toast.LENGTH_SHORT).show();
                 break;
         }
 
