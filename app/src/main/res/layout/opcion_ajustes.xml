@@ -296,11 +296,7 @@ xmlns:tools="http://schemas.android.com/tools"
                         android:layout_alignParentTop="true"
                         android:layout_marginLeft="10dp"
                         android:layout_marginBottom="10dp"
-<<<<<<< HEAD
                         android:text="Cambiar correo electrónico\n(Actualmente usted usa: usuario@gmail.com)"
-=======
-                        android:text="Cambiar correo electrónico\n(Actualmente usted no usa ningún correo)"
->>>>>>> 8f820d66c82b8c1e3ba928313b1f57afcff5b971
                         android:textColor="#000000" />
 
 
@@ -352,11 +348,7 @@ xmlns:tools="http://schemas.android.com/tools"
                     <TextView
                         android:id="@+id/btn_ajusteS1"
                         style="@style/AppTheme.titulo"
-<<<<<<< HEAD
-                        android:layout_width="260dp"
-=======
                         android:layout_width="454dp"
->>>>>>> 8f820d66c82b8c1e3ba928313b1f57afcff5b971
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
                         android:layout_marginLeft="10dp"
@@ -414,11 +406,7 @@ xmlns:tools="http://schemas.android.com/tools"
                     <TextView
                         android:id="@+id/btn_ajusteS2"
                         style="@style/AppTheme.titulo"
-<<<<<<< HEAD
-                        android:layout_width="260dp"
-=======
                         android:layout_width="379dp"
->>>>>>> 8f820d66c82b8c1e3ba928313b1f57afcff5b971
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
                         android:layout_marginLeft="10dp"
@@ -445,9 +433,7 @@ xmlns:tools="http://schemas.android.com/tools"
             android:layout_height="1dp"
             android:background="@android:color/darker_gray"
             app:layout_constraintTop_toBottomOf="@id/elemSwitch2"/>
-<<<<<<< HEAD
 
-=======
         <!--TERCER ELEMENTO SWITCH -->
         <RelativeLayout
             android:id="@+id/elemSwitch3"
@@ -506,7 +492,7 @@ xmlns:tools="http://schemas.android.com/tools"
             android:layout_height="1dp"
             android:background="@android:color/darker_gray"
             app:layout_constraintTop_toBottomOf="@id/elemSwitch3"/>
->>>>>>> 8f820d66c82b8c1e3ba928313b1f57afcff5b971
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

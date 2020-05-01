@@ -44,7 +44,7 @@ public class DespensaAdapter2 extends RecyclerView.Adapter<DespensaAdapter2.Hold
     @NonNull
     @Override
     public DespensaAdapter2.Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View vista = LayoutInflater.from(parent.getContext()).inflate(R.layout.subitem_producto,parent,false);
+        View vista = LayoutInflater.from(parent.getContext()).inflate(R.layout.subitem_producto2,parent,false);
         Holder holder = new Holder(vista);
         return holder;
     }
@@ -69,12 +69,12 @@ public class DespensaAdapter2 extends RecyclerView.Adapter<DespensaAdapter2.Hold
         holder.subtitulo.setText(subtitulo);
         holder.descripcion.setText(descripcion);
 
-        holder.accion2.setOnClickListener(new View.OnClickListener() {
+/*        holder.accion2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 listener.accion2();
             }
-        });
+        });*/
     }
 
     @Override

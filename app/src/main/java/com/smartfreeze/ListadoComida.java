@@ -3,6 +3,7 @@ package com.smartfreeze;
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,24 +25,13 @@ import java.util.ArrayList;
 
 public class ListadoComida extends AppCompatActivity implements View.OnCreateContextMenuListener, IDespensaListener {
 //Cambiar para cada 1
-    private ArrayList<Ajustes> datosComida8 = new ArrayList<>();
-    private ArrayList<Ajustes> datosComida7 = new ArrayList<>();
-    private ArrayList<Ajustes> datosComida6 = new ArrayList<>();
-    private ArrayList<Ajustes> datosComida5 = new ArrayList<>();
-    private ArrayList<Ajustes> datosComida4 = new ArrayList<>();
-    private ArrayList<Ajustes> datosComida3 = new ArrayList<>();
-    private ArrayList<Ajustes> datosComida2 = new ArrayList<>();
-    private ArrayList<Ajustes> datosEstante2 = new ArrayList<>();
-    private ArrayList<Ajustes> datosEstante3 = new ArrayList<>();
-    private ArrayList<Ajustes> datosBebidas = new ArrayList<>();
     private ArrayList<Producto> datosProducto0, datosProducto1, datosProducto2, datosProducto3,
             datosProducto4, datosProducto5, datosProducto6, datosProducto7, datosProducto8, datosProducto9;
     private Producto auxp;
-    AjustesAdapter adapter;
+    private GridLayoutManager manager;
     private DespensaAdapter2 adapter2;
     private RecyclerView recyclerView;
     private int boton;
-    static int ccajon;
 
 
     @Override
@@ -67,17 +57,16 @@ public class ListadoComida extends AppCompatActivity implements View.OnCreateCon
 
         Intent intent = getIntent();
         boton = intent.getIntExtra("Boton", 0);
-        ccajon = intent.getIntExtra("CCajon", 0);
+        manager = new GridLayoutManager(this, 4);
+        recyclerView.setLayoutManager(manager);
 
-        if(ccajon == 0) {
+        registerForContextMenu(recyclerView);
 
             switch (boton) {
 //            FRIGORIFICO
-                //Cambiar par acada 1
                 case R.id.b3Cajon:
                     adapter2 = new DespensaAdapter2(getApplicationContext(), datosProducto0, this);
                     recyclerView.setAdapter(adapter2);
-                    registerForContextMenu(recyclerView);
                     recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, recyclerView,
                             new RecyclerItemClickListener.OnItemClickListener() {
                                 @Override
@@ -87,7 +76,7 @@ public class ListadoComida extends AppCompatActivity implements View.OnCreateCon
 
                                 @Override
                                 public void onLongItemClick(View view, int position) {
-                                    auxp = datosProducto0.get(position);//Esto copiar en todos los casos, los adapter al adapter2
+                                    auxp = datosProducto0.get(position);
                                     recyclerView.showContextMenu();
                                 }
                             }));
@@ -95,7 +84,6 @@ public class ListadoComida extends AppCompatActivity implements View.OnCreateCon
                 case R.id.b2Cajon:
                     adapter2 = new DespensaAdapter2(getApplicationContext(), datosProducto1, this);
                     recyclerView.setAdapter(adapter2);
-                    registerForContextMenu(recyclerView);
                     recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, recyclerView,
                             new RecyclerItemClickListener.OnItemClickListener() {
                                 @Override
@@ -113,7 +101,6 @@ public class ListadoComida extends AppCompatActivity implements View.OnCreateCon
                 case R.id.b1Cajon:
                     adapter2 = new DespensaAdapter2(getApplicationContext(), datosProducto2, this);
                     recyclerView.setAdapter(adapter2);
-                    registerForContextMenu(recyclerView);
                     recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, recyclerView,
                             new RecyclerItemClickListener.OnItemClickListener() {
                                 @Override
@@ -132,7 +119,6 @@ public class ListadoComida extends AppCompatActivity implements View.OnCreateCon
                 case R.id.b1Nevera:
                     adapter2 = new DespensaAdapter2(getApplicationContext(), datosProducto3, this);
                     recyclerView.setAdapter(adapter2);
-                    registerForContextMenu(recyclerView);
                     recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, recyclerView,
                             new RecyclerItemClickListener.OnItemClickListener() {
                                 @Override
@@ -150,7 +136,6 @@ public class ListadoComida extends AppCompatActivity implements View.OnCreateCon
                 case R.id.b2Nevera:
                     adapter2 = new DespensaAdapter2(getApplicationContext(), datosProducto4, this);
                     recyclerView.setAdapter(adapter2);
-                    registerForContextMenu(recyclerView);
                     recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, recyclerView,
                             new RecyclerItemClickListener.OnItemClickListener() {
                                 @Override
@@ -168,7 +153,6 @@ public class ListadoComida extends AppCompatActivity implements View.OnCreateCon
                 case R.id.b3Nevera:
                     adapter2 = new DespensaAdapter2(getApplicationContext(), datosProducto5, this);
                     recyclerView.setAdapter(adapter2);
-                    registerForContextMenu(recyclerView);
                     recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, recyclerView,
                             new RecyclerItemClickListener.OnItemClickListener() {
                                 @Override
@@ -186,7 +170,6 @@ public class ListadoComida extends AppCompatActivity implements View.OnCreateCon
                 case R.id.b4CajonIzq:
                     adapter2 = new DespensaAdapter2(getApplicationContext(), datosProducto6, this);
                     recyclerView.setAdapter(adapter2);
-                    registerForContextMenu(recyclerView);
                     recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, recyclerView,
                             new RecyclerItemClickListener.OnItemClickListener() {
                                 @Override
@@ -204,7 +187,6 @@ public class ListadoComida extends AppCompatActivity implements View.OnCreateCon
                 case R.id.bEstante3:
                     adapter2 = new DespensaAdapter2(getApplicationContext(), datosProducto7, this);
                     recyclerView.setAdapter(adapter2);
-                    registerForContextMenu(recyclerView);
                     recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, recyclerView,
                             new RecyclerItemClickListener.OnItemClickListener() {
                                 @Override
@@ -222,7 +204,6 @@ public class ListadoComida extends AppCompatActivity implements View.OnCreateCon
                 case R.id.bEstante2:
                     adapter2 = new DespensaAdapter2(getApplicationContext(), datosProducto8, this);
                     recyclerView.setAdapter(adapter2);
-                    registerForContextMenu(recyclerView);
                     recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, recyclerView,
                             new RecyclerItemClickListener.OnItemClickListener() {
                                 @Override
@@ -240,7 +221,6 @@ public class ListadoComida extends AppCompatActivity implements View.OnCreateCon
                 case R.id.bEstante1:
                     adapter2 = new DespensaAdapter2(getApplicationContext(), datosProducto9, this);
                     recyclerView.setAdapter(adapter2);
-                    registerForContextMenu(recyclerView);
                     recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, recyclerView,
                             new RecyclerItemClickListener.OnItemClickListener() {
                                 @Override
@@ -259,61 +239,6 @@ public class ListadoComida extends AppCompatActivity implements View.OnCreateCon
                     Toast.makeText(this, "SOME ERROR HAPPENED", Toast.LENGTH_LONG).show();
                     break;
             }
-        }
-        else {
-            switch (ccajon){
-                case R.id.b3Cajon:
-                    adapter2 = new DespensaAdapter2(getApplicationContext(), datosProducto0, this);
-                    recyclerView.setAdapter(adapter2);
-                    registerForContextMenu(recyclerView);
-                    break;
-                case R.id.b2Cajon:
-                    adapter2 = new DespensaAdapter2(getApplicationContext(), datosProducto1, this);
-                    recyclerView.setAdapter(adapter2);
-                    registerForContextMenu(recyclerView);
-                    break;
-                case R.id.b1Cajon:
-                    adapter2 = new DespensaAdapter2(getApplicationContext(), datosProducto2, this);
-                    recyclerView.setAdapter(adapter2);
-                    registerForContextMenu(recyclerView);
-                    break;
-                case R.id.b1Nevera:
-                    adapter2 = new DespensaAdapter2(getApplicationContext(), datosProducto3, this);
-                    recyclerView.setAdapter(adapter2);
-                    registerForContextMenu(recyclerView);
-                    break;
-                case R.id.b2Nevera:
-                    adapter2 = new DespensaAdapter2(getApplicationContext(), datosProducto4, this);
-                    recyclerView.setAdapter(adapter2);
-                    registerForContextMenu(recyclerView);
-                    break;
-                case R.id.b3Nevera:
-                    adapter2 = new DespensaAdapter2(getApplicationContext(), datosProducto5, this);
-                    recyclerView.setAdapter(adapter2);
-                    registerForContextMenu(recyclerView);
-                    break;
-                case R.id.b4CajonIzq:
-                    adapter2 = new DespensaAdapter2(getApplicationContext(), datosProducto6, this);
-                    recyclerView.setAdapter(adapter2);
-                    registerForContextMenu(recyclerView);
-                    break;
-                case R.id.bEstante1:
-                    adapter2 = new DespensaAdapter2(getApplicationContext(), datosProducto7, this);
-                    recyclerView.setAdapter(adapter2);
-                    registerForContextMenu(recyclerView);
-                    break;
-                case R.id.bEstante2:
-                    adapter2 = new DespensaAdapter2(getApplicationContext(), datosProducto8, this);
-                    recyclerView.setAdapter(adapter2);
-                    registerForContextMenu(recyclerView);
-                    break;
-                case R.id.bEstante3:
-                    adapter2 = new DespensaAdapter2(getApplicationContext(), datosProducto9, this);
-                    recyclerView.setAdapter(adapter2);
-                    registerForContextMenu(recyclerView);
-                    break;
-            }
-        }
     }
 
     @Override
@@ -351,6 +276,5 @@ public class ListadoComida extends AppCompatActivity implements View.OnCreateCon
 
     @Override
     public void accion2() {
-        recyclerView.showContextMenu();
     }
 }

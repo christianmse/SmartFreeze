@@ -342,36 +342,6 @@ public class NeveraTab extends Fragment {
                 return true;
             }
         });
-//              5º CAJON DE LA NEVERA
-/*        b5Nevera.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!abierto8) {
-                    Toast.makeText(getActivity(), "Cajón abierto", Toast.LENGTH_LONG).show();
-                    abierto8 = true;
-                    b5Nevera.setText("Cajón abierto");
-                    botonfondo = b5Nevera.getBackground();
-                    b5Nevera.setBackgroundResource(R.drawable.fondo_gradiente);
-                }
-                else{
-                    Toast.makeText(getActivity(), "Cajón cerrado", Toast.LENGTH_LONG).show();
-                    abierto8 = false;
-                    b5Nevera.setText("Cajón 5");
-                    b5Nevera.setBackground(botonfondo);
-                }
-            }
-        });
-        b5Nevera.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                Intent abrirCajon5N = new Intent(getActivity(), ListadoComida.class);
-                abrirCajon5N.putExtra("Boton", R.id.b5CajonDer);
-                startActivity(abrirCajon5N);
-                return true;
-            }
-        });*/
-
-
 //                1º CAJON DE LA PUERTA
         b1Estante.setOnClickListener(new View.OnClickListener() {
             @Override
