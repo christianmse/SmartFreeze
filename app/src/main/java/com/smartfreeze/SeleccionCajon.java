@@ -1,7 +1,6 @@
 package com.smartfreeze;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,29 +11,19 @@ import android.widget.Toast;
 import com.smartfreeze.domain.Producto;
 import com.smartfreeze.util.Stock;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
 public class SeleccionCajon extends AppCompatActivity {
 
     private ImageView iVNeveraAbierta, iVFrigoAbierto;
-    private String elemento;
     private Producto elementop;
     private Button b3CajonF, b2CajonF, b1CajonF, b1Nevera, b2Nevera, b3Nevera, b4Nevera,
             b1Estante, b2Estante, b3Estante;
-
-    private HashMap<Integer, ArrayList<Producto>> cambioaux;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_seleccion_cajon);
             Intent intent1 = getIntent();
-//            elemento = intent1.getStringExtra("Elemento");
             elementop = intent1.getParcelableExtra("Elemento");
-    /*        if(elemento != null){
-                Toast.makeText(this,elemento, Toast.LENGTH_LONG).show();
-            }*/
 
             //        BOTONES DE LA NEVERA
             iVNeveraAbierta = findViewById(R.id.iVNeveraAbierta);
@@ -165,7 +154,5 @@ public class SeleccionCajon extends AppCompatActivity {
                     startActivity(abrircajon3e);
                 }
             });
-
         }
-
     }

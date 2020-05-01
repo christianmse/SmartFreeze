@@ -1,39 +1,33 @@
 package com.smartfreeze.ui.fragments;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.smartfreeze.ListadoComida;
 import com.smartfreeze.R;
 
-import java.util.List;
 
 public class NeveraTab extends Fragment {
 
     private ImageButton iBNeveraCerrada, iBFrigoCerrado, iBCerrarNevera, iBCerrarFrigo;
     private ImageView iVNeveraAbierta, iVFrigoAbierto;
-    private Button  b3CajonF, b2CajonF, b1CajonF, b1Nevera, b2Nevera, b3Nevera, b4Nevera, b5Nevera,
+    private Button  b3CajonF, b2CajonF, b1CajonF, b1Nevera, b2Nevera, b3Nevera, b4Nevera,
                     b1Estante, b2Estante, b3Estante;
     private boolean abierto1 = false, abierto2 = false, abierto3 = false, abierto4 = false,
-            abierto5 = false, abierto6 = false, abierto7 = false, /*abierto8 = false,*/ abierto9 = false,
+            abierto5 = false, abierto6 = false, abierto7 = false, abierto9 = false,
             abierto10 = false, abierto11 = false;
     Drawable botonfondo;
 

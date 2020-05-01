@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:visibility="visible"
+            android:foreground="?android:selectableItemBackground"
             android:src="@drawable/nevera_puerta" />
 
         <ImageButton
@@ -26,6 +27,7 @@
             android:layout_below="@id/iBNeveDoor"
             android:layout_centerHorizontal="true"
             android:src="@drawable/frigorifico_puerta"
+            android:foreground="?android:selectableItemBackground"
             android:visibility="visible" />
 
         <ImageView

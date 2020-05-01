@@ -2,6 +2,8 @@ package com.smartfreeze.ui.fragments;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -35,6 +37,7 @@ public class DispensadorTab extends Fragment {
     private ImageButton iBDispensador;
     private TextView text_Botella;
 
+
     public DispensadorTab(String nombre) {
         this.nombre = nombre;
     }
@@ -47,6 +50,7 @@ public class DispensadorTab extends Fragment {
         // Inflate the layout for this fragment
         String strtext = getArguments().getString("Texto");
         return inflater.inflate(R.layout.fragment_dispensador_tab, container, false);
+
     }
 
     @Override

@@ -47,7 +47,6 @@ public class ListadoBebidas extends Activity {
                     public void onItemClick(View view, int position) {
                         Intent intent = new Intent(ListadoBebidas.this, MainActivity.class);
                         intent.putExtra("Texto", datosBebidas.get(position).getNombre());
-
                         startActivity(intent);
                     }
 

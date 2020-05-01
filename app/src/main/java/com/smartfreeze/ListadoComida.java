@@ -71,7 +71,7 @@ public class ListadoComida extends AppCompatActivity implements View.OnCreateCon
                             new RecyclerItemClickListener.OnItemClickListener() {
                                 @Override
                                 public void onItemClick(View view, int position) {
-                                    Toast.makeText(ListadoComida.this, "Click corto", Toast.LENGTH_LONG).show();
+//                                    Toast.makeText(ListadoComida.this, "Click corto", Toast.LENGTH_LONG).show();
                                 }
 
                                 @Override
@@ -88,7 +88,7 @@ public class ListadoComida extends AppCompatActivity implements View.OnCreateCon
                             new RecyclerItemClickListener.OnItemClickListener() {
                                 @Override
                                 public void onItemClick(View view, int position) {
-                                    Toast.makeText(ListadoComida.this, "Click corto", Toast.LENGTH_LONG).show();
+//                                    Toast.makeText(ListadoComida.this, "Click corto", Toast.LENGTH_LONG).show();
                                 }
 
                                 @Override
@@ -105,7 +105,7 @@ public class ListadoComida extends AppCompatActivity implements View.OnCreateCon
                             new RecyclerItemClickListener.OnItemClickListener() {
                                 @Override
                                 public void onItemClick(View view, int position) {
-                                    Toast.makeText(ListadoComida.this, "Click corto", Toast.LENGTH_LONG).show();
+//                                    Toast.makeText(ListadoComida.this, "Click corto", Toast.LENGTH_LONG).show();
                                 }
 
                                 @Override
@@ -123,7 +123,7 @@ public class ListadoComida extends AppCompatActivity implements View.OnCreateCon
                             new RecyclerItemClickListener.OnItemClickListener() {
                                 @Override
                                 public void onItemClick(View view, int position) {
-                                    Toast.makeText(ListadoComida.this, "Click corto", Toast.LENGTH_LONG).show();
+//                                    Toast.makeText(ListadoComida.this, "Click corto", Toast.LENGTH_LONG).show();
                                 }
 
                                 @Override
@@ -140,7 +140,7 @@ public class ListadoComida extends AppCompatActivity implements View.OnCreateCon
                             new RecyclerItemClickListener.OnItemClickListener() {
                                 @Override
                                 public void onItemClick(View view, int position) {
-                                    Toast.makeText(ListadoComida.this, "Click corto", Toast.LENGTH_LONG).show();
+//                                    Toast.makeText(ListadoComida.this, "Click corto", Toast.LENGTH_LONG).show();
                                 }
 
                                 @Override
@@ -157,7 +157,7 @@ public class ListadoComida extends AppCompatActivity implements View.OnCreateCon
                             new RecyclerItemClickListener.OnItemClickListener() {
                                 @Override
                                 public void onItemClick(View view, int position) {
-                                    Toast.makeText(ListadoComida.this, "Click corto", Toast.LENGTH_LONG).show();
+//                                    Toast.makeText(ListadoComida.this, "Click corto", Toast.LENGTH_LONG).show();
                                 }
 
                                 @Override
@@ -174,7 +174,7 @@ public class ListadoComida extends AppCompatActivity implements View.OnCreateCon
                             new RecyclerItemClickListener.OnItemClickListener() {
                                 @Override
                                 public void onItemClick(View view, int position) {
-                                    Toast.makeText(ListadoComida.this, "Click corto", Toast.LENGTH_LONG).show();
+//                                    Toast.makeText(ListadoComida.this, "Click corto", Toast.LENGTH_LONG).show();
                                 }
 
                                 @Override
@@ -191,7 +191,7 @@ public class ListadoComida extends AppCompatActivity implements View.OnCreateCon
                             new RecyclerItemClickListener.OnItemClickListener() {
                                 @Override
                                 public void onItemClick(View view, int position) {
-                                    Toast.makeText(ListadoComida.this, "Click corto", Toast.LENGTH_LONG).show();
+//                                    Toast.makeText(ListadoComida.this, "Click corto", Toast.LENGTH_LONG).show();
                                 }
 
                                 @Override
@@ -208,7 +208,7 @@ public class ListadoComida extends AppCompatActivity implements View.OnCreateCon
                             new RecyclerItemClickListener.OnItemClickListener() {
                                 @Override
                                 public void onItemClick(View view, int position) {
-                                    Toast.makeText(ListadoComida.this, "Click corto", Toast.LENGTH_LONG).show();
+//                                    Toast.makeText(ListadoComida.this, "Click corto", Toast.LENGTH_LONG).show();
                                 }
 
                                 @Override
@@ -225,7 +225,7 @@ public class ListadoComida extends AppCompatActivity implements View.OnCreateCon
                             new RecyclerItemClickListener.OnItemClickListener() {
                                 @Override
                                 public void onItemClick(View view, int position) {
-                                    Toast.makeText(ListadoComida.this, "Click corto", Toast.LENGTH_LONG).show();
+//                                    Toast.makeText(ListadoComida.this, "Click corto", Toast.LENGTH_LONG).show();
                                 }
 
                                 @Override
