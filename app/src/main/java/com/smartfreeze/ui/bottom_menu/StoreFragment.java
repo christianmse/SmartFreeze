@@ -97,7 +97,6 @@ public StoreFragment(){
         layoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
-
     }
 
     @Override

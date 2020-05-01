@@ -3,6 +3,7 @@ package com.smartfreeze.ui.bottom_menu;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -21,6 +22,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -29,15 +31,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.smartfreeze.IDespensaListener;
 import com.smartfreeze.R;
 import com.smartfreeze.domain.Producto;
+import com.smartfreeze.ui.DialogCajon;
+import com.smartfreeze.ui.IDialogDespensa;
 import com.smartfreeze.ui.adapter.DespensaAdapter;
 import com.smartfreeze.ui.adapter.SubItemAdapter;
+import com.smartfreeze.util.DialogDespensa;
 import com.smartfreeze.util.Stock;
 
 import java.util.ArrayList;
 
 import static com.smartfreeze.util.Stock.getInstance;
 
-public class DespensaOpcion extends Fragment implements IDespensaListener {
+public class DespensaOpcion extends Fragment implements IDespensaListener, IDialogDespensa {
     RecyclerView recyclerView;
     DespensaAdapter adapter;
     private ArrayList<Producto> datosTienda = new ArrayList<>();
@@ -53,6 +58,9 @@ public class DespensaOpcion extends Fragment implements IDespensaListener {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.opcion_despensa,container,false);
     }
+
+
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -74,7 +82,8 @@ public class DespensaOpcion extends Fragment implements IDespensaListener {
 
     @Override
     public void accion2() {
-        //En caso de pulsar opciones en el holder
+        DialogFragment dialogo = new DialogDespensa(this);
+        dialogo.show(getChildFragmentManager(), "dialogo opciones");
     }
 
     @Override
@@ -117,5 +126,12 @@ public class DespensaOpcion extends Fragment implements IDespensaListener {
             }
         });
         builder.create().show();
+    }
+
+
+    @Override
+    public void cambiarCajon() {
+        DialogFragment dialogo = new DialogCajon();
+        dialogo.show(getChildFragmentManager(), "dialogo cajones");
     }
 }
