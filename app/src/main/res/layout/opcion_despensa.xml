@@ -18,7 +18,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                app:title="Consulta todas tus mercancias"
+                app:title="Consulta todas tus productos"
                 app:titleTextColor="@color/white"
                 app:layout_collapseMode="pin">
 

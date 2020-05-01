@@ -60,7 +60,31 @@ public class DespensaAdapter extends RecyclerView.Adapter<DespensaAdapter.Holder
         String cajon = String.valueOf(position+1);
         holder.cajon.setText(cajon);
 
-        if(aux.size() < 4){
+        switch (position){
+
+            case 4: holder.nomCajon.setText("Congelador 1");
+                holder.cajon.setVisibility(View.GONE);
+                break;
+            case 5: holder.nomCajon.setText("Congelador 2");
+                holder.cajon.setVisibility(View.GONE);
+                break;Consul
+            case 6:
+                holder.nomCajon.setText("Congelador 3");
+                holder.cajon.setVisibility(View.GONE);
+                break;
+
+            case 7: holder.nomCajon.setText("Estante 1");
+            holder.cajon.setVisibility(View.GONE);
+            break;
+            case 8:  holder.nomCajon.setText("Estante 2");
+                holder.cajon.setVisibility(View.GONE);
+                break;
+            case 9:  holder.nomCajon.setText("Estante 3");
+                holder.cajon.setVisibility(View.GONE);
+                break;
+        }
+
+        if(aux.size() < 5){
             holder.flecha2.setVisibility(View.GONE);
             holder.flecha1.setVisibility(View.GONE);
 
@@ -74,12 +98,13 @@ public class DespensaAdapter extends RecyclerView.Adapter<DespensaAdapter.Holder
 
     public static class Holder extends RecyclerView.ViewHolder{
         RecyclerView rvSubItem;
-        TextView cajon;
+        TextView cajon, nomCajon;
         ImageView flecha1, flecha2;
         public Holder(@NonNull View itemView) {
             super(itemView);
             rvSubItem = itemView.findViewById(R.id.recycler_subItemProducto);
             cajon = itemView.findViewById(R.id.cajon);
+            nomCajon = itemView.findViewById(R.id.nomCajon);
             flecha1 = itemView.findViewById(R.id.flecha1);
             flecha2 = itemView.findViewById(R.id.flecha2);
         }

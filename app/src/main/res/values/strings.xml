@@ -41,15 +41,15 @@
     </string-array>
 
     <string-array name="cajones">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
+        <item>Nevera 1</item>
+        <item>Nevera 2</item>
+        <item>Nevera 3</item>
+        <item>Nevera 4</item>
+        <item>Congelador 5</item>
+        <item>Congelador 6</item>
+        <item>Congelador 7</item>
+        <item>Estante 1</item>
+        <item>Estante 2</item>
+        <item>Estante 3</item>
     </string-array>
 </resources>
