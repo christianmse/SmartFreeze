@@ -12,6 +12,10 @@
         android:icon="@drawable/ic_despensa"
         android:title="Mis Productos" />
 
+    <item
+        android:id="@+id/navigation_store"
+        android:icon="@drawable/ic_store"
+        android:title="Tienda" />
 
 
     <item
@@ -19,10 +23,6 @@
         android:icon="@drawable/ic_ajustes"
         android:title="Ajustes" />
 
-    <item
-        android:id="@+id/navigation_store"
-        android:icon="@drawable/ic_store"
-        android:title="Tienda" />
 
 
 
