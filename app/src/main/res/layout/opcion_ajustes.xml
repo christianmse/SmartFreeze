@@ -296,7 +296,7 @@ xmlns:tools="http://schemas.android.com/tools"
                         android:layout_alignParentTop="true"
                         android:layout_marginLeft="10dp"
                         android:layout_marginBottom="10dp"
-                        android:text="Cambiar correo electrónico\n(Actualmente usted usa: usuario@gmail.com)"
+                        android:text="Cambiar correo electrónico\n(Actualmente usted no usa ningún correo)"
                         android:textColor="#000000" />
 
 
@@ -492,7 +492,6 @@ xmlns:tools="http://schemas.android.com/tools"
             android:layout_height="1dp"
             android:background="@android:color/darker_gray"
             app:layout_constraintTop_toBottomOf="@id/elemSwitch3"/>
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -48,11 +48,9 @@ import static androidx.core.content.ContextCompat.getSystemService;
 
 public class AjustesOpcion extends Fragment {
 
-    Switch Switch1, Switch2;
-    TextView text1, text3, txt_frigo, txt_cong;
+    Switch Switch1, Switch2, Switch3;
+    TextView text1, text3, txt_frigo, txt_cong, text4;
 
-    Switch Switch3;
-    TextView text4;
     RelativeLayout elem1, elem2, elem3;
     DiscreteSeekBar skb1, skb2;
     public static MutableLiveData<String> correo = new MutableLiveData<>();
@@ -84,6 +82,7 @@ public class AjustesOpcion extends Fragment {
         Switch2 = view.findViewById(R.id.switch2);
         Switch3 = view.findViewById(R.id.switch3);
 
+
         elem1 = view.findViewById(R.id.elem1);
         elem2 = view.findViewById(R.id.elem2);
         elem3 = view.findViewById(R.id.elem3);
@@ -92,8 +91,7 @@ public class AjustesOpcion extends Fragment {
         skb2 = view.findViewById(R.id.seekBar_congelador);
         final Intent intent = new Intent(view.getContext(), CambioTarjetaPago.class);
 
-
-
+        //VENTANA AYUDA
        elem1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,7 +106,7 @@ public class AjustesOpcion extends Fragment {
                 dialogFragment.show(ft, "Ayuda");
             }
         });
-
+        //AJUSTAR TEMPERATURA FRIGORÍFICO
         skb1.setOnProgressChangeListener(new DiscreteSeekBar.OnProgressChangeListener() {
             @Override
             public void onProgressChanged(DiscreteSeekBar seekBar, int value, boolean fromUser) {
@@ -125,7 +123,7 @@ public class AjustesOpcion extends Fragment {
                 Toast.makeText(view.getContext(), "¡Temperatura del frigorífico cambiada!", Toast.LENGTH_LONG).show();
             }
         });
-
+        //AJUSTAR TEMPERATURA CONGELADOR
         skb2.setOnProgressChangeListener(new DiscreteSeekBar.OnProgressChangeListener() {
             @Override
             public void onProgressChanged(DiscreteSeekBar seekBar, int value, boolean fromUser) {
@@ -199,6 +197,9 @@ public class AjustesOpcion extends Fragment {
                 // set prompts.xml to alertdialog builder
                 alertDialogBuilder.setView(et);
 
+                // set title al dialog
+                alertDialogBuilder.setTitle("Introduce tu correo:");
+
                 // set dialog message
                 alertDialogBuilder.setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
@@ -212,7 +213,6 @@ public class AjustesOpcion extends Fragment {
                 alertDialog.show();
             }
         });
-
         //APAGAR NEVERA
         Switch3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
