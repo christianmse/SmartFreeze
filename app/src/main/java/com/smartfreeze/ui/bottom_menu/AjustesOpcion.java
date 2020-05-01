@@ -191,7 +191,7 @@ public class AjustesOpcion extends Fragment {
 
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getContext());
 
-                final EditText et = new EditText(getContext());G
+                final EditText et = new EditText(getContext());
                 correo.setValue(et.getText().toString());
 
                 // set prompts.xml to alertdialog builder

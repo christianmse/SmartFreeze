@@ -47,49 +47,32 @@
         app:layout_constraintTop_toBottomOf="@+id/imagen" />
 
     <TextView
-<<<<<<< HEAD
         android:id="@+id/precioTotal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/textColorPrimary"
         android:textStyle="bold"
-        android:textSize="23sp"
+        android:textSize="33sp"
         android:layout_marginTop="60dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imagen"
         />
 
+
     <TextView
         android:id="@+id/txt2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
         android:text="Tu pedido se ha realizado correctamente"
         android:textColor="@color/textColorPrimary"
-        android:textSize="23sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enhorabuena" />
-
-
-
-=======
-        android:id="@+id/txt2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:textSize="33sp"
         android:layout_marginTop="10dp"
-        android:text="Tu pedido se ha realizado correctamente"
-        android:textColor="@color/textColorPrimary"
         android:textStyle="bold"
-        android:textSize="23sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enhorabuena" />
+        app:layout_constraintTop_toBottomOf="@+id/precio" />
 
->>>>>>> 8f820d66c82b8c1e3ba928313b1f57afcff5b971
     <Button
         android:id="@+id/cerrar"
         android:layout_width="match_parent"
@@ -97,13 +80,13 @@
         android:background="@drawable/selector_accent_button"
         android:gravity="center"
         android:text="cerrar"
-        android:textColor="@drawable/selector_accent_button_text"
-        android:textSize="14sp"
+        android:textColor="@color/textColorPrimary"
         android:textStyle="bold"
+        android:textSize="33sp"
         app:layout_constraintBottom_toBottomOf="parent" />
 
-<<<<<<< HEAD
     <TextView
+        android:id="@+id/precio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/textColorPrimary"
@@ -116,6 +99,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imagen"
          />
-=======
->>>>>>> 8f820d66c82b8c1e3ba928313b1f57afcff5b971
+
 </androidx.constraintlayout.widget.ConstraintLayout>
