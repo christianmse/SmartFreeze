@@ -24,6 +24,7 @@
             android:screenOrientation="landscape"
             tools:ignore="LockedOrientationActivity" />
 
+
         <activity
             android:name=".CambioTarjetaPago"
             android:screenOrientation="landscape"

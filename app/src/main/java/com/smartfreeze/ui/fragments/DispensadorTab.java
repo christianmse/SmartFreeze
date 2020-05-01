@@ -31,7 +31,7 @@ public class DispensadorTab extends Fragment {
     public static final String ARG_OBJECT = "object";
     private String nombre;
 
-    private ImageButton iBBotella;
+    private ImageButton iBBotella,iBCubito;
     private ImageButton iBDispensador;
     private TextView text_Botella;
 
@@ -55,6 +55,7 @@ public class DispensadorTab extends Fragment {
 
         //Boton
         iBBotella = (ImageButton) view.findViewById(R.id.iBBotella);
+        iBCubito = (ImageButton) view.findViewById(R.id.iBCubito);
 
         iBBotella.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,12 +65,18 @@ public class DispensadorTab extends Fragment {
             }
         });
 
-        //-
         iBDispensador = (ImageButton) view.findViewById(R.id.iBDispensador);
         iBDispensador.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity(), "Dispensando Bebida", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        iBCubito.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "Dispensando Hielo", Toast.LENGTH_LONG).show();
             }
         });
 

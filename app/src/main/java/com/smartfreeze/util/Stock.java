@@ -9,7 +9,7 @@ import java.util.HashMap;
 public class Stock {
     private static Stock instance = null;
     private static ArrayList<Producto> datosPorCajon = new ArrayList<>();
-    static HashMap<Integer,ArrayList<Producto>> datos = new HashMap<>();
+    static HashMap<Integer, ArrayList<Producto>> datos = new HashMap<>();
 
     //Categorias:
     //        <item>Carnes</item>
@@ -38,36 +38,35 @@ public class Stock {
         datos.put(1,datosPorCajon);
         datos.put(2,datosPorCajon);
 
+
     }
 
-    public static Stock getInstance(){
-        if(instance == null){
+    public static Stock getInstance() {
+        if (instance == null) {
             instance = new Stock();
         }
         return instance;
     }
 
-    public ArrayList<Producto> getDatosPorCajon(Integer cajon){
+    public ArrayList<Producto> getDatosPorCajon(Integer cajon) {
         return datos.getOrDefault(cajon, datosPorCajon);
     }
 
-    public void insertarDatosPorCajon (Integer cajon, Producto producto, String nombre){
-        for(Producto aux : Datos.getInstance().getDatos()){
-            if(aux.getNombre().equals(nombre))
+    public void insertarDatosPorCajon(Integer cajon, Producto producto) {
                 datos.get(cajon).add(producto);
-        }
 
     }
 
-    public HashMap<Integer, ArrayList<Producto>> getDatos(){
+    public HashMap<Integer, ArrayList<Producto>> getDatos() {
         return datos;
     }
 
-    public void eliminarProducto (Integer cajon,Producto producto, String nombre){
-        for(Producto aux : Datos.getInstance().getDatos()){
-            if(aux.getNombre().equals(nombre))
-                datos.get(cajon).remove(producto);
-        }
 
+    public void eliminarProducto(Producto producto, Integer cajon) {
+        for (Producto aux : Datos.getInstance().getDatos()) {
+            if (aux.getNombre().equals(producto)) {
+                datos.get(cajon).remove(aux);
+            }
+        }
     }
 }
