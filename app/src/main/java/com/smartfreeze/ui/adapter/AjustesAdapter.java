@@ -1,43 +1,43 @@
 package com.smartfreeze.ui.adapter;
 
-import android.app.AlertDialog;
+
 import android.content.Context;
-import android.content.DialogInterface;
+
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
+
+
+
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.Switch;
+
+
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.smartfreeze.R;
-import com.smartfreeze.domain.Ajustes;
+
+import com.smartfreeze.domain.Producto;
 
 import java.util.ArrayList;
 
 public class AjustesAdapter extends RecyclerView.Adapter<AjustesAdapter.AjustesViewHolder> {
-
-    private ArrayList<Ajustes> data;
+    private ArrayList<Producto> listaProductos;
     private Context context;
 
-    private int posicion;
-    private Switch simpleSwitch1, simpleSwitch2;
-
-
-    public AjustesAdapter(ArrayList<Ajustes> data, Context context){
-        this.data = data;
+    public AjustesAdapter(ArrayList<Producto> listaProductos, Context context){
         this.context = context;
+        this.listaProductos = listaProductos;
     }
 
     @Override
     public int getItemViewType(int position) {
-        return data.size();
+        return listaProductos.size();
     }
 
     @NonNull
@@ -51,36 +51,41 @@ public class AjustesAdapter extends RecyclerView.Adapter<AjustesAdapter.AjustesV
 
     @Override
     public void onBindViewHolder(@NonNull AjustesViewHolder holder, int position) {
-        String nombre = data.get(position).getNombre();
-        int drawable = data.get(position).getDrawable();
+        String titulo = listaProductos.get(position).getNombre();
+        int drawable = listaProductos.get(position).getDrawable();
         Drawable img = context.getResources().getDrawable(drawable);
-        holder.btnOpcion.setText(nombre);
-        holder.imageView.setImageDrawable(img);
 
+
+        holder.imagen.setImageDrawable(img);
+        holder.titulo.setText(titulo);
     }
 
     @Override
     public int getItemCount() {
-        return data.size();
+        return listaProductos.size();
     }
 
 
 
     public static class AjustesViewHolder extends RecyclerView.ViewHolder{
-        private TextView btnOpcion;
-        private ImageView imageView;
-        private Switch switchView;
+
+        private TextView titulo;
+
+        private ImageView imagen;
+
+        ConstraintLayout dataContainer;
 
         public AjustesViewHolder(@NonNull View itemView) {
             super(itemView);
-            btnOpcion = itemView.findViewById(R.id.btn_ajuste);
-            imageView = itemView.findViewById(R.id.imageAjuste);
-            switchView = itemView.findViewById(R.id.switch1);
+            imagen = itemView.findViewById(R.id.media_image);
+            titulo = (TextView) itemView.findViewById(R.id.primary_text);
+            dataContainer = itemView.findViewById(R.id.dataContainer);
+
         }
 
     }
 
-    public ArrayList<Ajustes> getData(){
-        return this.data;
+    public ArrayList<Producto> getData(){
+        return this.listaProductos;
     }
 }
