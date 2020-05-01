@@ -50,15 +50,25 @@
         android:id="@+id/precioTotal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="12"
         android:textColor="@color/textColorPrimary"
-        android:textStyle="bold"
         android:textSize="33sp"
-        android:layout_marginTop="60dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imagen"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/enhorabuena" />
 
+    <TextView
+        android:id="@+id/dolar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="33sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/txt2"
+        app:layout_constraintStart_toEndOf="@id/precioTotal"
+        app:layout_constraintTop_toBottomOf="@+id/enhorabuena" />
 
     <TextView
         android:id="@+id/txt2"
@@ -71,7 +81,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/precio" />
+        app:layout_constraintTop_toBottomOf="@+id/precioTotal" />
         app:layout_constraintTop_toBottomOf="@+id/enhorabuena" />
 
 
@@ -81,25 +91,11 @@
         android:layout_height="50dp"
         android:background="@drawable/selector_accent_button"
         android:gravity="center"
-        android:text="cerrar"
-        android:textColor="@color/textColorPrimary"
-        android:textStyle="bold"
+        android:text="Volver"
+        android:textColor="@color/white"
         android:textSize="33sp"
         app:layout_constraintBottom_toBottomOf="parent" />
 
-    <TextView
-        android:id="@+id/precio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:textSize="23sp"
-        android:text="$"
-        android:layout_marginTop="55dp"
-        android:layout_marginLeft="55dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imagen"
-         />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

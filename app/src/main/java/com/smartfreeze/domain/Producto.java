@@ -21,7 +21,7 @@ public class Producto implements Parcelable {
         this.precio = precio;
         this.drawable = drawable;
         this.descripcion = descripcion;
-        this.cantidad =0 ;
+        this.cantidad =1 ;
 
     }
 
