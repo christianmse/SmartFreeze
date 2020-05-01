@@ -40,8 +40,11 @@
             android:id="@+id/iBCloseNevera"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/iVNeveraAbierta"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="615dp"
+            android:layout_marginTop="11dp"
             android:visibility="gone"
-            android:layout_centerVertical="true"
             app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
 
         <ImageView
@@ -54,18 +57,20 @@
             android:visibility="gone"
             app:srcCompat="@drawable/frigorifico_abierto1" />
 
+        <!--        BOTONES DEL FRIGORIFICO (3)   -->
         <ImageButton
             android:id="@+id/iBCloseFrigo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/iBNeveDoor"
-            android:layout_marginTop="212dp"
+            android:layout_alignStart="@+id/iVFrigoAbierto"
+            android:layout_marginStart="625dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="2dp"
             android:layout_marginBottom="52dp"
             android:visibility="gone"
             app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
 
-<!--        BOTONES DEL FRIGORIFICO (3)   -->
         <Button
             android:id="@+id/b3Cajon"
             android:layout_width="270dp"
@@ -145,25 +150,14 @@
 
         <Button
             android:id="@+id/b4CajonIzq"
-            android:layout_width="135dp"
-            android:layout_height="75dp"
+            android:layout_width="270dp"
+            android:layout_height="80dp"
             android:layout_alignEnd="@+id/iVNeveraAbierta"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="264dp"
-            android:layout_marginEnd="460dp"
-            android:visibility="gone"
-            android:text="Cajón 4"/>
-
-        <Button
-            android:id="@+id/b5CajonDer"
-            android:layout_width="135dp"
-            android:layout_height="75dp"
-            android:layout_alignEnd="@+id/iVNeveraAbierta"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="266dp"
-            android:layout_marginEnd="326dp"
-            android:visibility="gone"
-            android:text="Cajón 5" />
+            android:layout_marginTop="262dp"
+            android:layout_marginEnd="325dp"
+            android:text="Cajón 4"
+            android:visibility="gone" />
 
 <!--        BOTONES DE LA PUERTA (ESTANTES DE BEBIDA Y SALSAS ) MAX 5 BEBIDAS POR ESTANTE-->
         <Button

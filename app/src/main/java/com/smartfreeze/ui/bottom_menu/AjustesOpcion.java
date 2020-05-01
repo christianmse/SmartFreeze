@@ -197,6 +197,9 @@ public class AjustesOpcion extends Fragment {
                 // set prompts.xml to alertdialog builder
                 alertDialogBuilder.setView(et);
 
+                // set title al dialog
+                alertDialogBuilder.setTitle("Introduce tu correo:");
+
                 // set dialog message
                 alertDialogBuilder.setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
