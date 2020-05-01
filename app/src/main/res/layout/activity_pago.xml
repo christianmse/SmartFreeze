@@ -47,6 +47,36 @@
         app:layout_constraintTop_toBottomOf="@+id/imagen" />
 
     <TextView
+<<<<<<< HEAD
+        android:id="@+id/precioTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textColorPrimary"
+        android:textStyle="bold"
+        android:textSize="23sp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imagen"
+        />
+
+    <TextView
+        android:id="@+id/txt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="Tu pedido se ha realizado correctamente"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enhorabuena" />
+
+
+
+=======
         android:id="@+id/txt2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -59,6 +89,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/enhorabuena" />
 
+>>>>>>> 8f820d66c82b8c1e3ba928313b1f57afcff5b971
     <Button
         android:id="@+id/cerrar"
         android:layout_width="match_parent"
@@ -71,4 +102,20 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent" />
 
+<<<<<<< HEAD
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textColorPrimary"
+        android:textStyle="bold"
+        android:textSize="33sp"
+        android:text="$"
+        android:layout_marginTop="55dp"
+        android:layout_marginLeft="55dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imagen"
+         />
+=======
+>>>>>>> 8f820d66c82b8c1e3ba928313b1f57afcff5b971
 </androidx.constraintlayout.widget.ConstraintLayout>

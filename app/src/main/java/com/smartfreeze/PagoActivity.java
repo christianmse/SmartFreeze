@@ -12,6 +12,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import android.widget.TextView;
+
+
 import com.smartfreeze.domain.Producto;
 
 import java.util.ArrayList;
@@ -24,6 +27,13 @@ public class PagoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pago);
+
+        int precioTotal1 = getIntent().getIntExtra("precio", 0);
+        TextView PrecioTotal2;
+        PrecioTotal2 = findViewById(R.id.precioTotal);
+        PrecioTotal2.setText(String.valueOf(precioTotal1));
+
+
 
         productosSeleccionados = getIntent().getParcelableArrayListExtra("productosSeleccionados");
         int pagado = getIntent().getIntExtra("precio", 0);

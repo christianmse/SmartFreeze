@@ -433,6 +433,7 @@ xmlns:tools="http://schemas.android.com/tools"
             android:layout_height="1dp"
             android:background="@android:color/darker_gray"
             app:layout_constraintTop_toBottomOf="@id/elemSwitch2"/>
+
         <!--TERCER ELEMENTO SWITCH -->
         <RelativeLayout
             android:id="@+id/elemSwitch3"
