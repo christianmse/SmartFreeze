@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.smartfreeze.ListadoComida;
 import com.smartfreeze.R;
@@ -22,6 +23,7 @@ import com.smartfreeze.R;
 
 public class NeveraTab extends Fragment {
 
+    private Toolbar toolbar;
     private ImageButton iBNeveraCerrada, iBFrigoCerrado, iBCerrarNevera, iBCerrarFrigo;
     private ImageView iVNeveraAbierta, iVFrigoAbierto;
     private Button  b3CajonF, b2CajonF, b1CajonF, b1Nevera, b2Nevera, b3Nevera, b4Nevera,
@@ -65,7 +67,7 @@ public class NeveraTab extends Fragment {
         b2Estante = view. findViewById(R.id.bEstante2);
         b3Estante = view.findViewById(R.id.bEstante3);
 
-
+        toolbar = view.findViewById(R.id.toolbar);
 
 //        BOTONES DEL FRIGORIFICO
         iBFrigoCerrado = view.findViewById(R.id.iBFrigoDoor);
@@ -145,7 +147,7 @@ public class NeveraTab extends Fragment {
 
                 else{
                     abierto1 = false;
-                    b3CajonF.setText("Cajón 3");
+                    b3CajonF.setText("Congelador 3");
                     b3CajonF.setBackground(botonfondo);
 
                 }
@@ -171,7 +173,7 @@ public class NeveraTab extends Fragment {
                 }
                 else{
                     abierto2 = false;
-                    b2CajonF.setText("Cajón 2");
+                    b2CajonF.setText("Congelador 2");
                     b2CajonF.setBackground(botonfondo);
                 }
             }
@@ -197,7 +199,7 @@ public class NeveraTab extends Fragment {
                 }
                 else{
                     abierto3 = false;
-                    b1CajonF.setText("Cajón 1");
+                    b1CajonF.setText("Congelador 1");
                     b1CajonF.setBackground(botonfondo);
                 }
             }
@@ -223,7 +225,7 @@ public class NeveraTab extends Fragment {
                 }
                 else{
                     abierto4 = false;
-                    b1Nevera.setText("Cajón 1");
+                    b1Nevera.setText("Nevera 1");
                     b1Nevera.setBackground(botonfondo);
                 }
             }
@@ -249,7 +251,7 @@ public class NeveraTab extends Fragment {
                 }
                 else{
                     abierto5 = false;
-                    b2Nevera.setText("Cajón 2");
+                    b2Nevera.setText("Nevera 2");
                     b2Nevera.setBackground(botonfondo);
                 }
             }
@@ -274,7 +276,7 @@ public class NeveraTab extends Fragment {
                 }
                 else{
                     abierto6 = false;
-                    b3Nevera.setText("Cajón 3");
+                    b3Nevera.setText("Nevera 3");
                     b3Nevera.setBackground(botonfondo);
                 }
             }
@@ -299,7 +301,7 @@ public class NeveraTab extends Fragment {
                 }
                 else{
                     abierto7 = false;
-                    b4Nevera.setText("Cajón 4");
+                    b4Nevera.setText("Nevera 4");
                     b4Nevera.setBackground(botonfondo);
                 }
             }

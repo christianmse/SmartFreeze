@@ -26,33 +26,33 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/media_image"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@android:color/darker_gray"
-                    app:layout_constraintDimensionRatio="2:1"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toTopOf="@+id/primary_text"
-                    app:layout_constraintVertical_chainStyle="packed" />
+            <ImageView
+                android:id="@+id/media_image"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toTopOf="@+id/primary_text"
+                app:layout_constraintDimensionRatio="2:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:srcCompat="@android:color/darker_gray" />
 
             <TextView
                 android:id="@+id/primary_text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
                 android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
                 android:layout_marginEnd="16dp"
                 android:text="primero"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                 android:textColor="@color/colorPrimaryTextDefaultMaterialLight"
-                app:layout_constraintTop_toBottomOf="@+id/media_image"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/sub_text"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/sub_text" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/media_image" />
 
 
             <TextView
@@ -64,39 +64,40 @@
                 android:text="subtitulo"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textColor="@color/colorSecondaryTextDefaultMaterialLight"
-                app:layout_constraintTop_toBottomOf="@+id/primary_text"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/action_button_2"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/action_button_2" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/primary_text" />
 
 
             <Button
-                style="@style/Widget.AppCompat.Button.Borderless"
                 android:id="@+id/action_button_2"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
                 android:minWidth="0dp"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
-                android:layout_marginTop="5dp"
                 android:text="Opciones"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
-                android:gravity="center_vertical"
-                android:textColor="@color/colorPrimaryTextDefaultMaterialLight"
-                app:layout_constraintTop_toBottomOf="@+id/sub_text"
-                app:layout_constraintStart_toEndOf="@id/descriptionLabel"                />
+                app:layout_constraintStart_toEndOf="@id/descriptionLabel"
+                app:layout_constraintTop_toBottomOf="@+id/sub_text" />
 
             <TextView
                 android:id="@+id/descriptionLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
                 android:drawableEnd="@drawable/ic_expandir"
+                android:drawableTint="@color/colorPrimary"
                 android:gravity="center_vertical"
-                android:paddingEnd="@dimen/horizontal_space"
                 android:paddingStart="@dimen/horizontal_space"
-                android:text="descripcion"
-                android:textColor="@color/colorPrimaryTextDefaultMaterialLight"
+                android:paddingEnd="@dimen/horizontal_space"
+                android:text="Descripción"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/sub_text" />
@@ -105,16 +106,15 @@
                 android:id="@+id/description"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_marginEnd="@dimen/horizontal_space"
                 android:layout_marginStart="@dimen/horizontal_space"
+                android:layout_marginEnd="@dimen/horizontal_space"
                 android:paddingBottom="@dimen/vertical_space"
                 android:text="descripcion"
                 android:textColor="@color/colorPrimaryTextDefaultMaterialLight"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/descriptionLabel"/>
-
+                app:layout_constraintTop_toBottomOf="@+id/descriptionLabel" />
 
 
             <View

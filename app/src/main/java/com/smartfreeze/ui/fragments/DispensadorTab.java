@@ -70,17 +70,20 @@ public class DispensadorTab extends Fragment {
         });
 
         iBDispensador = (ImageButton) view.findViewById(R.id.iBDispensador);
-        iBDispensador.setOnClickListener(new View.OnClickListener() {
+
+        iBDispensador.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
-            public void onClick(View v) {
+            public boolean onLongClick(View v) {
                 Toast.makeText(getActivity(), "Dispensando Bebida", Toast.LENGTH_LONG).show();
+                return true;
             }
         });
 
-        iBCubito.setOnClickListener(new View.OnClickListener() {
+        iBCubito.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
-            public void onClick(View v) {
+            public boolean onLongClick(View v) {
                 Toast.makeText(getActivity(), "Dispensando Hielo", Toast.LENGTH_LONG).show();
+                return true;
             }
         });
 
