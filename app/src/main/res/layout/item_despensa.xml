@@ -30,13 +30,14 @@
                 android:background="@color/white">
 
                 <TextView
+                    android:id="@+id/nomCajon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="12sp"
                     android:textColor="@drawable/selector_text"
                     android:textSize="25sp"
                     android:textStyle="bold"
-                    android:text="Cajon"/>
+                    android:text="Nevera "/>
                 <TextView
                     android:id="@+id/cajon"
                     android:layout_width="match_parent"
