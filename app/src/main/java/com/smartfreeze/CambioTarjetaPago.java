@@ -1,6 +1,5 @@
 package com.smartfreeze;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -12,17 +11,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.Observer;
-
-import com.smartfreeze.ui.bottom_menu.AjustesOpcion;
 
 public class CambioTarjetaPago extends AppCompatActivity {
     Button cerrar, aceptar;
     TextView mostrarTarjeta;
-    EditText textFechaMonth, textFechaYear, CVV,textTarjeta,textTitular;
+    EditText textFechaMonth, textFechaYear, CVV, textTarjeta, textTitular;
+    //boolean clicked;
+    public static MutableLiveData<String> tarjeta = new MutableLiveData<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +35,7 @@ public class CambioTarjetaPago extends AppCompatActivity {
         textFechaYear = findViewById(R.id.yearInput);
         CVV = findViewById(R.id.cvvInput);
         mostrarTarjeta = findViewById(R.id.textoMostrarTarjeta);
+        //clicked = false;
 
         final int[] x = {5};
         Log.d("TEST RESPONSE", String.valueOf(x));
@@ -47,9 +46,10 @@ public class CambioTarjetaPago extends AppCompatActivity {
         aceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mostrarTarjeta.setVisibility(View.VISIBLE);
+                //clicked = true;
                 Toast.makeText(v.getContext(), "Tarjeta aceptada", Toast.LENGTH_LONG).show();
-                mostrarTarjeta.setText("Tarjeta de crédito actual:\n**** **** **** **** "+ textTarjeta.getText().toString().substring(15,19) +"");
+                mostrarTarjeta.setText("Tarjeta de crédito actual: **** **** **** **** "+ textTarjeta.getText().toString().substring(15,19) +"");
+                tarjeta.setValue(mostrarTarjeta.getText().toString());
             }
         });
 

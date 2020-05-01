@@ -56,9 +56,10 @@ xmlns:tools="http://schemas.android.com/tools"
                     android:id="@+id/txt_frigo"
                     android:layout_width="566dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="60dp"
                     android:layout_marginTop="15dp"
                     android:text="Ajustar temperatura frigorifico (Actual temperatura: -3º)"
+                    android:textColor="#000000"
                     android:textSize="20sp" />
 
                 <org.adw.library.widgets.discreteseekbar.DiscreteSeekBar
@@ -93,9 +94,10 @@ xmlns:tools="http://schemas.android.com/tools"
                     android:id="@+id/txt_congelador"
                     android:layout_width="564dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="60dp"
                     android:layout_marginTop="15dp"
                     android:text="Ajustar temperatura congelador (Actual temperatura: -10º)"
+                    android:textColor="#000000"
                     android:textSize="20sp" />
 
                 <org.adw.library.widgets.discreteseekbar.DiscreteSeekBar
@@ -231,12 +233,12 @@ xmlns:tools="http://schemas.android.com/tools"
                     <TextView
                         android:id="@+id/btn_ajuste2"
                         style="@style/AppTheme.titulo"
-                        android:layout_width="532dp"
+                        android:layout_width="630dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
                         android:layout_marginLeft="10dp"
                         android:layout_marginBottom="10dp"
-                        android:text="Cambiar método de pago"
+                        android:text="Seleccionar tarjeta de crédito\n(Actualmente ninguna seleccionada)"
                         android:textColor="#000000" />
 
 

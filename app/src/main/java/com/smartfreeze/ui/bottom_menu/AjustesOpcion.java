@@ -1,59 +1,44 @@
 package com.smartfreeze.ui.bottom_menu;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
-import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.smartfreeze.CambioTarjetaPago;
-import com.smartfreeze.MainActivity;
 import com.smartfreeze.R;
-import com.smartfreeze.domain.Ajustes;
-import com.smartfreeze.ui.adapter.AjustesAdapter;
 import com.smartfreeze.ui.fragments.AyudaFragment;
 
 import org.adw.library.widgets.discreteseekbar.DiscreteSeekBar;
 
-import java.util.ArrayList;
-
-import static androidx.core.content.ContextCompat.getSystemService;
-
 public class AjustesOpcion extends Fragment {
 
     Switch Switch1, Switch2, Switch3;
-    TextView text1, text3, txt_frigo, txt_cong, text4;
+    TextView text1, text2, text3, txt_frigo, txt_cong, text4, text5;
 
     RelativeLayout elem1, elem2, elem3;
     DiscreteSeekBar skb1, skb2;
+    Button aceptar;
     public static MutableLiveData<String> correo = new MutableLiveData<>();
+
 
 
     @Nullable
@@ -70,13 +55,16 @@ public class AjustesOpcion extends Fragment {
         txt_frigo = view.findViewById(R.id.txt_frigo);
         txt_cong = view.findViewById(R.id.txt_congelador);
         text1 = view.findViewById(R.id.btn_ajusteS1);
+        text2 = view.findViewById(R.id.textoMostrarTarjeta);
         text3 = view.findViewById(R.id.btn_ajuste3);
+        text4 = view.findViewById(R.id.btn_ajusteS3);
+        text5 = view.findViewById(R.id.btn_ajuste2);
 
 
         Switch1 = view.findViewById(R.id.switch1);
         Switch2 = view.findViewById(R.id.switch2);
 
-        text4 = view.findViewById(R.id.btn_ajusteS3);
+        aceptar = (Button)view.findViewById(R.id.submitButton);
 
         Switch1 = view.findViewById(R.id.switch1);
         Switch2 = view.findViewById(R.id.switch2);
@@ -89,6 +77,7 @@ public class AjustesOpcion extends Fragment {
 
         skb1 = view.findViewById(R.id.seekBar_frigo);
         skb2 = view.findViewById(R.id.seekBar_congelador);
+
         final Intent intent = new Intent(view.getContext(), CambioTarjetaPago.class);
 
         //VENTANA AYUDA
@@ -151,13 +140,23 @@ public class AjustesOpcion extends Fragment {
 
         AjustesOpcion.correo.observe(getActivity(), scoreObserver);
 
+        final Observer<String> tarjetaObserver = new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                text5.setText("Seleccionar tarjeta de crédito\n("+s+")");
+            }
+        };
+        CambioTarjetaPago.tarjeta.observe(getActivity(), tarjetaObserver);
+
         //A LA PLATAFORMA DE CAMBIO DE TARJETA
         elem2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 getActivity().startActivity(intent);
+
             }
         });
+
         //AÑADE EL BOTÓN DE CAMBIO DE CORREO ELECTRÓNICO
         Switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -229,4 +228,5 @@ public class AjustesOpcion extends Fragment {
 
 
     }
+
 }
